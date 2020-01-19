@@ -2,21 +2,19 @@
   
   <mat-tab label="COMBAT"> 
 
-    <mat-grid-list cols="2">
-      <mat-grid-tile> 
-
+    <mat-grid-list cols="2" rowHeight="10rem">
+      <mat-grid-tile>
         <mat-card class="colp-card">
           <mat-card-header>
-            <mat-card-title>Tiro a colpire</mat-card-title>
+            <mat-card-title>Tiri</mat-card-title>
           </mat-card-header>
     
           <mat-card-content>
             <p>
-              Buffs selezionati: {{ buffCombat.selectedOptions.selected.length }}
+              Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
             </p>
           </mat-card-content>
         </mat-card>
-
       </mat-grid-tile>
 
       <mat-grid-tile>
@@ -28,7 +26,7 @@
     
           <mat-card-content>
             <p>
-              Buffs selezionati: {{ buffCombat.selectedOptions.selected.length }}
+              Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
             </p>
           </mat-card-content>
         </mat-card>
@@ -37,12 +35,26 @@
 
     </mat-grid-list>
 
-    <mat-selection-list #buffCombat>
-      <mat-list-option *ngFor="let buff of allBuffs">
-        {{ buff }}
+    <mat-selection-list #buffs>
+      <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+        <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff }}
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
         <mat-divider></mat-divider>
       </mat-list-option>
     </mat-selection-list>
+
   </mat-tab>
 
   <mat-tab label="CA"> 
@@ -53,14 +65,27 @@
 
       <mat-card-content>
         <p>
-          Buffs selezionati: {{ buffCA.selectedOptions.selected.length }}
+          Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
         </p>
       </mat-card-content>
     </mat-card>
 
-    <mat-selection-list #buffCA>
-      <mat-list-option *ngFor="let buff of allBuffs">
-        {{ buff }}
+    <mat-selection-list #buffs>
+      <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+        <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff }}
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
         <mat-divider></mat-divider>
       </mat-list-option>
     </mat-selection-list>
@@ -74,13 +99,27 @@
 
       <mat-card-content>
         <p>
-          Buffs selezionati: {{ buffTS.selectedOptions.selected.length }}
+          Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
         </p>
       </mat-card-content>
     </mat-card>
-    <mat-selection-list #buffTS>
-      <mat-list-option *ngFor="let buff of allBuffs">
-        {{ buff }}
+
+    <mat-selection-list #buffs>
+      <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <div style="display:flex; align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff }}
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
         <mat-divider></mat-divider>
       </mat-list-option>
     </mat-selection-list>

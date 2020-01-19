@@ -5,10 +5,28 @@
     margin-left: 1rem;;
 }
 
+.colp-card {
+    resize: horizontal;
+}
+
+.danni-card {
+    resize: horizontal;
+}
+
+.edit-buff-button {
+    position: absolute;
+    right: 2rem;
+    up: 0rem;
+    z-index: 1;
+}
+
+.option-row {
+    z-index: 0;
+}
 
 .primary-button {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    z-index: 1;
+    z-index: 2;
 }
