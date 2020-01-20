@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>addBuff</ion-title>
-  </ion-toolbar>
-</ion-header>
+<mat-toolbar color="primary">
+  <button mat-button color="secondary" routerLink="">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="toolbar-title">
+    Add Buff
+  </div>
+</mat-toolbar>
 
-<ion-content>
+<div class="example-container">
+  <mat-form-field class="name-buff">
+    <input matInput placeholder="Input">
+  </mat-form-field>
 
-</ion-content>
+  <mat-form-field class="name-buff">
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+</div>
+
