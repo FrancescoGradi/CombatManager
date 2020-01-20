@@ -57,18 +57,22 @@
 
   </mat-tab>
 
-  <mat-tab label="CA"> 
-    <mat-card class="normal-card">
-      <mat-card-header>
-        <mat-card-title>Classe armatura</mat-card-title>
-      </mat-card-header>
+  <mat-tab label="CA">
+      <mat-grid-list cols="1" rowHeight="10rem" gutterSize="1rem">
+          <mat-grid-tile>
+            <mat-card class="normal-card">
+              <mat-card-header>
+                <mat-card-title>Classe armatura</mat-card-title>
+              </mat-card-header>
 
-      <mat-card-content>
-        <p>
-          Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
-        </p>
-      </mat-card-content>
-    </mat-card>
+              <mat-card-content>
+                <p>
+                  Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+      </mat-grid-list>
 
     <mat-selection-list #armorBuffs>
       <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
@@ -92,17 +96,49 @@
   </mat-tab>
 
   <mat-tab label="TS">
-    <mat-card class="normal-card">
-      <mat-card-header>
-        <mat-card-title>Tiri Salvezza</mat-card-title>
-      </mat-card-header>
+      <mat-grid-list cols="3" rowHeight="10rem" gutterSize="1rem">
+          <mat-grid-tile>
+              <mat-card class="ts-card">
+                  <mat-card-header>
+                      <mat-card-title>Tempra</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                      <p>
+                          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                      </p>
+                  </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
 
-      <mat-card-content>
-        <p>
-          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-        </p>
-      </mat-card-content>
-    </mat-card>
+          <mat-grid-tile>
+              <mat-card class="ts-card">
+                  <mat-card-header>
+                      <mat-card-title>Volontà</mat-card-title>
+                  </mat-card-header>
+
+                  <mat-card-content>
+                      <p>
+                          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                      </p>
+                  </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+              <mat-card class="ts-card">
+                  <mat-card-header>
+                      <mat-card-title>Riflessi</mat-card-title>
+                  </mat-card-header>
+
+                  <mat-card-content>
+                      <p>
+                          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                      </p>
+                  </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
+
+      </mat-grid-list>
 
     <mat-selection-list #tsBuffs>
       <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
