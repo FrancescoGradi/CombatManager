@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'add-buff',
     loadChildren: () => import('./add-buff/add-buff.module').then( m => m.AddBuffPageModule)
   },
+  {
+    path: 'add-character',
+    loadChildren: () => import('./add-character/add-character.module').then( m => m.AddCharacterPageModule)
+  },
 ];
 
 @NgModule({

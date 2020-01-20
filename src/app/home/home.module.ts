@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { AddBuffPage } from '../add-buff/add-buff.page';
+import { AddCharacterPage} from '../add-character/add-character.page';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
@@ -14,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -32,6 +34,10 @@ import { MatInputModule } from '@angular/material/input';
       {
         path: 'add-buff',
         component: AddBuffPage
+      },
+      {
+        path: 'add-character',
+        component: AddCharacterPage
       }
     ]),
     MatTabsModule,
@@ -41,10 +47,11 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
+    MatSidenavModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
   ],
-  declarations: [HomePage, AddBuffPage]
+  declarations: [HomePage, AddBuffPage, AddCharacterPage]
 })
 export class HomePageModule {}

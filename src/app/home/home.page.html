@@ -1,170 +1,203 @@
-<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
-  
-  <mat-tab label="COMBAT"> 
-
-    <mat-grid-list cols="2" rowHeight="10rem">
-      <mat-grid-tile>
-        <mat-card class="colp-card">
-          <mat-card-header>
-            <mat-card-title>Tiri</mat-card-title>
-          </mat-card-header>
-    
-          <mat-card-content>
-            <p>
-              Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-
-        <mat-card class="danni-card">
-          <mat-card-header>
-            <mat-card-title>Danni</mat-card-title>
-          </mat-card-header>
-    
-          <mat-card-content>
-            <p>
-              Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-
-      </mat-grid-tile>
-
-    </mat-grid-list>
-
-    <mat-selection-list #combatBuffs>
-      <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
-        <div style="display:flex; justify-content:space-between;align-items:center">
-          <div style="display:flex;align-items:center">
-            <div style="display:flex; flex-direction:column">
-              <div>
-                {{ buff }}
-              </div>
-            </div>
-          </div>
-          <div>
-            <button mat-icon-button>
-              <mat-icon>edit</mat-icon>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer class="sidenav" mode="side" style="width: 200px">
+        <mat-toolbar color="primary" label="Lista Personaggi">
+            <mat-label style="width: 70%">Lista Pg</mat-label>
+            <button type="button" mat-icon-button style="width: 30%" (click)="drawer.toggle()">
+                <mat-icon aria-label="close">close</mat-icon>
             </button>
-          </div>
-        </div>
-        <mat-divider></mat-divider>
-      </mat-list-option>
-    </mat-selection-list>
+        </mat-toolbar>
+        <mat-list align-items-stretch>
+            <mat-list-item style="width: 100%">
+                <button type="button" mat-button style="width: 100%">PG 1</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button type="button" mat-button style="width: 100%">PG 2</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button type="button" mat-button style="width: 100%">PG 3</button>
+            </mat-list-item>
+        </mat-list>
+        <mat-grid-list cols="1">
+            <mat-grid-tile>
+                <button mat-raised-button routerLink="add-character">Nuovo</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-drawer>
 
-  </mat-tab>
+    <div class="sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+            PG Menu
+        </button>
+    </div>
 
-  <mat-tab label="CA">
-      <mat-grid-list cols="1" rowHeight="10rem" gutterSize="1rem">
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+
+      <mat-tab label="COMBAT">
+
+        <mat-grid-list cols="2" rowHeight="10rem">
           <mat-grid-tile>
-            <mat-card class="normal-card">
+            <mat-card class="colp-card">
               <mat-card-header>
-                <mat-card-title>Classe armatura</mat-card-title>
+                <mat-card-title>Tiri</mat-card-title>
               </mat-card-header>
 
               <mat-card-content>
                 <p>
-                  Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
+                  Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
                 </p>
               </mat-card-content>
             </mat-card>
           </mat-grid-tile>
-      </mat-grid-list>
 
-    <mat-selection-list #armorBuffs>
-      <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
-        <div style="display:flex; justify-content:space-between;align-items:center">
-          <div style="display:flex;align-items:center">
-            <div style="display:flex; flex-direction:column">
+          <mat-grid-tile>
+
+            <mat-card class="danni-card">
+              <mat-card-header>
+                <mat-card-title>Danni</mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                <p>
+                  Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
+                </p>
+              </mat-card-content>
+            </mat-card>
+
+          </mat-grid-tile>
+
+        </mat-grid-list>
+
+        <mat-selection-list #combatBuffs>
+          <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+            <div style="display:flex; justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center">
+                <div style="display:flex; flex-direction:column">
+                  <div>
+                    {{ buff }}
+                  </div>
+                </div>
+              </div>
               <div>
-                {{ buff }}
+                <button mat-icon-button>
+                  <mat-icon>edit</mat-icon>
+                </button>
               </div>
             </div>
-          </div>
-          <div>
-            <button mat-icon-button>
-              <mat-icon>edit</mat-icon>
-            </button>
-          </div>
-        </div>
-        <mat-divider></mat-divider>
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-tab>
+            <mat-divider></mat-divider>
+          </mat-list-option>
+        </mat-selection-list>
 
-  <mat-tab label="TS">
-      <mat-grid-list cols="3" rowHeight="10rem" gutterSize="1rem">
-          <mat-grid-tile>
-              <mat-card class="ts-card">
-                  <mat-card-header>
-                      <mat-card-title>Tempra</mat-card-title>
-                  </mat-card-header>
-                  <mat-card-content>
-                      <p>
-                          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-                      </p>
-                  </mat-card-content>
-              </mat-card>
-          </mat-grid-tile>
+      </mat-tab>
 
-          <mat-grid-tile>
-              <mat-card class="ts-card">
+      <mat-tab label="CA">
+          <mat-grid-list cols="1" rowHeight="10rem" gutterSize="1rem">
+              <mat-grid-tile>
+                <mat-card class="normal-card">
                   <mat-card-header>
-                      <mat-card-title>Volontà</mat-card-title>
+                    <mat-card-title>Classe armatura</mat-card-title>
                   </mat-card-header>
 
                   <mat-card-content>
-                      <p>
-                          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-                      </p>
+                    <p>
+                      Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
+                    </p>
                   </mat-card-content>
-              </mat-card>
-          </mat-grid-tile>
+                </mat-card>
+              </mat-grid-tile>
+          </mat-grid-list>
 
-          <mat-grid-tile>
-              <mat-card class="ts-card">
-                  <mat-card-header>
-                      <mat-card-title>Riflessi</mat-card-title>
-                  </mat-card-header>
-
-                  <mat-card-content>
-                      <p>
-                          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-                      </p>
-                  </mat-card-content>
-              </mat-card>
-          </mat-grid-tile>
-
-      </mat-grid-list>
-
-    <mat-selection-list #tsBuffs>
-      <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
-        <div style="display:flex; justify-content:space-between; align-items:center">
-          <div style="display:flex; align-items:center">
-            <div style="display:flex; flex-direction:column">
+        <mat-selection-list #armorBuffs>
+          <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+            <div style="display:flex; justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center">
+                <div style="display:flex; flex-direction:column">
+                  <div>
+                    {{ buff }}
+                  </div>
+                </div>
+              </div>
               <div>
-                {{ buff }}
+                <button mat-icon-button>
+                  <mat-icon>edit</mat-icon>
+                </button>
               </div>
             </div>
-          </div>
-          <div>
-            <button mat-icon-button>
-              <mat-icon>edit</mat-icon>
-            </button>
-          </div>
-        </div>
-        <mat-divider></mat-divider>
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-tab>
+            <mat-divider></mat-divider>
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-tab>
 
-</mat-tab-group>
+      <mat-tab label="TS">
+          <mat-grid-list cols="3" rowHeight="10rem" gutterSize="1rem">
+              <mat-grid-tile>
+                  <mat-card class="ts-card">
+                      <mat-card-header>
+                          <mat-card-title>Tempra</mat-card-title>
+                      </mat-card-header>
+                      <mat-card-content>
+                          <p>
+                              Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                          </p>
+                      </mat-card-content>
+                  </mat-card>
+              </mat-grid-tile>
 
-<div class="primary-button">
-  <button mat-fab color="primary" routerLink="add-buff">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>
+              <mat-grid-tile>
+                  <mat-card class="ts-card">
+                      <mat-card-header>
+                          <mat-card-title>Volontà</mat-card-title>
+                      </mat-card-header>
+
+                      <mat-card-content>
+                          <p>
+                              Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                          </p>
+                      </mat-card-content>
+                  </mat-card>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                  <mat-card class="ts-card">
+                      <mat-card-header>
+                          <mat-card-title>Riflessi</mat-card-title>
+                      </mat-card-header>
+
+                      <mat-card-content>
+                          <p>
+                              Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                          </p>
+                      </mat-card-content>
+                  </mat-card>
+              </mat-grid-tile>
+
+          </mat-grid-list>
+
+        <mat-selection-list #tsBuffs>
+          <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <div style="display:flex; align-items:center">
+                <div style="display:flex; flex-direction:column">
+                  <div>
+                    {{ buff }}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button mat-icon-button>
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-tab>
+
+    </mat-tab-group>
+
+    <div class="primary-button">
+      <button mat-fab color="primary" routerLink="add-buff">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+</mat-drawer-container>
