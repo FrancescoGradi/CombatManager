@@ -7,13 +7,52 @@
   </div>
 </mat-toolbar>
 
-<div class="example-container">
-  <mat-form-field class="name-buff">
-    <input matInput placeholder="Input">
+<form class="buff-form">
+
+  <mat-form-field class="name-buff" appearance="outline">
+    <input matInput placeholder="Nome Buff">
+    <mat-icon matSuffix color="accent">bolt</mat-icon>
   </mat-form-field>
 
   <mat-form-field class="name-buff">
-    <textarea matInput placeholder="Textarea"></textarea>
+    <textarea matInput placeholder="Descrizione"></textarea>
   </mat-form-field>
-</div>
+
+  <table cellspacing="0"><tr>
+    <td><mat-form-field type="number" class="ts-buff">
+      <input matInput placeholder="Bonus Tiro" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus danni" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Attacchi in più" value="0">
+    </mat-form-field></td>
+  </tr></table>
+
+  <table cellspacing="0"><tr>
+    <td><mat-form-field type="number" class="ts-buff">
+      <input matInput placeholder="Bonus Tempra" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Riflessi" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Volontà" value="0">
+    </mat-form-field></td>
+  </tr></table>
+
+  <mat-form-field type="number" class="ca-buff">
+    <input matInput placeholder="Bonus Classe Armatura" value="0">
+  </mat-form-field>
+
+  <div class="save-button-div">
+    <button mat-flat-button color="primary" routerLink="" class="save-button">Salva</button>
+  </div>
+
+</form>
+
+
+
+
 
