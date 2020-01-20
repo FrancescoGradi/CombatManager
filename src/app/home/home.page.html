@@ -11,7 +11,7 @@
     
           <mat-card-content>
             <p>
-              Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
+              Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
             </p>
           </mat-card-content>
         </mat-card>
@@ -26,7 +26,7 @@
     
           <mat-card-content>
             <p>
-              Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
+              Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
             </p>
           </mat-card-content>
         </mat-card>
@@ -35,7 +35,7 @@
 
     </mat-grid-list>
 
-    <mat-selection-list #buffs>
+    <mat-selection-list #combatBuffs>
       <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
         <div style="display:flex; justify-content:space-between;align-items:center">
           <div style="display:flex;align-items:center">
@@ -65,12 +65,12 @@
 
       <mat-card-content>
         <p>
-          Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
+          Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
         </p>
       </mat-card-content>
     </mat-card>
 
-    <mat-selection-list #buffs>
+    <mat-selection-list #armorBuffs>
       <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
         <div style="display:flex; justify-content:space-between;align-items:center">
           <div style="display:flex;align-items:center">
@@ -91,7 +91,7 @@
     </mat-selection-list>
   </mat-tab>
 
-  <mat-tab label="TS"> 
+  <mat-tab label="TS">
     <mat-card class="normal-card">
       <mat-card-header>
         <mat-card-title>Tiri Salvezza</mat-card-title>
@@ -99,12 +99,12 @@
 
       <mat-card-content>
         <p>
-          Buffs selezionati: {{ buffs.selectedOptions.selected.length }}
+          Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
         </p>
       </mat-card-content>
     </mat-card>
 
-    <mat-selection-list #buffs>
+    <mat-selection-list #tsBuffs>
       <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
         <div style="display:flex; justify-content:space-between; align-items:center">
           <div style="display:flex; align-items:center">
