@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditBuffPage implements OnInit {
 
-  constructor() { }
+    types: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
+    selected = this.types[0];
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }
