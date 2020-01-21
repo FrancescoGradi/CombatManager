@@ -19,39 +19,41 @@ import {MatSidenavModule} from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonToggleModule} from '@angular/material';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      },
-      {
-        path: 'add-buff',
-        component: AddBuffPage
-      },
-      {
-        path: 'add-character',
-        component: AddCharacterPage
-      }
-    ]),
-    MatTabsModule,
-    MatDividerModule,
-    MatListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatGridListModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: HomePage
+            },
+            {
+                path: 'add-buff',
+                component: AddBuffPage
+            },
+            {
+                path: 'add-character',
+                component: AddCharacterPage
+            }
+        ]),
+        MatTabsModule,
+        MatDividerModule,
+        MatListModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatGridListModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonToggleModule,
+    ],
   declarations: [HomePage, AddBuffPage, AddCharacterPage]
 })
 export class HomePageModule {}
