@@ -1,0 +1,58 @@
+.pg-form {
+  max-width: 500px;
+  position: absolute;
+  float: top;
+  align-content: center;
+  align-self: center;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.name-pg {
+  width: 100%;
+  flex-direction: column;
+  align-content: center;
+}
+
+.race-pg {
+  width: 100%;
+  flex-direction: column;
+  align-content: center;
+}
+
+.class-pg {
+  width: 100%;
+  flex-direction: column;
+  align-content: center;
+}
+
+.next {
+  width: 100%;
+}
+
+.next-button {
+  left: 80%;
+}
+
+.back-button {
+  left: 60%;
+}
+
+.stat-left {
+  padding-left: 2%;
+}
+
+.save-button {
+  left: 65%;
+}
+
+.icon-add-buff {
+  position: relative;
+  float: left;
+  margin-right: 1rem;
+}
+
+.save-button-div {
+}

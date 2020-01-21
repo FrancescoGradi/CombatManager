@@ -1,5 +1,5 @@
 <mat-drawer-container autosize>
-    <mat-sidenav #drawer class="sidenav" mode="over" style="width: 80%;">
+    <mat-drawer #drawer class="sidenav" mode="over" style="width: 80%;">
         <mat-toolbar color="primary" label="Lista Personaggi">
             <mat-label style="width: 70%">Lista Pg</mat-label>
             <button type="button" mat-icon-button style="width: 30%" (click)="drawer.toggle()">
@@ -21,11 +21,11 @@
             </a>
             <mat-grid-list cols="1">
                 <mat-grid-tile>
-                    <button mat-raised-button routerLink="add-character" color="primary">Nuovo</button>
+                    <button mat-raised-button routerLink="add-character" color="primary" style="width: 80%">Nuovo</button>
                 </mat-grid-tile>
             </mat-grid-list>
         </mat-nav-list>
-    </mat-sidenav>
+    </mat-drawer>
 
     <div class="sidenav-content">
         <mat-toolbar color="primary">

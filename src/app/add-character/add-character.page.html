@@ -7,16 +7,125 @@
   </div>
 </mat-toolbar>
 
-<mat-drawer-container>
-  <mat-grid-list cols="3">
-    <mat-grid-tile>
-
-    </mat-grid-tile>
-    <mat-grid-tile>
-
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <button type="button" mat-flat-button color="primary" align-self-end>Crea</button>
-    </mat-grid-tile>
-  </mat-grid-list>
-</mat-drawer-container>
+<div style="height: 95%">
+  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Informazioni Generali</ng-template>
+        <mat-form-field class="name-pg">
+          <input matInput placeholder="Nome Personaggio" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field class="race-pg">
+          <input matInput placeholder="Razza" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field class="class-pg" appearance="outline">
+          <mat-label>Classe</mat-label>
+          <mat-select [(value)]="selected">
+            <mat-option *ngFor="let c of classes" [value]="c">
+              {{ c }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="next">
+          <button class="next-button" mat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Caratteristiche</ng-template>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <mat-form-field class="stat">
+                  <input matInput type="number" placeholder="FOR">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="stat-left">
+                  <input matInput type="number" placeholder="INT">
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="stat">
+                  <input matInput type="number" placeholder="COS">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="stat-left">
+                  <input matInput type="number" placeholder="DES">
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="stat">
+                  <input matInput type="number" placeholder="CAR">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="stat-left">
+                  <input matInput type="number" placeholder="SAG">
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="next">
+          <button class="back-button" mat-button matStepperPrevious color="warn">Back</button>
+          <button class="next-button" mat-button matStepperNext color="primary" style="left: 65%">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>BAB, TS e simili</ng-template>
+      <div>
+        <table>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="Punti Ferita">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat-left">
+                <input matInput type="number" placeholder="Tempra">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="BAB">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat-left">
+                <input matInput type="number" placeholder="Riflessi">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="Iniziativa">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat-left">
+                <input matInput type="number" placeholder="Volontà">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="next">
+        <button class="back-button" mat-button matStepperPrevious color="warn">Back</button>
+        <button class="save-button" mat-raised-button routerLink="" color="primary">Salva</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
