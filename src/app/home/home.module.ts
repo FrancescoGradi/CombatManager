@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { AddBuffPage } from '../add-buff/add-buff.page';
+import { EditBuffPage } from '../edit-buff/edit-buff.page';
 import { AddCharacterPage} from '../add-character/add-character.page';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -20,40 +21,48 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: HomePage
-            },
-            {
-                path: 'add-buff',
-                component: AddBuffPage
-            },
-            {
-                path: 'add-character',
-                component: AddCharacterPage
-            }
-        ]),
-        MatTabsModule,
-        MatDividerModule,
-        MatListModule,
-        MatCardModule,
-        MatButtonModule,
-        MatIconModule,
-        MatGridListModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonToggleModule,
-    ],
-  declarations: [HomePage, AddBuffPage, AddCharacterPage]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HomePage
+      },
+      {
+        path: 'add-buff',
+        component: AddBuffPage
+      },
+      {
+        path: 'edit-buff',
+        component: EditBuffPage
+      },
+      {
+        path: 'add-character',
+        component: AddCharacterPage
+      }
+    ]),
+    MatTabsModule,
+    MatDividerModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+      MatButtonToggleModule,
+    MatExpansionModule,
+    MatSelectModule,
+  ],
+  declarations: [HomePage, AddBuffPage, AddCharacterPage, EditBuffPage]
 })
 export class HomePageModule {}

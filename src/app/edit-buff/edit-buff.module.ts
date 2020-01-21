@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddBuffPageRoutingModule } from './add-buff-routing.module';
+import { EditBuffPageRoutingModule } from './edit-buff-routing.module';
 
-import { AddBuffPage } from './add-buff.page';
+import { EditBuffPage } from './edit-buff.page';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,7 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
     CommonModule,
     FormsModule,
     IonicModule,
-    AddBuffPageRoutingModule,
+    EditBuffPageRoutingModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -30,6 +30,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatExpansionModule,
     MatSelectModule,
   ],
-  declarations: [AddBuffPage]
+  declarations: [EditBuffPage]
 })
-export class AddBuffPageModule {}
+export class EditBuffPageModule {}
