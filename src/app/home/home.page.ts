@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+    selection = '';
+
     allBuffs: string[] = ['Benedizione', 'Armatura Magica', '+5 a caso', 'Favore divino',
         '-1 ai TS "Scosso"'];
 
 
+    onSelChange(sel: string) {
+        this.selection = sel;
+    }
 }
