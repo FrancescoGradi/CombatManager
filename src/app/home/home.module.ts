@@ -19,6 +19,8 @@ import {MatSidenavModule} from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { MatInputModule } from '@angular/material/input';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatExpansionModule,
+    MatSelectModule,
   ],
   declarations: [HomePage, AddBuffPage, AddCharacterPage]
 })

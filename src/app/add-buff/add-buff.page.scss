@@ -17,12 +17,12 @@
 }
 
 .ts-buff {
-  width: 95%;
-  max-width: 7rem;
+  width: 90%;
+  max-width: 6rem;
 }
 
 .ca-buff {
-  width: 60%;
+  width: 90%;
 }
 
 .save-button {
@@ -35,6 +35,12 @@
   margin-left: -37.5%;
   bottom: 1rem;
   z-index: 1;
+}
+
+.icon-add-buff {
+  position: relative;
+  float: left;
+  margin-right: 1rem;
 }
 
 .save-button-div {
