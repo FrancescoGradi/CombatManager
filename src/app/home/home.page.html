@@ -1,39 +1,39 @@
-<mat-drawer-container autosize>
-    <mat-drawer #drawer class="sidenav" mode="over" style="width: 80%;">
-        <mat-toolbar color="primary" label="Lista Personaggi">
-            <mat-label style="width: 70%">Lista Pg</mat-label>
-            <button type="button" mat-icon-button style="width: 30%" (click)="drawer.toggle()">
-                <mat-icon aria-label="close">close</mat-icon>
-            </button>
-        </mat-toolbar>
-        <mat-nav-list>
-            <a id="pg1" mat-list-item>
-                <mat-icon aria-label="face">face</mat-icon>
-                <span style="padding-left: 5%">Arthas</span>
-            </a>
-            <a id="pg2" mat-list-item>
-                <mat-icon aria-label="face">face</mat-icon>
-                <span style="padding-left: 5%">Sharrim</span>
-            </a>
-            <a id="pg3" mat-list-item>
-                <mat-icon aria-label="face">face</mat-icon>
-                <span style="padding-left: 5%">Vel'Koz</span>
-            </a>
-            <mat-grid-list cols="1">
-                <mat-grid-tile>
-                    <button mat-raised-button routerLink="add-character" color="primary" style="width: 80%">Nuovo</button>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </mat-nav-list>
-    </mat-drawer>
+<mat-drawer-container>
+        <mat-drawer #drawer class="sidenav">
+            <mat-toolbar color="primary" label="Lista Personaggi">
+                <mat-label style="width: 70%">Lista Pg</mat-label>
+                <button type="button" mat-icon-button style="width: 30%" (click)="drawer.toggle()">
+                    <mat-icon aria-label="close">close</mat-icon>
+                </button>
+            </mat-toolbar>
+            <mat-nav-list>
+                <a id="pg1" mat-list-item>
+                    <mat-icon aria-label="face">face</mat-icon>
+                    <span style="padding-left: 5%">Arthas</span>
+                </a>
+                <a id="pg2" mat-list-item>
+                    <mat-icon aria-label="face">face</mat-icon>
+                    <span style="padding-left: 5%">Sharrim</span>
+                </a>
+                <a id="pg3" mat-list-item>
+                    <mat-icon aria-label="face">face</mat-icon>
+                    <span style="padding-left: 5%">Vel'Koz</span>
+                </a>
+                <mat-grid-list cols="1">
+                    <mat-grid-tile>
+                        <button mat-raised-button routerLink="add-character" color="primary">Nuovo</button>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-nav-list>
+        </mat-drawer>
 
-    <div class="sidenav-content">
-        <mat-toolbar color="primary">
-            <button type="button" mat-icon-button (click)="drawer.toggle()">
-                <mat-icon aria-label="menu">menu</mat-icon>
-            </button>
-        </mat-toolbar>
-    </div>
+        <div class="sidenav-content">
+            <mat-toolbar color="primary">
+                <button type="button" mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon aria-label="menu">menu</mat-icon>
+                </button>
+            </mat-toolbar>
+        </div>
 
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
 

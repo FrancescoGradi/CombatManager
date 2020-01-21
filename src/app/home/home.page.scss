@@ -1,8 +1,14 @@
+mat-drawer-container {
+    flex: 1 1 auto;
+}
+
+.sidenav {
+    width: 80%;
+    max-width: 20rem;
+}
+
 .normal-card {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    margin-left: 1rem;;
+    margin: 1rem;;
 }
 
 .colp-card {
