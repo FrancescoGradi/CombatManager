@@ -1,0 +1,94 @@
+<mat-toolbar color="primary">
+  <button mat-button color="secondary" routerLink="">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="toolbar-title">
+    Edit Buff
+  </div>
+</mat-toolbar>
+
+<form class="buff-form">
+
+  <mat-form-field class="name-buff" appearance="outline">
+    <input matInput placeholder="Nome Buff">
+    <mat-icon matSuffix color="accent">playlist_add</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field class="name-buff">
+    <textarea matInput placeholder="Descrizione"></textarea>
+  </mat-form-field>
+
+  <table cellspacing="0"><tr>
+    <td><mat-icon matSuffix color="accent" class="icon-add-buff">fitness_center</mat-icon></td>
+    <td><mat-form-field type="number" class="ts-buff">
+      <input matInput placeholder="Bonus Tiro" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Danni" value="0">
+    </mat-form-field></td>
+  </tr></table>
+
+  <table cellspacing="0"><tr>
+    <td><mat-icon matSuffix color="accent" class="icon-add-buff">shield</mat-icon></td>
+    <td>
+      <mat-form-field type="number" class="ca-buff">
+        <input matInput placeholder="Bonus Classe Armatura" value="0">
+      </mat-form-field>
+    </td>
+  </tr></table>
+
+  <table cellspacing="0"><tr>
+    <td><mat-icon matSuffix color="accent" class="icon-add-buff">bolt</mat-icon></td>
+    <td><mat-form-field type="number" class="ts-buff">
+      <input matInput placeholder="Bonus Tempra" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Riflessi" value="0">
+    </mat-form-field></td>
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Volontà" value="0">
+    </mat-form-field></td>
+  </tr></table>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Altri
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <table cellspacing="0"><tr>
+        <td>
+          <mat-form-field class="ts-buff">
+            <input matInput type="number" placeholder="Attacchi in più" value="0">
+          </mat-form-field>
+        </td>
+
+        <td>
+          <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option *ngFor="let type of types" [value]="type">
+                {{ type }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      </table>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <div class="save-button-div">
+    <button mat-flat-button color="primary" routerLink="" class="save-button">Salva</button>
+  </div>
+
+</form>
+
+
+
+
+

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { AddBuffPage } from '../add-buff/add-buff.page';
+import { EditBuffPage } from '../edit-buff/edit-buff.page';
 import { AddCharacterPage} from '../add-character/add-character.page';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -20,7 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -36,6 +37,10 @@ import {MatSelectModule} from '@angular/material/select';
       {
         path: 'add-buff',
         component: AddBuffPage
+      },
+      {
+        path: 'edit-buff',
+        component: EditBuffPage
       },
       {
         path: 'add-character',
@@ -56,6 +61,6 @@ import {MatSelectModule} from '@angular/material/select';
     MatExpansionModule,
     MatSelectModule,
   ],
-  declarations: [HomePage, AddBuffPage, AddCharacterPage]
+  declarations: [HomePage, AddBuffPage, AddCharacterPage, EditBuffPage]
 })
 export class HomePageModule {}
