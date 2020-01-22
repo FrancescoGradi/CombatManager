@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Buff } from '../home/home.page';
+import { HomePage } from '../home/home.page';
 
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -10,9 +11,12 @@ import { Storage } from '@ionic/storage';
     templateUrl: './add-buff.page.html',
     styleUrls: ['./add-buff.page.scss'],
 })
-export class AddBuffPage implements OnInit {
+export class AddBuffPage extends HomePage implements OnInit {
 
-    constructor(public navCtrl: NavController, public storage: Storage) { }
+    constructor(public navCtrl: NavController, public storage: Storage) {
+        super(navCtrl, storage);
+        this.actualGameCharacter = super.actualGameCharacter;
+    }
 
     buff: Buff = {
         ac: 0,
@@ -38,9 +42,12 @@ export class AddBuffPage implements OnInit {
 
     saveBuff($event: MouseEvent) {
 
-        this.storage.get('buff_list').then((buff_list) => {
-            buff_list.push(this.buff);
-            this.storage.set('buff_list', buff_list);
+        this.storage.get('db').then((db) => {
+
+            // TO-DO: scegliere le liste di appartenenza in base al buff
+
+            db[this.actualGameCharacter].buffs.push(this.buff);
+            this.storage.set('db', db);
         });
 
     }

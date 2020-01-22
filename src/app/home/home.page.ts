@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, Input, Output } from '@angular/core';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
@@ -31,7 +31,7 @@ export interface Buff {
 
 export interface GameCharacters {
     name: string;
-    class: string;
+    classe: string;
     race: string;
     level: number;
     characteristics: Characteristics;
@@ -45,12 +45,13 @@ export interface GameCharacters {
 }
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
 })
 
 export class HomePage {
+
 
     constructor(public navCtrl: NavController, public storage: Storage) {
 
@@ -71,26 +72,44 @@ export class HomePage {
             type: 'Nessuno',
             selected: false,
         });
+
+
+        this.db.Magnus = {
+            name: 'Magnus',
+            classe: 'Chierico',
+            race: 'Nano',
+            level: 11,
+            characteristics: {
+                strength: 16,
+                dexterity: 13,
+                constitution: 15,
+                intelligence: 10,
+                wisdom: 24,
+                charisma: 8,
+            },
+            buffs: [],
+            ac: 33,
+            hp: 92,
+            bab: 8,
+            initiative: 1,
+            weapon_dice: '1d8',
+            size: 'Media',
+        };
         */
 
-        // this.storage.set('buff_list', this.buffs);
+        // this.storage.set('db', this.db);
         // tslint:disable-next-line:variable-name
-        this.storage.get('buff_list').then((buff_list) => {
-            this.buffs = buff_list;
+        this.storage.get('db').then((db) => {
+            this.db = db;
+            console.log(this.db);
+            // Primo personaggio attuale, prima chiave del dizionario esterno
+            this.actualGameCharacter = Object.keys(this.db)[0];
+            console.log(this.actualGameCharacter);
+            this.buffs = this.db[this.actualGameCharacter].buffs;
             console.log(this.buffs);
         });
 
     }
-
-    characteristics: Characteristics = {
-        strength: 16,
-        dexterity: 13,
-        constitution: 15,
-        intelligence: 10,
-        wisdom: 24,
-        charisma: 8,
-    };
-
 
     selection = '';
 
@@ -99,8 +118,15 @@ export class HomePage {
 
     buffs: Buff[] = [];
 
+    db = {};
+
+    actualGameCharacter = null;
+
+    getActualGameCharacter() { return this.actualGameCharacter; }
+
     onSelChange(sel: string) {
         this.selection = sel;
     }
 
 }
+
