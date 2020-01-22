@@ -30,6 +30,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatExpansionModule,
     MatSelectModule,
   ],
-  declarations: [AddBuffPage]
+  declarations: []
 })
 export class AddBuffPageModule {}
