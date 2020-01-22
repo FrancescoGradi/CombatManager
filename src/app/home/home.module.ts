@@ -17,7 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSidenavModule, MatStepperModule } from '@angular/material';
+import {MatSidenavModule, MatStepperModule, MatTableModule} from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -69,6 +69,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatSelectModule,
         MatStepperModule,
         ReactiveFormsModule,
+        MatTableModule,
     ],
   declarations: [HomePage, AddBuffPage, AddCharacterPage, EditBuffPage, EditCharacterPage]
 })

@@ -1,5 +1,4 @@
 .pg-form {
-  max-width: 500px;
   position: absolute;
   float: top;
   align-content: center;
@@ -11,28 +10,11 @@
 }
 
 .attr-table {
-  position: center;
-  align-content: center;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 500px;
-}
-
-.tab-label {
-  position: center;
-  align-content: center;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 500px;
+  text-align: center;
 }
 
 .stat {
   width: 55%;
-  max-width: 200px;
 }
 
 .name-pg {
