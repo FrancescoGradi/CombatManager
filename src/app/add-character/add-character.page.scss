@@ -28,24 +28,48 @@
   align-content: center;
 }
 
+.attr-table {
+  position: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 500px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.stat {
+  width: 55%;
+  max-width: 200px;
+}
+
 .next {
   width: 100%;
+  margin-right: 10%;
+  margin-left: 5%;
+}
+
+.next-first {
+  width: 100%;
+  margin-right: 10%;
+  margin-left: 75%;
 }
 
 .next-button {
-  left: 80%;
+  margin-right: 10%;
+  margin-left: 2%;
 }
 
 .back-button {
-  left: 60%;
+  margin-left: 45%;
+  margin-right: -66%;
 }
 
-.stat-left {
-  padding-left: 2%;
-}
 
 .save-button {
-  left: 65%;
+  margin-left: 64%;
 }
 
 .icon-add-buff {
