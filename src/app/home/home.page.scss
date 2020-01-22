@@ -17,6 +17,13 @@ mat-drawer-container {
     align-content: end;
 }
 
+.edit-char-button {
+    position: absolute;
+    right: 2rem;
+    up: 0rem;
+    z-index: 1;
+}
+
 .normal-card {
     margin: 1rem;
 }

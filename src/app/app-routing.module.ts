@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'edit-buff',
     loadChildren: () => import('./edit-buff/edit-buff.module').then( m => m.EditBuffPageModule)
   },
+  {
+    path: 'edit-character',
+    loadChildren: () => import('./edit-character/edit-character.module').then( m => m.EditCharacterPageModule)
+  },
 ];
 
 @NgModule({

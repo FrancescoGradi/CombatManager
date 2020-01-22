@@ -8,6 +8,7 @@ import { HomePage } from './home.page';
 import { AddBuffPage } from '../add-buff/add-buff.page';
 import { EditBuffPage } from '../edit-buff/edit-buff.page';
 import { AddCharacterPage} from '../add-character/add-character.page';
+import { EditCharacterPage } from '../edit-character/edit-character.page';
 
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -49,6 +50,10 @@ import { MatSelectModule } from '@angular/material/select';
             {
                 path: 'add-character',
                 component: AddCharacterPage
+            },
+            {
+                path: 'edit-character',
+                component: EditCharacterPage
             }
         ]),
         MatTabsModule,
@@ -68,7 +73,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatStepperModule,
         ReactiveFormsModule,
     ],
-  declarations: [HomePage, AddBuffPage, AddCharacterPage, EditBuffPage]
+  declarations: [HomePage, AddBuffPage, AddCharacterPage, EditBuffPage, EditCharacterPage]
 })
 export class HomePageModule {
 
