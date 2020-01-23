@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Buff } from '../home/home.page';
 import { HomePage } from '../home/home.page';
 
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 // @ts-ignore
 @Component({
@@ -12,10 +13,12 @@ import { Storage } from '@ionic/storage';
     styleUrls: ['./add-buff.page.scss'],
 })
 export class AddBuffPage extends HomePage implements OnInit {
+    public types: string[];
 
-    constructor(public navCtrl: NavController, public storage: Storage) {
-        super(navCtrl, storage);
+    constructor(public navCtrl: NavController, public storage: Storage, private router: Router) {
+        super(navCtrl, storage, router);
         this.actualGameCharacter = super.actualGameCharacter;
+        this.types = super.getTypes();
     }
 
     buff: Buff = {
@@ -34,9 +37,7 @@ export class AddBuffPage extends HomePage implements OnInit {
         type: 'Nessuno',
         selected: false,
     };
-
-    types: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
-
+    
     ngOnInit() {
     }
 
@@ -48,6 +49,13 @@ export class AddBuffPage extends HomePage implements OnInit {
 
             db[this.actualGameCharacter].buffs.push(this.buff);
             this.storage.set('db', db);
+
+            console.log(this.buff);
+
+            super.pushBuff(this.buff);
+
+            this.router.navigate(['']);
+
         });
 
     }

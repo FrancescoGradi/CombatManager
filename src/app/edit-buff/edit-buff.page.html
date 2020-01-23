@@ -10,21 +10,21 @@
 <form class="buff-form">
 
   <mat-form-field class="name-buff" appearance="outline">
-    <input matInput placeholder="Nome Buff">
+    <input matInput placeholder="Nome Buff" [(ngModel)]="buffToEdit.name" name="name_e">
     <mat-icon matSuffix color="accent">playlist_add</mat-icon>
   </mat-form-field>
 
   <mat-form-field class="name-buff">
-    <textarea matInput placeholder="Descrizione"></textarea>
+    <textarea matInput placeholder="Descrizione" [(ngModel)]="buffToEdit.description" name="description_e"></textarea>
   </mat-form-field>
 
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">fitness_center</mat-icon></td>
     <td><mat-form-field type="number" class="ts-buff">
-      <input matInput placeholder="Bonus Tiro" value="0">
+      <input matInput placeholder="Bonus Tiro" [(ngModel)]="buffToEdit.hit" name="hit_e">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Danni" value="0">
+      <input matInput type="number" placeholder="Bonus Danni" [(ngModel)]="buffToEdit.damage" name="damage_e">
     </mat-form-field></td>
   </tr></table>
 
@@ -32,7 +32,7 @@
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">shield</mat-icon></td>
     <td>
       <mat-form-field type="number" class="ca-buff">
-        <input matInput placeholder="Bonus Classe Armatura" value="0">
+        <input matInput placeholder="Bonus Classe Armatura" [(ngModel)]="buffToEdit.ac" name="ac_e">
       </mat-form-field>
     </td>
   </tr></table>
@@ -40,13 +40,13 @@
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">bolt</mat-icon></td>
     <td><mat-form-field type="number" class="ts-buff">
-      <input matInput placeholder="Bonus Tempra" value="0">
+      <input matInput placeholder="Bonus Tempra" [(ngModel)]="buffToEdit.fortitude" name="fortitude_e">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Riflessi" value="0">
+      <input matInput type="number" placeholder="Bonus Riflessi" [(ngModel)]="buffToEdit.reflex" name="reflex_e">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Volontà" value="0">
+      <input matInput type="number" placeholder="Bonus Volontà" [(ngModel)]="buffToEdit.will" name="will_e">
     </mat-form-field></td>
   </tr></table>
 
@@ -61,16 +61,17 @@
       <table cellspacing="0"><tr>
         <td>
           <mat-form-field class="ts-buff">
-            <input matInput type="number" placeholder="Attacchi in più" value="0">
+            <input matInput type="number" placeholder="Attacchi in più" [(ngModel)]="buffToEdit.extra_attack"
+                   name="extra_attack_e">
           </mat-form-field>
         </td>
 
         <td>
           <mat-form-field>
             <mat-label>Tipo</mat-label>
-            <mat-select [(value)]="selected">
-              <mat-option *ngFor="let type of types" [value]="type">
-                {{ type }}
+            <mat-select [(ngModel)]="buffToEdit.type" name="type_e">
+              <mat-option *ngFor="let t of types" [value]="t">
+                {{ t }}
               </mat-option>
             </mat-select>
           </mat-form-field>

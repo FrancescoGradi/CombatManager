@@ -6,8 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { AddBuffPageRoutingModule } from './add-buff-routing.module';
 
-import { AddBuffPage } from './add-buff.page';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';

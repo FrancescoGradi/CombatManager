@@ -1,7 +1,9 @@
-import { Component, HostBinding, Input, Output } from '@angular/core';
+import {Component, HostBinding, Input, OnInit, Output} from '@angular/core';
+import { EditBuffPage } from "../edit-buff/edit-buff.page";
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
+import {Router} from "@angular/router";
 
 export interface Characteristics {
     strength: number;
@@ -52,8 +54,7 @@ export interface GameCharacters {
 
 export class HomePage {
 
-
-    constructor(public navCtrl: NavController, public storage: Storage) {
+    constructor(public navCtrl: NavController, public storage: Storage, private router: Router) {
 
         /*
         this.buffs.push({
@@ -73,8 +74,7 @@ export class HomePage {
             selected: false,
         });
 
-
-        this.db.Magnus = {
+        this.db['Magnus'] = {
             name: 'Magnus',
             classe: 'Chierico',
             race: 'Nano',
@@ -95,18 +95,23 @@ export class HomePage {
             weapon_dice: '1d8',
             size: 'Media',
         };
-        */
 
-        // this.storage.set('db', this.db);
+        this.storage.set('db', this.db);
+         */
         // tslint:disable-next-line:variable-name
         this.storage.get('db').then((db) => {
+
+            // Per inizializzare
+            if (db === null) {
+                this.storage.set('db', {});
+            }
             this.db = db;
-            console.log(this.db);
+            // console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = Object.keys(this.db)[0];
-            console.log(this.actualGameCharacter);
+            // console.log(this.actualGameCharacter);
             this.buffs = this.db[this.actualGameCharacter].buffs;
-            console.log(this.buffs);
+            // console.log(this.buffs);
         });
 
     }
@@ -122,11 +127,24 @@ export class HomePage {
 
     actualGameCharacter = null;
 
+    allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
+
+    public pushBuff(buff: Buff) {
+        this.buffs.push(buff);
+    }
+
+    getTypes() { return this.allTypes; }
+
     getActualGameCharacter() { return this.actualGameCharacter; }
 
     onSelChange(sel: string) {
         this.selection = sel;
     }
 
+    editBuff($event: MouseEvent, buff: Buff) {
+        // console.log(buff);
+        history.pushState({ data: { buff }}, '', '');
+        this.router.navigate(['/edit-buff'], { state: buff } );
+    }
 }
 
