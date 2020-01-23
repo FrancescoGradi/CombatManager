@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class AddBuffPage extends HomePage implements OnInit {
     public types: string[];
 
-    constructor(public navCtrl: NavController, public storage: Storage, private router: Router) {
+    constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         super(navCtrl, storage, router);
         this.actualGameCharacter = super.actualGameCharacter;
         this.types = super.getTypes();

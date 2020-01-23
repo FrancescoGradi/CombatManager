@@ -54,7 +54,7 @@ export interface GameCharacters {
 
 export class HomePage {
 
-    constructor(public navCtrl: NavController, public storage: Storage, private router: Router) {
+    constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
 
         /*
         this.buffs.push({
@@ -97,7 +97,7 @@ export class HomePage {
         };
 
         this.storage.set('db', this.db);
-         */
+        */
         // tslint:disable-next-line:variable-name
         this.storage.get('db').then((db) => {
 
