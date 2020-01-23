@@ -6,8 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { EditBuffPageRoutingModule } from './edit-buff-routing.module';
 
-import { EditBuffPage } from './edit-buff.page';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +30,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatDialogModule,
   ],
-  declarations: [EditBuffPage]
+  declarations: []
 })
 export class EditBuffPageModule {}
