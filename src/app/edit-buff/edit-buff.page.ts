@@ -11,9 +11,9 @@ import {Router} from "@angular/router";
   templateUrl: './edit-buff.page.html',
   styleUrls: ['./edit-buff.page.scss'],
 })
-export class EditBuffPage extends HomePage implements OnInit {
+export class EditBuffPage implements OnInit {
 
-    buffToEdit: Buff = {
+    buffToEdit: { [p: string]: any } = {
         ac: 0,
         ac_list: false,
         combat_list: false,
@@ -33,20 +33,46 @@ export class EditBuffPage extends HomePage implements OnInit {
     public types: string[];
     public selected: string;
     public actualGameCharacter: string;
+    public buffs: Buff[];
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
-        super(navCtrl, storage, router);
-        this.actualGameCharacter = super.actualGameCharacter;
-        this.types = super.getTypes();
+        this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
+        this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
+        this.buffToEdit = this.router.getCurrentNavigation().extras.state.buff;
+        this.types = this.router.getCurrentNavigation().extras.state.types;
         this.selected = this.types[0];
 
-        console.log(this.router.getCurrentNavigation().extras.state);
-
-        console.log(history.state);
+        console.log(this.actualGameCharacter);
+        console.log(this.buffs);
+        console.log(this.buffToEdit);
+        console.log(this.types);
 
     }
 
     ngOnInit() {
     }
 
+    delBuff($event: MouseEvent) {
+
+        let indexToRemove = this.buffs.indexOf(<Buff>this.buffToEdit);
+
+        console.log(this.buffs);
+        console.log(this.buffToEdit);
+        console.log(indexToRemove);
+
+        if (indexToRemove > -1) {
+            this.buffs.splice(indexToRemove, 1);
+            this.storage.get('db').then((db) => {
+
+                db[this.actualGameCharacter].buffs = this.buffs;
+                this.storage.set('db', db);
+
+                this.router.navigate(['home']);
+            });
+        }
+    }
+
+    saveBuff($event: MouseEvent) {
+        this.router.navigate(['home']);
+    }
 }

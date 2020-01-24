@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
+import {AddBuffPage} from "./add-buff.page";
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatExpansionModule,
     MatSelectModule,
   ],
-  declarations: []
+  declarations: [ AddBuffPage ],
+  exports: [ AddBuffPage ],
 })
 export class AddBuffPageModule {}

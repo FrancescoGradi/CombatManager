@@ -93,7 +93,7 @@
                 </div>
               </div>
               <div>
-                <button mat-icon-button routerLink="edit-buff" [state]="buff">
+                <button mat-icon-button (click)="editBuff($event, buff)">
                   <mat-icon>edit</mat-icon>
                 </button>
               </div>
@@ -211,7 +211,7 @@
     </mat-tab-group>
 
     <div class="primary-button">
-      <button mat-fab color="primary" routerLink="add-buff">
+      <button mat-fab color="primary" (click)="addBuffPage()">
         <mat-icon>add</mat-icon>
       </button>
     </div>

@@ -26,14 +26,8 @@
 }
 
 .del-button {
-  align-content: center;
   text-align: center;
-  align-self: center;
-  width: 75%;
-  position: fixed;
-  left: 50%;
-  margin-left: -37.5%;
-  bottom: 1rem;
+  width: 100%;
   z-index: 1;
 }
 
@@ -44,5 +38,11 @@
 }
 
 .save-button-div {
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin-left: -37.5%;
+  bottom: 1rem;
+  align-items: center;
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { Buff } from '../home/home.page';
 import { HomePage } from '../home/home.page';
 
@@ -12,13 +12,15 @@ import { Router } from '@angular/router';
     templateUrl: './add-buff.page.html',
     styleUrls: ['./add-buff.page.scss'],
 })
-export class AddBuffPage extends HomePage implements OnInit {
+export class AddBuffPage implements OnInit {
     public types: string[];
+    public actualGameCharacter: { [p: string]: any };
+    private buffs: Buff[];
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
-        super(navCtrl, storage, router);
-        this.actualGameCharacter = super.actualGameCharacter;
-        this.types = super.getTypes();
+        this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
+        this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
+        this.types = this.router.getCurrentNavigation().extras.state.types;
     }
 
     buff: Buff = {
@@ -47,14 +49,15 @@ export class AddBuffPage extends HomePage implements OnInit {
 
             // TO-DO: scegliere le liste di appartenenza in base al buff
 
+            // @ts-ignore
             db[this.actualGameCharacter].buffs.push(this.buff);
             this.storage.set('db', db);
 
-            console.log(this.buff);
+            // questo e' il riferimento dell'array in home, se lo modifica, essendo bindato, aggiorna in automatico la
+            // lista
+            this.buffs.push(this.buff);
 
-            super.pushBuff(this.buff);
-
-            this.router.navigate(['']);
+            this.router.navigate(['home']);
 
         });
 
