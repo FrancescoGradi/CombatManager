@@ -1,9 +1,11 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import { EditBuffPage } from "../edit-buff/edit-buff.page";
+import { EditBuffPage } from '../edit-buff/edit-buff.page';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
+import {element} from 'protractor';
+import {forEach} from '@angular-devkit/schematics';
 
 export interface Characteristics {
     strength: number;
@@ -61,23 +63,6 @@ export interface GameCharacters {
 
 export class HomePage implements OnInit {
 
-    ngOnInit(): void {
-        this.storage.get('db').then((db) => {
-
-            // Per inizializzare
-            if (db === null) {
-                this.storage.set('db', {});
-            }
-            this.db = db;
-            console.log(this.db);
-            // Primo personaggio attuale, prima chiave del dizionario esterno
-            this.actualGameCharacter = Object.keys(this.db)[0];
-            console.log(this.actualGameCharacter);
-            this.buffs = this.db[this.actualGameCharacter].buffs;
-            console.log(this.buffs);
-        });
-    }
-
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         /*
         this.buffs.push({
@@ -132,9 +117,18 @@ export class HomePage implements OnInit {
             console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = Object.keys(this.db)[0];
-            console.log(this.actualGameCharacter);
+            // console.log(this.actualGameCharacter);
             this.buffs = this.db[this.actualGameCharacter].buffs;
-            console.log(this.buffs);
+            // console.log(this.buffs);
+            // tslint:disable-next-line:forin
+            for (const dbKey in this.db) {
+                // if to be removed when erasing db for alpha release
+                // tslint:disable-next-line:triple-equals
+                if (dbKey != 'null') {
+                    this.allCharacters.push(db[dbKey]);
+                }
+            }
+            console.log(this.allCharacters);
         });
 
     }
@@ -150,21 +144,49 @@ export class HomePage implements OnInit {
 
     actualGameCharacter = null;
 
+    allCharacters: GameCharacters[] = [];
+
     allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
+
+    ngOnInit(): void {
+        this.storage.get('db').then((db) => {
+
+            // Per inizializzare
+            if (db === null) {
+                this.storage.set('db', {});
+            }
+            this.db = db;
+            console.log(this.db);
+            // Primo personaggio attuale, prima chiave del dizionario esterno
+            this.actualGameCharacter = Object.keys(this.db)[0];
+            console.log(this.actualGameCharacter);
+            this.buffs = this.db[this.actualGameCharacter].buffs;
+            console.log(this.buffs);
+        });
+    }
 
     onSelChange(sel: string) {
         this.selection = sel;
     }
 
     editBuff($event: MouseEvent, buff: Buff) {
-        this.router.navigate(['/edit-buff'], { state: { buff: buff,
+        this.router.navigate(['/edit-buff'], { state: { buff,
                 actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes } } );
     }
 
     addBuffPage() {
-        this.router.navigate(['ab'], { state: { actualGameCharacter: this.actualGameCharacter,
+        this.router.navigate(['add-buff'], { state: { actualGameCharacter: this.actualGameCharacter,
                 buffs: this.buffs, types: this.allTypes } });
     }
 
-}
+    addCharacter() {
+        this.router.navigate(['add-character'], { state: { actualGameCharacter: this.actualGameCharacter,
+                buffs: this.buffs, types: this.allTypes } });
+    }
 
+    editCharacter($event: MouseEvent, char: GameCharacters) {
+        this.router.navigate(['edit-character'], { state: { char,
+            actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes } });
+    }
+
+}

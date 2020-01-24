@@ -3,7 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'ab', redirectTo: 'add-buff', pathMatch: 'full'},
+  { path: 'add-buff', redirectTo: 'add-buff', pathMatch: 'full'},
+  { path: 'add-char', redirectTo: 'add-char', pathMatch: 'full'},
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'add-buff',

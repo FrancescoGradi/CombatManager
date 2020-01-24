@@ -23,9 +23,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
-import {HomePageRoutingModule} from "./home-routing.module";
-import {AddBuffPageModule} from "../add-buff/add-buff.module";
-import {EditBuffPageModule} from "../edit-buff/edit-buff.module";
+import {HomePageRoutingModule} from './home-routing.module';
+import {AddBuffPageModule} from '../add-buff/add-buff.module';
+import {EditBuffPageModule} from '../edit-buff/edit-buff.module';
+import {AddCharacterPageModule} from '../add-character/add-character.module';
 
 
 @NgModule({
@@ -53,8 +54,9 @@ import {EditBuffPageModule} from "../edit-buff/edit-buff.module";
         MatTableModule,
         AddBuffPageModule,
         EditBuffPageModule,
+        AddCharacterPageModule,
     ],
-  declarations: [HomePage, AddCharacterPage, EditCharacterPage]
+  declarations: [HomePage, EditCharacterPage]
 })
 
 export class HomePageModule { }
