@@ -1,9 +1,9 @@
 import {Component, HostBinding, Input, OnInit, Output} from '@angular/core';
-import { EditBuffPage } from "../edit-buff/edit-buff.page";
+import { EditBuffPage } from '../edit-buff/edit-buff.page';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 export interface Characteristics {
     strength: number;
@@ -12,6 +12,12 @@ export interface Characteristics {
     intelligence: number;
     wisdom: number;
     charisma: number;
+}
+
+export interface SavingThrows {
+    fortitude: number;
+    reflex: number;
+    will: number;
 }
 
 export interface Buff {
@@ -44,6 +50,7 @@ export interface GameCharacters {
     initiative: number;
     weapon_dice: string;
     size: string;
+    st: SavingThrows;
 }
 
 @Component({
@@ -73,8 +80,8 @@ export class HomePage {
             type: 'Nessuno',
             selected: false,
         });
-
-        this.db['Magnus'] = {
+        */
+        /*this.db['Magnus'] = {
             name: 'Magnus',
             classe: 'Chierico',
             race: 'Nano',
@@ -106,7 +113,7 @@ export class HomePage {
                 this.storage.set('db', {});
             }
             this.db = db;
-            // console.log(this.db);
+            console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = Object.keys(this.db)[0];
             // console.log(this.actualGameCharacter);

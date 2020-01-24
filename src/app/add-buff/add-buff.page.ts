@@ -37,7 +37,7 @@ export class AddBuffPage extends HomePage implements OnInit {
         type: 'Nessuno',
         selected: false,
     };
-    
+
     ngOnInit() {
     }
 

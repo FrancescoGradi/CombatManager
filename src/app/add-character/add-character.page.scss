@@ -28,6 +28,24 @@
   align-content: center;
 }
 
+.level-pg {
+  flex: 50%;
+  text-align: center;
+  max-width: 100px;
+}
+
+.size-pg {
+  flex: 50%;
+  text-align: center;
+  max-width: 100px;
+  padding-left: 5%;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
 .attr-table {
   align-content: center;
   align-self: center;
