@@ -16,7 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSidenavModule, MatStepperModule, MatTableModule } from '@angular/material';
+import { MatChipsModule, MatSidenavModule, MatStepperModule, MatTableModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -55,6 +55,7 @@ import {AddCharacterPageModule} from '../add-character/add-character.module';
         AddBuffPageModule,
         EditBuffPageModule,
         AddCharacterPageModule,
+        MatChipsModule,
     ],
   declarations: [HomePage, EditCharacterPage]
 })

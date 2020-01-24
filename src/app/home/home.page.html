@@ -98,6 +98,14 @@
 
         </mat-grid-list>
 
+        <mat-chip-list>
+            <ng-container *ngFor="let buff of buffs">
+                <mat-chip *ngIf="buff.description !== null" style="left: 1rem">
+                    <small><i> {{ buff.description }}</i></small>
+                </mat-chip>
+            </ng-container>
+        </mat-chip-list>
+
         <mat-selection-list #combatBuffs>
           <mat-list-option *ngFor="let buff of buffs" class="option-row" [selected]="buff.selected">
             <div style="display:flex; justify-content:space-between;align-items:center">

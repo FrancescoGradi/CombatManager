@@ -26,14 +26,11 @@
 }
 
 .save-button {
-  align-content: center;
+  position: relative;
   text-align: center;
-  align-self: center;
-  width: 75%;
-  position: fixed;
-  left: 50%;
-  margin-left: -37.5%;
-  bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 19rem;
   z-index: 1;
 }
 
@@ -44,6 +41,10 @@
 }
 
 .save-button-div {
-
+  position: fixed;
+  bottom: 1rem;
+  width: 21rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 

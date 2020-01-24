@@ -26,8 +26,20 @@
 }
 
 .del-button {
+  position: relative;
   text-align: center;
-  width: 100%;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  width: 9rem;
+  z-index: 1;
+}
+
+.save-button {
+  position: relative;
+  text-align: center;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  width: 9rem;
   z-index: 1;
 }
 
@@ -38,11 +50,10 @@
 }
 
 .save-button-div {
-  width: 75%;
   position: fixed;
-  left: 50%;
-  margin-left: -37.5%;
   bottom: 1rem;
-  align-items: center;
+  width: 21rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 

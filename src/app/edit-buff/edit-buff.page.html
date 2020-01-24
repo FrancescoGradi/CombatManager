@@ -83,13 +83,11 @@
   </mat-accordion>
 
 
-  <div class="save-button-div">
-    <table cellspacing="0"><tr>
-      <td><button mat-flat-button color="accent" (click)="delBuff($event)" class="del-button">Elimina</button></td>
-      <td><button mat-flat-button color="primary" (click)="saveBuff($event)" class="del-button">Salva</button></td>
-    </tr>
-    </table>
-  </div>
+  <table cellspacing="0" class="save-button-div"><tr>
+    <td><button mat-flat-button color="accent" (click)="delBuff($event)" class="del-button">Elimina</button></td>
+    <td><button mat-flat-button color="primary" (click)="saveBuff($event)" class="save-button">Salva</button></td>
+  </tr>
+  </table>
 
 </form>
 
