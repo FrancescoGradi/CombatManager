@@ -70,8 +70,9 @@ export class EditBuffPage implements OnInit {
                 this.router.navigate(['home']);
             });
         }
+    }
 
-
-
+    saveBuff($event: MouseEvent) {
+        this.router.navigate(['home']);
     }
 }

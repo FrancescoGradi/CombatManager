@@ -84,7 +84,11 @@
 
 
   <div class="save-button-div">
-    <button mat-flat-button color="accent" (click)="delBuff($event)" class="del-button">Elimina</button>
+    <table cellspacing="0"><tr>
+      <td><button mat-flat-button color="accent" (click)="delBuff($event)" class="del-button">Elimina</button></td>
+      <td><button mat-flat-button color="primary" (click)="saveBuff($event)" class="del-button">Salva</button></td>
+    </tr>
+    </table>
   </div>
 
 </form>

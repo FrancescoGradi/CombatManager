@@ -72,7 +72,6 @@ export class HomePage implements OnInit {
     }
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
-        console.log(this.router.getCurrentNavigation().extras.state);
         /*
         this.buffs.push({
             ac: 0,
@@ -145,14 +144,6 @@ export class HomePage implements OnInit {
     actualGameCharacter = null;
 
     allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
-
-    public pushBuff(buff: Buff) {
-        this.buffs.push(buff);
-    }
-
-    getTypes() { return this.allTypes; }
-
-    getActualGameCharacter() { return this.actualGameCharacter; }
 
     onSelChange(sel: string) {
         this.selection = sel;
