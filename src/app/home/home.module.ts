@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { AddBuffPage } from '../add-buff/add-buff.page';
@@ -24,6 +23,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
+import {HomePageRoutingModule} from "./home-routing.module";
+import {AddBuffPageModule} from "../add-buff/add-buff.module";
+import {EditBuffPageModule} from "../edit-buff/edit-buff.module";
 
 
 @NgModule({
@@ -31,28 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
         CommonModule,
         FormsModule,
         IonicModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: HomePage
-            },
-            {
-                path: 'add-buff',
-                component: AddBuffPage
-            },
-            {
-                path: 'edit-buff',
-                component: EditBuffPage
-            },
-            {
-                path: 'add-character',
-                component: AddCharacterPage
-            },
-            {
-                path: 'edit-character',
-                component: EditCharacterPage
-            }
-        ]),
+        HomePageRoutingModule,
         MatTabsModule,
         MatDividerModule,
         MatListModule,
@@ -70,8 +51,10 @@ import { MatSelectModule } from '@angular/material/select';
         MatStepperModule,
         ReactiveFormsModule,
         MatTableModule,
+        AddBuffPageModule,
+        EditBuffPageModule,
     ],
-  declarations: [HomePage, AddBuffPage, AddCharacterPage, EditBuffPage, EditCharacterPage]
+  declarations: [HomePage, AddCharacterPage, EditCharacterPage]
 })
 
 export class HomePageModule { }

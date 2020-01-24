@@ -1,4 +1,4 @@
-import {Component, HostBinding, Input, OnInit, Output} from '@angular/core';
+import {Component, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import { EditBuffPage } from "../edit-buff/edit-buff.page";
 
 import {NavController} from '@ionic/angular';
@@ -52,10 +52,27 @@ export interface GameCharacters {
     styleUrls: ['home.page.scss'],
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
+
+    ngOnInit(): void {
+        this.storage.get('db').then((db) => {
+
+            // Per inizializzare
+            if (db === null) {
+                this.storage.set('db', {});
+            }
+            this.db = db;
+            console.log(this.db);
+            // Primo personaggio attuale, prima chiave del dizionario esterno
+            this.actualGameCharacter = Object.keys(this.db)[0];
+            console.log(this.actualGameCharacter);
+            this.buffs = this.db[this.actualGameCharacter].buffs;
+            console.log(this.buffs);
+        });
+    }
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
-
+        console.log(this.router.getCurrentNavigation().extras.state);
         /*
         this.buffs.push({
             ac: 0,
@@ -106,12 +123,12 @@ export class HomePage {
                 this.storage.set('db', {});
             }
             this.db = db;
-            // console.log(this.db);
+            console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = Object.keys(this.db)[0];
-            // console.log(this.actualGameCharacter);
+            console.log(this.actualGameCharacter);
             this.buffs = this.db[this.actualGameCharacter].buffs;
-            // console.log(this.buffs);
+            console.log(this.buffs);
         });
 
     }
@@ -142,9 +159,14 @@ export class HomePage {
     }
 
     editBuff($event: MouseEvent, buff: Buff) {
-        // console.log(buff);
-        history.pushState({ data: { buff }}, '', '');
-        this.router.navigate(['/edit-buff'], { state: buff } );
+        this.router.navigate(['/edit-buff'], { state: { buff: buff,
+                actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes } } );
     }
+
+    addBuffPage() {
+        this.router.navigate(['ab'], { state: { actualGameCharacter: this.actualGameCharacter,
+                buffs: this.buffs, types: this.allTypes } });
+    }
+
 }
 
