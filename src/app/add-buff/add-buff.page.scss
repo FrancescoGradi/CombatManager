@@ -1,13 +1,17 @@
+mat-drawer-container {
+  flex: 1 1 auto;
+}
 .buff-form {
   max-width: 500px;
-  position: absolute;
+  position: relative;
   float: top;
   align-content: center;
   align-self: center;
   width: 90%;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  margin: 2rem auto;
+  margin-bottom: 4rem;
 }
 
 .name-buff {
@@ -34,6 +38,14 @@
   z-index: 1;
 }
 
+.attr-table {
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
 .icon-add-buff {
   position: relative;
   float: left;
@@ -46,5 +58,10 @@
   width: 21rem;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.stat {
+  width: 90%;
+  max-width: 6rem;
 }
 

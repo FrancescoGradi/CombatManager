@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,21 +14,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import {AddBuffPage} from './add-buff.page';
+import {MatSidenavModule} from '@angular/material';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AddBuffPageRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatExpansionModule,
-    MatSelectModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AddBuffPageRoutingModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatSidenavModule,
+    ],
   declarations: [ AddBuffPage ],
   exports: [ AddBuffPage ],
 })

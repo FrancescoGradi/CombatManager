@@ -28,14 +28,6 @@ mat-drawer-container {
     margin: 0rem;
 }
 
-.colp-card {
-    resize: horizontal;
-}
-
-.danni-card {
-    resize: horizontal;
-}
-
 .edit-buff-button {
     position: absolute;
     right: 2rem;
@@ -59,4 +51,15 @@ mat-drawer-container {
     bottom: 1rem;
     right: 1rem;
     z-index: 2;
+}
+
+.mat-card {
+    text-align: center;
+}
+
+.mat-card-title {
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    font-size: medium;
 }

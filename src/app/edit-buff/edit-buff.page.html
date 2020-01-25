@@ -3,9 +3,11 @@
     <mat-icon>arrow_back</mat-icon>
   </button>
   <div class="toolbar-title">
-    Edit Buff
+    Modifica Buff
   </div>
 </mat-toolbar>
+
+<mat-drawer-container>
 
 <form class="buff-form">
 
@@ -79,9 +81,51 @@
       </tr>
       </table>
 
+      <div class="attr-table">
+        <table>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="FOR Bonus" [(ngModel)]="buffToEdit.strength_bonus" name="strength_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="INT Bonus" [(ngModel)]="buffToEdit.intelligence_bonus" name="intelligence_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="DES Bonus" [(ngModel)]="buffToEdit.dexterity_bonus" name="dexterity_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="SAG Bonus" [(ngModel)]="buffToEdit.wisdom_bonus" name="wisdom_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="COS Bonus" [(ngModel)]="buffToEdit.constitution_bonus" name="consitution_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="CAR Bonus" [(ngModel)]="buffToEdit.charisma_bonus" name="charisma_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+
     </mat-expansion-panel>
   </mat-accordion>
 
+</form>
 
   <table cellspacing="0" class="save-button-div"><tr>
     <td><button mat-flat-button color="accent" (click)="delBuff($event)" class="del-button">Elimina</button></td>
@@ -89,9 +133,7 @@
   </tr>
   </table>
 
-</form>
-
-
+</mat-drawer-container>
 
 
 

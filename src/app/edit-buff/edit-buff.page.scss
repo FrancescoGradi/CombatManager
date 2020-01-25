@@ -1,13 +1,17 @@
+mat-drawer-container {
+  flex: 1 1 auto;
+}
 .buff-form {
   max-width: 500px;
-  position: absolute;
+  position: relative;
   float: top;
   align-content: center;
   align-self: center;
   width: 90%;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  margin: 2rem auto;
+  margin-bottom: 4rem;
 }
 
 .name-buff {
@@ -24,6 +28,44 @@
 .ca-buff {
   width: 90%;
 }
+
+.save-button {
+  position: relative;
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 19rem;
+  z-index: 1;
+}
+
+.attr-table {
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+.icon-add-buff {
+  position: relative;
+  float: left;
+  margin-right: 1rem;
+}
+
+.save-button-div {
+  position: fixed;
+  bottom: 1rem;
+  width: 21rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stat {
+  width: 90%;
+  max-width: 6rem;
+}
+
+
 
 .del-button {
   position: relative;

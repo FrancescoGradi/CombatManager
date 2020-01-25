@@ -35,6 +35,12 @@ export interface Buff {
     st_list: boolean;
     type: string;
     selected: boolean;
+    strength_bonus: number;
+    dexterity_bonus: number;
+    constitution_bonus: number;
+    intelligence_bonus: number;
+    wisdom_bonus: number;
+    charisma_bonus: number;
 }
 
 export interface GameCharacters {
@@ -60,6 +66,24 @@ export interface GameCharacters {
 })
 
 export class HomePage implements OnInit {
+
+    selection = '';
+
+    allBuffs: string[] = ['Benedizione', 'Armatura Magica', '+5 a caso', 'Favore divino',
+        '-1 ai TS "Scosso"'];
+
+    buffs: Buff[] = [];
+
+    db = {};
+
+    actualGameCharacter = null;
+
+    allCharacters: GameCharacters[] = [];
+
+    allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
+
+    actualDamages = 0;
+    actualHits = '';
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         /*
@@ -127,28 +151,25 @@ export class HomePage implements OnInit {
                 }
             }
             // console.log(this.allCharacters);
-            console.log(this.db[this.actualGameCharacter]);
+            // console.log(this.db[this.actualGameCharacter]);
             this.actualDamages = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength);
-            this.actualHits = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength)
+            var actualHitsCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength)
                 + this.db[this.actualGameCharacter].bab;
+            this.actualHits = String(actualHitsCalc);
+
+            // routin per attacchi secondari
+            if (this.db[this.actualGameCharacter].bab >= 6) {
+                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                if (this.db[this.actualGameCharacter].bab >= 11) {
+                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                    if (this.db[this.actualGameCharacter].bab >= 16) {
+                        this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                    }
+                }
+            }
         });
 
     }
-
-    selection = '';
-
-    allBuffs: string[] = ['Benedizione', 'Armatura Magica', '+5 a caso', 'Favore divino',
-        '-1 ai TS "Scosso"'];
-
-    buffs: Buff[] = [];
-
-    db = {};
-
-    actualGameCharacter = null;
-
-    allCharacters: GameCharacters[] = [];
-
-    allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
 
     ngOnInit(): void {
         this.storage.get('db').then((db) => {
@@ -195,9 +216,6 @@ export class HomePage implements OnInit {
         return Math.floor((score - 10) / 2);
     }
 
-    actualDamages = 0;
-    actualHits = 0;
-
     onBuffSelectionChange(selectedCombatBuffs: Buff[]) {
 
         let actualDamagesCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength);
@@ -206,16 +224,31 @@ export class HomePage implements OnInit {
 
         for (let buff of selectedCombatBuffs) {
             actualDamagesCalc += buff.damage;
+            actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
             actualHitsCalc += buff.hit;
+            actualHitsCalc += Math.floor(buff.strength_bonus / 2);
         }
 
-        console.log(selectedCombatBuffs);
-
         this.actualDamages = actualDamagesCalc;
-        this.actualHits = actualHitsCalc;
+        this.actualHits = String(actualHitsCalc);
 
+        // routin per attacchi secondari
+        if (this.db[this.actualGameCharacter].bab >= 6) {
+            this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+            if (this.db[this.actualGameCharacter].bab >= 11) {
+                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                if (this.db[this.actualGameCharacter].bab >= 16) {
+                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                }
+            }
+        }
         this.writeSelectedDb();
+    }
 
+    getWeaponDice() {
+        try { return this.db[this.actualGameCharacter]['weapon_dice']; } catch (e) {
+            return '';
+        }
     }
 
     writeSelectedDb() {

@@ -15,22 +15,24 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import {EditBuffPage} from './edit-buff.page';
+import {MatSidenavModule} from '@angular/material';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    EditBuffPageRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatExpansionModule,
-    MatSelectModule,
-    MatDialogModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        EditBuffPageRoutingModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatSelectModule,
+        MatDialogModule,
+        MatSidenavModule,
+    ],
   declarations: [ EditBuffPage ],
   exports: [ EditBuffPage ],
 })

@@ -69,10 +69,9 @@
 
             <mat-grid-list cols="2" rowHeight="10rem">
                 <mat-grid-tile>
-                    <mat-card class="colp-card">
+                    <mat-card>
                         <mat-card-header>
-                            <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>
-                                Tiri: {{ actualHits }}</mat-card-title>
+                            <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>Tiri: +{{ actualHits}}</mat-card-title>
                         </mat-card-header>
 
                         <mat-card-content>
@@ -85,10 +84,10 @@
 
                 <mat-grid-tile>
 
-                    <mat-card class="danni-card">
+                    <mat-card>
                         <mat-card-header>
                             <mat-card-title [(ngModel)]="actualDamages" ngDefaultControl>
-                                Danni: {{ actualDamages }} </mat-card-title>
+                                Danni: {{ getWeaponDice() }} +{{ actualDamages }} </mat-card-title>
                         </mat-card-header>
 
                         <mat-card-content>
@@ -113,7 +112,7 @@
             <mat-selection-list #combatBuffs [(ngModel)]="selectedCombatBuffs"
                                 (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
 
-                <mat-list-option *ngFor="let buff of buffs" class="option-row" [value]="buff" [selected]="buff.selected">
+                <mat-list-option *ngFor="let buff of buffs" class="option-row" [value]="buff">
                     <div style="display:flex; justify-content:space-between;align-items:center">
                         <div style="display:flex;align-items:center">
                             <div style="display:flex; flex-direction:column">

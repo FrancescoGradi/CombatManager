@@ -38,6 +38,12 @@ export class AddBuffPage implements OnInit {
         will: 0,
         type: 'Nessuno',
         selected: false,
+        strength_bonus: 0,
+        dexterity_bonus: 0,
+        constitution_bonus: 0,
+        intelligence_bonus: 0,
+        wisdom_bonus: 0,
+        charisma_bonus: 0,
     };
 
     ngOnInit() {

@@ -7,6 +7,8 @@
   </div>
 </mat-toolbar>
 
+<mat-drawer-container>
+
 <form class="buff-form">
 
   <mat-form-field class="name-buff" appearance="outline">
@@ -79,15 +81,55 @@
       </tr>
       </table>
 
+      <div class="attr-table">
+        <table>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="FOR Bonus" [(ngModel)]="buff.strength_bonus" name="strength_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="INT Bonus" [(ngModel)]="buff.intelligence_bonus" name="intelligence_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="DES Bonus" [(ngModel)]="buff.dexterity_bonus" name="dexterity_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="SAG Bonus" [(ngModel)]="buff.wisdom_bonus" name="wisdom_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="COS Bonus" [(ngModel)]="buff.constitution_bonus" name="consitution_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <input matInput type="number" placeholder="CAR Bonus" [(ngModel)]="buff.charisma_bonus" name="charisma_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+
     </mat-expansion-panel>
   </mat-accordion>
 
-
-  <div class="save-button-div">
-      <button mat-flat-button color="primary" class="save-button" (click)="saveBuff($event)">Salva</button>
-  </div>
-
 </form>
+  <div class="save-button-div">
+    <button mat-flat-button color="primary" class="save-button" (click)="saveBuff($event)">Salva</button>
+  </div>
+</mat-drawer-container>
 
 
 
