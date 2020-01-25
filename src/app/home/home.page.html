@@ -1,242 +1,248 @@
 <mat-drawer-container>
-        <mat-drawer #drawer class="sidenav">
-            <mat-toolbar color="primary" label="Lista Personaggi">
-                <mat-label style="width: 70%">Lista Personaggi</mat-label>
-                <button type="button" mat-icon-button style="width: 30%" (click)="drawer.toggle()">
-                    <mat-icon aria-label="close">close</mat-icon>
+    <mat-drawer #drawer class="sidenav">
+        <mat-toolbar color="primary" label="Lista Personaggi">
+            <mat-label style="width: 70%">Lista Personaggi</mat-label>
+            <button type="button" mat-icon-button style="width: 30%" (click)="drawer.toggle()">
+                <mat-icon aria-label="close">close</mat-icon>
+            </button>
+        </mat-toolbar>
+        <!--
+        <mat-nav-list>
+            <a id="pg1" mat-list-item (click)="onSelChange('Arthas');drawer.toggle()">
+                <mat-icon aria-label="face">face</mat-icon>
+                <mat-label style="padding-left: 5%">Arthas</mat-label>
+                <button class="edit-char-button" mat-icon-button routerLink="edit-character">
+                    <mat-icon>edit</mat-icon>
                 </button>
-            </mat-toolbar>
-            <!--
-            <mat-nav-list>
-                <a id="pg1" mat-list-item (click)="onSelChange('Arthas');drawer.toggle()">
-                    <mat-icon aria-label="face">face</mat-icon>
-                    <mat-label style="padding-left: 5%">Arthas</mat-label>
-                    <button class="edit-char-button" mat-icon-button routerLink="edit-character">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                </a>
-                <a id="pg2" mat-list-item (click)="onSelChange('Sharrim');drawer.toggle()">
-                    <mat-icon aria-label="face">face</mat-icon>
-                    <mat-label style="padding-left: 5%">Sharrim</mat-label>
-                    <button class="edit-char-button" mat-icon-button routerLink="edit-character">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                </a>
-                <a id="pg3" mat-list-item (click)="onSelChange('Vel\'Koz');drawer.toggle()">
-                    <mat-icon aria-label="face">face</mat-icon>
-                    <mat-label style="padding-left: 5%">Vel'Koz</mat-label>
-                    <button class="edit-char-button" mat-icon-button routerLink="edit-character">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                </a>
-                <mat-grid-list cols="1">
-                    <mat-grid-tile>
-                        <button mat-raised-button class="new-button" routerLink="add-character" color="primary">Nuovo</button>
-                    </mat-grid-tile>
-                </mat-grid-list>
-            </mat-nav-list>
-            -->
-            <mat-nav-list *ngFor="let c of allCharacters">
-                <a id="pg" mat-list-item (click)="onSelChange(c.name);drawer.toggle()">
-                    <mat-icon aria-label="face">face</mat-icon>
-                    <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
-                    <button class="edit-char-button" mat-icon-button routerLink="edit-character">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                </a>
-            </mat-nav-list>
+            </a>
+            <a id="pg2" mat-list-item (click)="onSelChange('Sharrim');drawer.toggle()">
+                <mat-icon aria-label="face">face</mat-icon>
+                <mat-label style="padding-left: 5%">Sharrim</mat-label>
+                <button class="edit-char-button" mat-icon-button routerLink="edit-character">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </a>
+            <a id="pg3" mat-list-item (click)="onSelChange('Vel\'Koz');drawer.toggle()">
+                <mat-icon aria-label="face">face</mat-icon>
+                <mat-label style="padding-left: 5%">Vel'Koz</mat-label>
+                <button class="edit-char-button" mat-icon-button routerLink="edit-character">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </a>
             <mat-grid-list cols="1">
                 <mat-grid-tile>
-                    <button mat-raised-button class="new-button" (click)="addCharacter(); drawer.toggle()" color="primary">Nuovo</button>
+                    <button mat-raised-button class="new-button" routerLink="add-character" color="primary">Nuovo</button>
                 </mat-grid-tile>
             </mat-grid-list>
-        </mat-drawer>
-
-        <div class="sidenav-content">
-            <mat-toolbar color="primary">
-                <button type="button" mat-icon-button (click)="drawer.toggle()">
-                    <mat-icon aria-label="menu">menu</mat-icon>
+        </mat-nav-list>
+        -->
+        <mat-nav-list *ngFor="let c of allCharacters">
+            <a id="pg" mat-list-item (click)="onSelChange(c.name);drawer.toggle()">
+                <mat-icon aria-label="face">face</mat-icon>
+                <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
+                <button class="edit-char-button" mat-icon-button routerLink="edit-character">
+                    <mat-icon>edit</mat-icon>
                 </button>
-                <span class="selected-pg">{{ selection }}</span>
-            </mat-toolbar>
-        </div>
+            </a>
+        </mat-nav-list>
+        <mat-grid-list cols="1">
+            <mat-grid-tile>
+                <button mat-raised-button class="new-button" (click)="addCharacter(); drawer.toggle()" color="primary">
+                    Nuovo
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <mat-toolbar color="primary">
+            <button type="button" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon aria-label="menu">menu</mat-icon>
+            </button>
+            <span class="selected-pg">{{ selection }}</span>
+        </mat-toolbar>
+    </div>
 
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
 
-      <mat-tab label="COMBAT">
+        <mat-tab label="COMBAT">
 
-        <mat-grid-list cols="2" rowHeight="10rem">
-          <mat-grid-tile>
-            <mat-card class="colp-card">
-              <mat-card-header>
-                <mat-card-title>Tiri</mat-card-title>
-              </mat-card-header>
+            <mat-grid-list cols="2" rowHeight="10rem">
+                <mat-grid-tile>
+                    <mat-card class="colp-card">
+                        <mat-card-header>
+                            <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>
+                                Tiri: {{ actualHits }}</mat-card-title>
+                        </mat-card-header>
 
-              <mat-card-content>
-                <p>
-                  Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-grid-tile>
+                        <mat-card-content>
+                            <p>
+                                Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
 
-          <mat-grid-tile>
+                <mat-grid-tile>
 
-            <mat-card class="danni-card">
-              <mat-card-header>
-                <mat-card-title>Danni</mat-card-title>
-              </mat-card-header>
+                    <mat-card class="danni-card">
+                        <mat-card-header>
+                            <mat-card-title [(ngModel)]="actualDamages" ngDefaultControl>
+                                Danni: {{ actualDamages }} </mat-card-title>
+                        </mat-card-header>
 
-              <mat-card-content>
-                <p>
-                  Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
-                </p>
-              </mat-card-content>
-            </mat-card>
+                        <mat-card-content>
+                            <p>
+                                Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
 
-          </mat-grid-tile>
+                </mat-grid-tile>
 
-        </mat-grid-list>
+            </mat-grid-list>
 
-        <mat-chip-list>
-            <ng-container *ngFor="let buff of buffs">
-                <mat-chip *ngIf="buff.description !== null" style="left: 1rem">
-                    <small><i> {{ buff.description }}</i></small>
-                </mat-chip>
-            </ng-container>
-        </mat-chip-list>
+            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                    <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
+                        <small><i> {{ buff.description }}</i></small>
+                    </mat-chip>
+                </ng-container>
+            </mat-chip-list>
 
-        <mat-selection-list #combatBuffs>
-          <mat-list-option *ngFor="let buff of buffs" class="option-row" [selected]="buff.selected">
-            <div style="display:flex; justify-content:space-between;align-items:center">
-              <div style="display:flex;align-items:center">
-                <div style="display:flex; flex-direction:column">
-                  <div>
-                    {{ buff.name }}
-                  </div>
-                </div>
-              </div>
-              <div>
-                <button mat-icon-button (click)="editBuff($event, buff)">
-                  <mat-icon>edit</mat-icon>
-                </button>
-              </div>
-            </div>
-            <mat-divider></mat-divider>
-          </mat-list-option>
-        </mat-selection-list>
+            <mat-selection-list #combatBuffs [(ngModel)]="selectedCombatBuffs"
+                                (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
 
-      </mat-tab>
+                <mat-list-option *ngFor="let buff of buffs" class="option-row" [value]="buff" [selected]="buff.selected">
+                    <div style="display:flex; justify-content:space-between;align-items:center">
+                        <div style="display:flex;align-items:center">
+                            <div style="display:flex; flex-direction:column">
+                                <div>
+                                    {{ buff.name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button mat-icon-button (click)="editBuff($event, buff)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </mat-list-option>
+            </mat-selection-list>
 
-      <mat-tab label="CA">
-          <mat-grid-list cols="1" rowHeight="10rem" gutterSize="1rem">
-              <mat-grid-tile>
-                <mat-card class="normal-card">
-                  <mat-card-header>
-                    <mat-card-title>Classe armatura</mat-card-title>
-                  </mat-card-header>
+        </mat-tab>
 
-                  <mat-card-content>
-                    <p>
-                      Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
-                    </p>
-                  </mat-card-content>
-                </mat-card>
-              </mat-grid-tile>
-          </mat-grid-list>
+        <mat-tab label="CA">
+            <mat-grid-list cols="1" rowHeight="10rem" gutterSize="1rem">
+                <mat-grid-tile>
+                    <mat-card class="normal-card">
+                        <mat-card-header>
+                            <mat-card-title>Classe armatura</mat-card-title>
+                        </mat-card-header>
 
-        <mat-selection-list #armorBuffs>
-          <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
-            <div style="display:flex; justify-content:space-between;align-items:center">
-              <div style="display:flex;align-items:center">
-                <div style="display:flex; flex-direction:column">
-                  <div>
-                    {{ buff }}
-                  </div>
-                </div>
-              </div>
-              <div>
-                <button mat-icon-button routerLink="edit-buff">
-                  <mat-icon>edit</mat-icon>
-                </button>
-              </div>
-            </div>
-            <mat-divider></mat-divider>
-          </mat-list-option>
-        </mat-selection-list>
-      </mat-tab>
+                        <mat-card-content>
+                            <p>
+                                Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
 
-      <mat-tab label="TS">
-          <mat-grid-list cols="3" rowHeight="10rem" gutterSize="1rem">
-              <mat-grid-tile>
-                  <mat-card class="ts-card">
-                      <mat-card-header>
-                          <mat-card-title>Tempra</mat-card-title>
-                      </mat-card-header>
-                      <mat-card-content>
-                          <p>
-                              Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-                          </p>
-                      </mat-card-content>
-                  </mat-card>
-              </mat-grid-tile>
+            <mat-selection-list #armorBuffs>
+                <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+                    <div style="display:flex; justify-content:space-between;align-items:center">
+                        <div style="display:flex;align-items:center">
+                            <div style="display:flex; flex-direction:column">
+                                <div>
+                                    {{ buff }}
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button mat-icon-button routerLink="edit-buff">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-tab>
 
-          <mat-grid-tile>
-              <mat-card class="ts-card">
-                  <mat-card-header>
-                      <mat-card-title>Riflessi</mat-card-title>
-                  </mat-card-header>
+        <mat-tab label="TS">
+            <mat-grid-list cols="3" rowHeight="10rem" gutterSize="1rem">
+                <mat-grid-tile>
+                    <mat-card class="ts-card">
+                        <mat-card-header>
+                            <mat-card-title>Tempra</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>
+                                Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
 
-                      <mat-card-content>
-                          <p>
-                              Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-                          </p>
-                      </mat-card-content>
-                  </mat-card>
-              </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card class="ts-card">
+                        <mat-card-header>
+                            <mat-card-title>Riflessi</mat-card-title>
+                        </mat-card-header>
 
-          <mat-grid-tile>
-              <mat-card class="ts-card">
-                  <mat-card-header>
-                      <mat-card-title>Volontà</mat-card-title>
-                  </mat-card-header>
+                        <mat-card-content>
+                            <p>
+                                Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
 
-                      <mat-card-content>
-                          <p>
-                              Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
-                          </p>
-                      </mat-card-content>
-                  </mat-card>
-              </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card class="ts-card">
+                        <mat-card-header>
+                            <mat-card-title>Volontà</mat-card-title>
+                        </mat-card-header>
 
-          </mat-grid-list>
+                        <mat-card-content>
+                            <p>
+                                Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
 
-        <mat-selection-list #tsBuffs>
-          <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <div style="display:flex; align-items:center">
-                <div style="display:flex; flex-direction:column">
-                  <div>
-                    {{ buff }}
-                  </div>
-                </div>
-              </div>
-              <div>
-                <button mat-icon-button routerLink="edit-buff">
-                  <mat-icon>edit</mat-icon>
-                </button>
-              </div>
-            </div>
-            <mat-divider></mat-divider>
-          </mat-list-option>
-        </mat-selection-list>
-      </mat-tab>
+            </mat-grid-list>
+
+            <mat-selection-list #tsBuffs>
+                <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+                    <div style="display:flex; justify-content:space-between; align-items:center">
+                        <div style="display:flex; align-items:center">
+                            <div style="display:flex; flex-direction:column">
+                                <div>
+                                    {{ buff }}
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button mat-icon-button routerLink="edit-buff">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-tab>
 
     </mat-tab-group>
 
     <div class="primary-button">
-      <button mat-fab color="primary" (click)="addBuffPage()">
-        <mat-icon>add</mat-icon>
-      </button>
+        <button mat-fab color="primary" (click)="addBuffPage()">
+            <mat-icon>add</mat-icon>
+        </button>
     </div>
 </mat-drawer-container>

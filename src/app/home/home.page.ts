@@ -1,11 +1,9 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import { EditBuffPage } from '../edit-buff/edit-buff.page';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
-import {element} from 'protractor';
-import {forEach} from '@angular-devkit/schematics';
+import {MatSelectionList} from '@angular/material';
 
 export interface Characteristics {
     strength: number;
@@ -114,7 +112,7 @@ export class HomePage implements OnInit {
                 this.storage.set('db', {});
             }
             this.db = db;
-            console.log(this.db);
+            // console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = Object.keys(this.db)[0];
             // console.log(this.actualGameCharacter);
@@ -128,7 +126,11 @@ export class HomePage implements OnInit {
                     this.allCharacters.push(db[dbKey]);
                 }
             }
-            console.log(this.allCharacters);
+            // console.log(this.allCharacters);
+            console.log(this.db[this.actualGameCharacter]);
+            this.actualDamages = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength);
+            this.actualHits = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength)
+                + this.db[this.actualGameCharacter].bab;
         });
 
     }
@@ -156,12 +158,12 @@ export class HomePage implements OnInit {
                 this.storage.set('db', {});
             }
             this.db = db;
-            console.log(this.db);
+            // console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = Object.keys(this.db)[0];
-            console.log(this.actualGameCharacter);
+            // console.log(this.actualGameCharacter);
             this.buffs = this.db[this.actualGameCharacter].buffs;
-            console.log(this.buffs);
+            // console.log(this.buffs);
         });
     }
 
@@ -191,4 +193,35 @@ export class HomePage implements OnInit {
             allCharacters: this.allCharacters } });
     }
 
+    fromScoreToModifier(score: number) {
+        return Math.floor((score - 10) / 2);
+    }
+
+    actualDamages = 0;
+    actualHits = 0;
+
+    onBuffSelectionChange(selectedCombatBuffs: Buff[]) {
+
+        let actualDamagesCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength);
+        let actualHitsCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength)
+            + this.db[this.actualGameCharacter].bab;
+
+        for (let buff of selectedCombatBuffs) {
+            actualDamagesCalc += buff.damage;
+            actualHitsCalc += buff.hit;
+        }
+
+        console.log(selectedCombatBuffs);
+
+        this.actualDamages = actualDamagesCalc;
+        this.actualHits = actualHitsCalc;
+
+        this.writeSelectedDb();
+
+    }
+
+    writeSelectedDb() {
+        this.db[this.actualGameCharacter].buffs = this.buffs;
+        this.storage.set('db', this.db);
+    }
 }
