@@ -29,6 +29,11 @@
   text-align: center;
 }
 
+.info-col50 {
+  flex: 45%;
+  text-align: center;
+}
+
 .attr-table {
   text-align: center;
 }
@@ -53,15 +58,11 @@
 }
 
 .save-button {
-  align-content: center;
-  text-align: center;
-  align-self: center;
-  width: 75%;
-  position: fixed;
-  left: 50%;
-  margin-left: -37.5%;
-  bottom: 1rem;
-  z-index: 1;
+  width: 100%;
+}
+
+.delete-button {
+  width: 100%;
 }
 
 .icon-add-buff {
@@ -71,5 +72,14 @@
 }
 
 .save-button-div {
-
+  align-content: center;
+  text-align: center;
+  align-self: center;
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin-left: -37.5%;
+  bottom: 0.5rem;
+  z-index: 1;
+  margin-bottom: 3%;
 }
