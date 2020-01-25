@@ -14,8 +14,10 @@ import {Buff, Characteristics, GameCharacters} from '../home/home.page';
 export class AddCharacterPage implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, public navCtrl: NavController, public storage: Storage, public router: Router) {
+    this.allCharacters = this.router.getCurrentNavigation().extras.state.allCharacters;
   }
 
+  allCharacters: GameCharacters[];
   character: GameCharacters = {
     name: null,
     classe: null,
@@ -32,7 +34,7 @@ export class AddCharacterPage implements OnInit {
     st: {fortitude: 0, reflex: 0, will: 0},
   };
 
-  classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo'];
+  classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico'];
   sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
   levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
@@ -56,8 +58,9 @@ export class AddCharacterPage implements OnInit {
       this.storage.set('db', db);
       console.log(this.character);
 
-      this.router.navigate(['']);
+      this.allCharacters.push(this.character);
 
+      this.router.navigate(['home']);
 
     }));
 

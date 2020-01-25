@@ -171,22 +171,24 @@ export class HomePage implements OnInit {
 
     editBuff($event: MouseEvent, buff: Buff) {
         this.router.navigate(['/edit-buff'], { state: { buff,
-                actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes } } );
+                actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes,
+                allCharacters: this.allCharacters} } );
     }
 
     addBuffPage() {
         this.router.navigate(['add-buff'], { state: { actualGameCharacter: this.actualGameCharacter,
-                buffs: this.buffs, types: this.allTypes } });
+                buffs: this.buffs, types: this.allTypes, allCharacters: this.allCharacters } });
     }
 
     addCharacter() {
         this.router.navigate(['add-character'], { state: { actualGameCharacter: this.actualGameCharacter,
-                buffs: this.buffs, types: this.allTypes } });
+                buffs: this.buffs, types: this.allTypes, allCharacters: this.allCharacters } });
     }
 
     editCharacter($event: MouseEvent, char: GameCharacters) {
         this.router.navigate(['edit-character'], { state: { char,
-            actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes } });
+            actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes,
+            allCharacters: this.allCharacters } });
     }
 
 }

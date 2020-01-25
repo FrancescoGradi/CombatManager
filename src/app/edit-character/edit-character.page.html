@@ -105,9 +105,31 @@
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%">
               <mat-label>Classe</mat-label>
-              <mat-select [(value)]="selected">
+              <mat-select>
                 <mat-option *ngFor="let c of classes" [value]="c">
                   {{ c }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-col50">
+            <mat-form-field appearance="outline" style="width: 60%">
+              <mat-label>Livello</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let l of levels" [value]="l">
+                  {{ l }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="info-col50">
+            <mat-form-field appearance="outline" style="width: 60%">
+              <mat-label>Taglia</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let s of sizes" [value]="s">
+                  {{ s }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -117,6 +139,11 @@
     </mat-tab>
   </mat-tab-group>
   <div class="save-button-div">
-    <button mat-flat-button color="primary" routerLink="" class="save-button">Salva</button>
+    <div style="margin-bottom: 3%">
+      <button mat-flat-button color="primary" routerLink="" class="save-button">Salva</button>
+    </div>
+    <div>
+      <button mat-flat-button color="warn" routerLink="" class="delete-button">Elimina</button>
+    </div>
   </div>
 </form>
