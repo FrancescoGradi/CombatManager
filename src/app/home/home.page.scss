@@ -25,7 +25,7 @@ mat-drawer-container {
 }
 
 .normal-card {
-    margin: 1rem;
+    margin: 0rem;
 }
 
 .colp-card {
@@ -41,6 +41,13 @@ mat-drawer-container {
     right: 2rem;
     up: 0rem;
     z-index: 1;
+}
+
+.descriptions-container {
+}
+
+.mat-chip-descriptions {
+    left: 0.8rem;
 }
 
 .option-row {
