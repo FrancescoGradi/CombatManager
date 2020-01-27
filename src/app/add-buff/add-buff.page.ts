@@ -56,7 +56,7 @@ export class AddBuffPage implements OnInit {
             // TO-DO: scegliere le liste di appartenenza in base al buff
 
             // @ts-ignore
-            db[this.actualGameCharacter].buffs.push(this.buff);
+            db[this.actualGameCharacter.name].buffs.push(this.buff);
             this.storage.set('db', db);
 
             // questo e' il riferimento dell'array in home, se lo modifica, essendo bindato, aggiorna in automatico la

@@ -138,9 +138,9 @@ export class HomePage implements OnInit {
             this.db = db;
             // console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
-            this.actualGameCharacter = Object.keys(this.db)[0];
+            this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
             // console.log(this.actualGameCharacter);
-            this.buffs = this.db[this.actualGameCharacter].buffs;
+            this.buffs = this.actualGameCharacter.buffs;
             // console.log(this.buffs);
             // tslint:disable-next-line:forin
             for (const dbKey in this.db) {
@@ -152,21 +152,7 @@ export class HomePage implements OnInit {
             }
             // console.log(this.allCharacters);
             // console.log(this.db[this.actualGameCharacter]);
-            this.actualDamages = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength);
-            var actualHitsCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength)
-                + this.db[this.actualGameCharacter].bab;
-            this.actualHits = String(actualHitsCalc);
-
-            // routin per attacchi secondari
-            if (this.db[this.actualGameCharacter].bab >= 6) {
-                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
-                if (this.db[this.actualGameCharacter].bab >= 11) {
-                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
-                    if (this.db[this.actualGameCharacter].bab >= 16) {
-                        this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
-                    }
-                }
-            }
+            this.computeDamage();
         });
 
     }
@@ -181,15 +167,19 @@ export class HomePage implements OnInit {
             this.db = db;
             // console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
-            this.actualGameCharacter = Object.keys(this.db)[0];
-            // console.log(this.actualGameCharacter);
-            this.buffs = this.db[this.actualGameCharacter].buffs;
+            this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
+            console.log(this.actualGameCharacter);
+            this.buffs = this.actualGameCharacter.buffs;
             // console.log(this.buffs);
         });
     }
 
-    onSelChange(sel: string) {
-        this.selection = sel;
+    onSelChange(c: GameCharacters) {
+        this.selection = c.name;
+        this.buffs = c.buffs;
+        this.actualGameCharacter = c;
+        console.log(this.actualGameCharacter.name);
+        this.computeDamage();
     }
 
     editBuff($event: MouseEvent, buff: Buff) {
@@ -220,9 +210,9 @@ export class HomePage implements OnInit {
 
     onBuffSelectionChange(selectedCombatBuffs: Buff[]) {
 
-        let actualDamagesCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength);
-        let actualHitsCalc = this.fromScoreToModifier(this.db[this.actualGameCharacter].characteristics.strength)
-            + this.db[this.actualGameCharacter].bab;
+        let actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
+        let actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
+            + this.actualGameCharacter.bab;
 
         for (let buff of selectedCombatBuffs) {
             actualDamagesCalc += buff.damage;
@@ -234,12 +224,12 @@ export class HomePage implements OnInit {
         this.actualDamages = actualDamagesCalc;
         this.actualHits = String(actualHitsCalc);
 
-        // routin per attacchi secondari
-        if (this.db[this.actualGameCharacter].bab >= 6) {
+        // routine per attacchi secondari
+        if (this.actualGameCharacter.bab >= 6) {
             this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
-            if (this.db[this.actualGameCharacter].bab >= 11) {
+            if (this.actualGameCharacter.bab >= 11) {
                 this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
-                if (this.db[this.actualGameCharacter].bab >= 16) {
+                if (this.actualGameCharacter.bab >= 16) {
                     this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
                 }
             }
@@ -248,13 +238,33 @@ export class HomePage implements OnInit {
     }
 
     getWeaponDice() {
-        try { return this.db[this.actualGameCharacter]['weapon_dice']; } catch (e) {
+        try { return this.actualGameCharacter.weapon_dice; } catch (e) {
             return '';
         }
     }
 
     writeSelectedDb() {
-        this.db[this.actualGameCharacter].buffs = this.buffs;
+        this.db[this.actualGameCharacter.name].buffs = this.buffs;
         this.storage.set('db', this.db);
     }
+
+    computeDamage() {
+        console.log(this.actualGameCharacter);
+        this.actualDamages = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
+        var actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
+            + this.actualGameCharacter.bab;
+        this.actualHits = String(actualHitsCalc);
+
+        // routine per attacchi secondari
+        if (this.actualGameCharacter.bab >= 6) {
+            this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+            if (this.actualGameCharacter.bab >= 11) {
+                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                if (this.actualGameCharacter.bab >= 16) {
+                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                }
+            }
+        }
+    }
+
 }
