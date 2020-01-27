@@ -27,6 +27,7 @@ import {HomePageRoutingModule} from './home-routing.module';
 import {AddBuffPageModule} from '../add-buff/add-buff.module';
 import {EditBuffPageModule} from '../edit-buff/edit-buff.module';
 import {AddCharacterPageModule} from '../add-character/add-character.module';
+import {EditCharacterPageModule} from '../edit-character/edit-character.module';
 
 
 @NgModule({
@@ -55,9 +56,10 @@ import {AddCharacterPageModule} from '../add-character/add-character.module';
         AddBuffPageModule,
         EditBuffPageModule,
         AddCharacterPageModule,
+        EditCharacterPageModule,
         MatChipsModule,
     ],
-  declarations: [HomePage, EditCharacterPage]
+  declarations: [HomePage]
 })
 
 export class HomePageModule { }

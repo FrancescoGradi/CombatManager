@@ -7,7 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { EditCharacterPageRoutingModule } from './edit-character-routing.module';
 
 import { EditCharacterPage } from './edit-character.page';
-import {MatFormFieldModule, MatIconModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -18,7 +27,11 @@ import {MatFormFieldModule, MatIconModule, MatOptionModule, MatSelectModule} fro
         MatFormFieldModule,
         MatOptionModule,
         MatSelectModule,
-        MatIconModule
+        MatIconModule,
+        MatTabsModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatButtonModule
     ],
   declarations: [EditCharacterPage]
 })

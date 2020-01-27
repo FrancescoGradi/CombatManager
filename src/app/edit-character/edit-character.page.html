@@ -114,8 +114,8 @@
           </div>
         </div>
         <div class="info-row">
-          <div class="info-col50">
-            <mat-form-field appearance="outline" style="width: 60%">
+          <div class="info-col">
+            <mat-form-field appearance="outline" style="width: 90%">
               <mat-label>Livello</mat-label>
               <mat-select>
                 <mat-option *ngFor="let l of levels" [value]="l">
@@ -124,8 +124,10 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="info-col50">
-            <mat-form-field appearance="outline" style="width: 60%">
+        </div>
+        <div class="info-row">
+          <div class="info-col">
+            <mat-form-field appearance="outline" style="width: 90%">
               <mat-label>Taglia</mat-label>
               <mat-select>
                 <mat-option *ngFor="let s of sizes" [value]="s">
@@ -143,7 +145,7 @@
       <button mat-flat-button color="primary" routerLink="" class="save-button">Salva</button>
     </div>
     <div>
-      <button mat-flat-button color="warn" routerLink="" class="delete-button">Elimina</button>
+      <button mat-flat-button color="warn" (click)="deleteCharacter()" class="delete-button">Elimina</button>
     </div>
   </div>
 </form>
