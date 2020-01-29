@@ -14,7 +14,11 @@ import {Buff, Characteristics, GameCharacters} from '../home/home.page';
 export class AddCharacterPage implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, public navCtrl: NavController, public storage: Storage, public router: Router) {
-    this.allCharacters = this.router.getCurrentNavigation().extras.state.allCharacters;
+    try {
+      this.allCharacters = this.router.getCurrentNavigation().extras.state.allCharacters;
+    } catch (e) {
+      this.allCharacters = null;
+    }
   }
 
   allCharacters: GameCharacters[];

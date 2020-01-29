@@ -10,77 +10,88 @@
 <form class="pg-form">
   <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
     <mat-tab label="Statistiche">
-      <div class="row">
-        <div class="column">
-          <mat-form-field class="stat">
-            <input matInput placeholder="FOR">
-          </mat-form-field>
+      <div style="padding-top: 3%">
+        <div class="row">
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="FOR" [(ngModel)]="charToEdit.characteristics.strength" name="str_e">
+            </mat-form-field>
+          </div>
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="INT" [(ngModel)]="charToEdit.characteristics.intelligence" name="int_e">
+            </mat-form-field>
+          </div>
         </div>
-        <div class="column">
-          <mat-form-field class="stat">
-            <input matInput placeholder="INT">
-          </mat-form-field>
+        <div class="row">
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="DES" [(ngModel)]="charToEdit.characteristics.dexterity" name="dex_e">
+            </mat-form-field>
+          </div>
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="SAG" [(ngModel)]="charToEdit.characteristics.wisdom" name="wis_e">
+            </mat-form-field>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="column">
-          <mat-form-field class="stat">
-            <input matInput placeholder="DES">
-          </mat-form-field>
-        </div>
-        <div class="column">
-          <mat-form-field class="stat">
-            <input matInput placeholder="SAG">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column">
-          <mat-form-field class="stat">
-            <input matInput placeholder="COS">
-          </mat-form-field>
-        </div>
-        <div class="column">
-          <mat-form-field class="stat">
-            <input matInput placeholder="CAR">
-          </mat-form-field>
+        <div class="row">
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="COS" [(ngModel)]="charToEdit.characteristics.constitution" name="cos_e">
+            </mat-form-field>
+          </div>
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="CAR" [(ngModel)]="charToEdit.characteristics.charisma" name="char_e">
+            </mat-form-field>
+          </div>
         </div>
       </div>
       <div style="padding-top: 7%">
         <div class="row">
           <div class="column">
             <mat-form-field class="stat">
-              <input matInput placeholder="Punti Ferita">
+              <input matInput placeholder="Punti Ferita" [(ngModel)]="charToEdit.hp" name="hp_e">
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field class="stat">
-              <input matInput placeholder="Tempra">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Bonus Attacco Base">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Riflessi">
+              <input matInput placeholder="Tempra" [(ngModel)]="charToEdit.st.fortitude" name="for_e">
             </mat-form-field>
           </div>
         </div>
         <div class="row">
           <div class="column">
             <mat-form-field class="stat">
-              <input matInput placeholder="Iniziativa">
+              <input matInput placeholder="Bonus Attacco Base" [(ngModel)]="charToEdit.bab" name="bab_e">
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field class="stat">
-              <input matInput placeholder="Volontà">
+              <input matInput placeholder="Riflessi" [(ngModel)]="charToEdit.st.reflex" name="ref_e">
             </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="Iniziativa" [(ngModel)]="charToEdit.initiative" name="init_e">
+            </mat-form-field>
+          </div>
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="Volontà" [(ngModel)]="charToEdit.st.will" name="will_e">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <mat-form-field class="stat">
+              <input matInput placeholder="Classe Armatura" [(ngModel)]="charToEdit.ac" name="ac_e">
+            </mat-form-field>
+          </div>
+          <div class="column">
           </div>
         </div>
       </div>
@@ -90,14 +101,14 @@
         <div class="info-row">
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%">
-              <input matInput placeholder="Nome Personaggio">
+              <input matInput placeholder="Nome Personaggio" [(ngModel)]="charToEdit.name" name="name_e">
             </mat-form-field>
           </div>
         </div>
         <div class="info-row">
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%">
-              <input matInput placeholder="Razza">
+              <input matInput placeholder="Razza" [(ngModel)]="charToEdit.race" name="race_e">
             </mat-form-field>
           </div>
         </div>
@@ -105,7 +116,7 @@
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%">
               <mat-label>Classe</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="charToEdit.classe" name="class_e">
                 <mat-option *ngFor="let c of classes" [value]="c">
                   {{ c }}
                 </mat-option>
@@ -117,7 +128,7 @@
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%">
               <mat-label>Livello</mat-label>
-              <mat-select>
+              <mat-select  [(ngModel)]="charToEdit.level" name="lv_e">
                 <mat-option *ngFor="let l of levels" [value]="l">
                   {{ l }}
                 </mat-option>
@@ -129,7 +140,7 @@
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%">
               <mat-label>Taglia</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="charToEdit.size" name="size_e">
                 <mat-option *ngFor="let s of sizes" [value]="s">
                   {{ s }}
                 </mat-option>
@@ -142,7 +153,7 @@
   </mat-tab-group>
   <div class="save-button-div">
     <div style="margin-bottom: 3%">
-      <button mat-flat-button color="primary" routerLink="" class="save-button">Salva</button>
+      <button mat-flat-button color="primary" (click)="editCharacter()" class="save-button">Salva</button>
     </div>
     <div>
       <button mat-flat-button color="warn" (click)="deleteCharacter()" class="delete-button">Elimina</button>

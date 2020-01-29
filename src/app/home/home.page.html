@@ -109,30 +109,42 @@
                 <mat-grid-tile>
                     <mat-card class="normal-card">
                         <mat-card-header>
-                            <mat-card-title>Classe armatura</mat-card-title>
+                            <mat-card-title [(ngModel)]="actualArmor" ngDefaultControl>
+                                Classe armatura: {{ getAC() }} + {{ actualArmor }}
+                            </mat-card-title>
                         </mat-card-header>
 
                         <mat-card-content>
                             <p>
-                                Buffs selezionati: {{ armorBuffs.selectedOptions.selected.length }}
+                                Buffs selezionati: {{ acBuffs.selectedOptions.selected.length }}
                             </p>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
             </mat-grid-list>
 
-            <mat-selection-list #armorBuffs>
-                <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
+            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                    <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
+                        <small><i> {{ buff.description }}</i></small>
+                    </mat-chip>
+                </ng-container>
+            </mat-chip-list>
+
+            <mat-selection-list #acBuffs [(ngModel)]="selectedCombatBuffs"
+                                (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
+
+                <mat-list-option *ngFor="let buff of buffs" class="option-row" [value]="buff">
                     <div style="display:flex; justify-content:space-between;align-items:center">
                         <div style="display:flex;align-items:center">
                             <div style="display:flex; flex-direction:column">
                                 <div>
-                                    {{ buff }}
+                                    {{ buff.name }}
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button mat-icon-button routerLink="edit-buff">
+                            <button mat-icon-button (click)="editBuff($event, buff)">
                                 <mat-icon>edit</mat-icon>
                             </button>
                         </div>
@@ -146,12 +158,12 @@
             <mat-grid-list cols="3" rowHeight="10rem" gutterSize="1rem">
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-header>
-                            <mat-card-title>Tempra</mat-card-title>
+                        <mat-card-header [(ngModel)]="actualFortitude" ngDefaultControl>
+                            <mat-card-title>Tempra: {{ getFortitude() }} + {{ actualFortitude }}</mat-card-title>
                         </mat-card-header>
                         <mat-card-content>
                             <p>
-                                Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                                Buffs selezionati: {{ stBuffs.selectedOptions.selected.length }}
                             </p>
                         </mat-card-content>
                     </mat-card>
@@ -159,13 +171,13 @@
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-header>
-                            <mat-card-title>Riflessi</mat-card-title>
+                        <mat-card-header [(ngModel)]="actualReflex" ngDefaultControl>
+                            <mat-card-title>Riflessi: {{ getReflex() }} + {{ actualReflex }}</mat-card-title>
                         </mat-card-header>
 
                         <mat-card-content>
                             <p>
-                                Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                                Buffs selezionati: {{ stBuffs.selectedOptions.selected.length }}
                             </p>
                         </mat-card-content>
                     </mat-card>
@@ -173,13 +185,13 @@
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-header>
-                            <mat-card-title>Volontà</mat-card-title>
+                        <mat-card-header [(ngModel)]="actualWill" ngDefaultControl>
+                            <mat-card-title>Volontà: {{ getWill() }} + {{ actualWill }}</mat-card-title>
                         </mat-card-header>
 
                         <mat-card-content>
                             <p>
-                                Buffs selezionati: {{ tsBuffs.selectedOptions.selected.length }}
+                                Buffs selezionati: {{ stBuffs.selectedOptions.selected.length }}
                             </p>
                         </mat-card-content>
                     </mat-card>
@@ -187,18 +199,28 @@
 
             </mat-grid-list>
 
-            <mat-selection-list #tsBuffs>
-                <mat-list-option *ngFor="let buff of allBuffs" class="option-row">
-                    <div style="display:flex; justify-content:space-between; align-items:center">
-                        <div style="display:flex; align-items:center">
+            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                    <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
+                        <small><i> {{ buff.description }}</i></small>
+                    </mat-chip>
+                </ng-container>
+            </mat-chip-list>
+
+            <mat-selection-list #stBuffs [(ngModel)]="selectedCombatBuffs"
+                                (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
+
+                <mat-list-option *ngFor="let buff of buffs" class="option-row" [value]="buff">
+                    <div style="display:flex; justify-content:space-between;align-items:center">
+                        <div style="display:flex;align-items:center">
                             <div style="display:flex; flex-direction:column">
                                 <div>
-                                    {{ buff }}
+                                    {{ buff.name }}
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button mat-icon-button routerLink="edit-buff">
+                            <button mat-icon-button (click)="editBuff($event, buff)">
                                 <mat-icon>edit</mat-icon>
                             </button>
                         </div>

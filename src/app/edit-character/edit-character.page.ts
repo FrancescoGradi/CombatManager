@@ -11,9 +11,10 @@ import {Router} from '@angular/router';
 })
 export class EditCharacterPage implements OnInit {
 
-  constructor( public navCtrl: NavController, public storage: Storage, public router: Router ) {
-    this.charToEdit = this.router.getCurrentNavigation().extras.state.char;
-    this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
+  constructor( public navCtrl: NavController, public storage: Storage, public router: Router) {
+      this.charToEdit = this.router.getCurrentNavigation().extras.state.char;
+      this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
+      console.log(this.charToEdit);
   }
 
   charToEdit: GameCharacters;
@@ -26,9 +27,15 @@ export class EditCharacterPage implements OnInit {
   ngOnInit() {
   }
 
-  editCharacter(character: GameCharacters) {
+  editCharacter() {
 
-    this.charToEdit = character;
+      this.storage.get('db').then((db) => {
+
+          db[this.charToEdit.name] = this.charToEdit;
+          this.storage.set('db', db);
+
+          this.router.navigate(['home']);
+      });
 
   }
 

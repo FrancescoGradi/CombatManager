@@ -72,10 +72,9 @@ export class EditBuffPage implements OnInit {
 
                 db[this.actualGameCharacter].buffs = this.buffs;
                 this.storage.set('db', db);
-
-                this.router.navigate(['home']);
             });
         }
+        this.router.navigate(['home']);
     }
 
     saveBuff($event: MouseEvent) {

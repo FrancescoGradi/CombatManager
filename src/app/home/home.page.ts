@@ -69,9 +69,6 @@ export class HomePage implements OnInit {
 
     selection = '';
 
-    allBuffs: string[] = ['Benedizione', 'Armatura Magica', '+5 a caso', 'Favore divino',
-        '-1 ai TS "Scosso"'];
-
     buffs: Buff[] = [];
 
     db = {};
@@ -84,6 +81,11 @@ export class HomePage implements OnInit {
 
     actualDamages = 0;
     actualHits = '';
+    actualArmor = 0;
+    actualFortitude = 0;
+    actualReflex = 0;
+    actualWill = 0;
+    selectedCombatBuffs: any;
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         /*
@@ -124,10 +126,17 @@ export class HomePage implements OnInit {
             initiative: 1,
             weapon_dice: '1d8',
             size: 'Media',
+            st: {
+                fortitude: 9,
+                reflex: 7,
+                will: 13,
+            },
         };
 
         this.storage.set('db', this.db);
-        */
+
+         */
+
         // tslint:disable-next-line:variable-name
         this.storage.get('db').then((db) => {
 
@@ -140,7 +149,11 @@ export class HomePage implements OnInit {
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
             // console.log(this.actualGameCharacter);
-            this.buffs = this.actualGameCharacter.buffs;
+            if (this.actualGameCharacter != null) {
+                this.buffs = this.actualGameCharacter.buffs;
+            } else {
+                this.buffs = [];
+            }
             // console.log(this.buffs);
             // tslint:disable-next-line:forin
             for (const dbKey in this.db) {
@@ -152,7 +165,15 @@ export class HomePage implements OnInit {
             }
             // console.log(this.allCharacters);
             // console.log(this.db[this.actualGameCharacter]);
-            this.computeDamage();
+            if (this.actualGameCharacter != null) {
+                this.computeDamage();
+            }
+            // console.log(this.allCharacters.length);
+            // Tried to auto-redirect to character creation on first open
+            // tslint:disable-next-line:triple-equals
+            if (this.allCharacters.length == 0) {
+                this.addCharacter();
+            }
         });
 
     }
@@ -168,18 +189,24 @@ export class HomePage implements OnInit {
             // console.log(this.db);
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
-            console.log(this.actualGameCharacter);
-            this.buffs = this.actualGameCharacter.buffs;
+            // console.log(this.actualGameCharacter);
+            if (this.actualGameCharacter != null) {
+                this.buffs = this.actualGameCharacter.buffs;
+            } else {
+                this.buffs = [];
+            }
             // console.log(this.buffs);
+            this.onSelChange(this.actualGameCharacter);
         });
     }
 
     onSelChange(c: GameCharacters) {
-        this.selection = c.name;
-        this.buffs = c.buffs;
-        this.actualGameCharacter = c;
-        console.log(this.actualGameCharacter.name);
-        this.computeDamage();
+        if (c != null) {
+            this.selection = c.name;
+            this.buffs = c.buffs;
+            this.actualGameCharacter = c;
+            this.computeDamage();
+        }
     }
 
     editBuff($event: MouseEvent, buff: Buff) {
@@ -214,15 +241,28 @@ export class HomePage implements OnInit {
         let actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
             + this.actualGameCharacter.bab;
 
-        for (let buff of selectedCombatBuffs) {
+        let actualArmorCalc = 0;
+        let actualFortitudeCalc = 0;
+        let actualReflexCalc = 0;
+        let actualWillCalc = 0;
+
+        for (const buff of selectedCombatBuffs) {
             actualDamagesCalc += buff.damage;
             actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
             actualHitsCalc += buff.hit;
             actualHitsCalc += Math.floor(buff.strength_bonus / 2);
+            actualArmorCalc += Math.floor(buff.ac);
+            actualFortitudeCalc += Math.floor(buff.fortitude);
+            actualReflexCalc += Math.floor(buff.reflex);
+            actualWillCalc += Math.floor(buff.will);
         }
 
         this.actualDamages = actualDamagesCalc;
         this.actualHits = String(actualHitsCalc);
+        this.actualArmor = actualArmorCalc;
+        this.actualFortitude = actualFortitudeCalc;
+        this.actualReflex = actualReflexCalc;
+        this.actualWill = actualWillCalc;
 
         // routine per attacchi secondari
         if (this.actualGameCharacter.bab >= 6) {
@@ -243,15 +283,41 @@ export class HomePage implements OnInit {
         }
     }
 
+    getAC() {
+        try { return this.actualGameCharacter.ac; } catch (e) {
+            return 0;
+        }
+    }
+
+    getFortitude() {
+        try { return this.actualGameCharacter.st.fortitude; } catch (e) {
+            return 0;
+        }
+    }
+
+    getReflex() {
+        try { return this.actualGameCharacter.st.reflex; } catch (e) {
+            return 0;
+        }
+    }
+
+    getWill() {
+        try { return this.actualGameCharacter.st.will; } catch (e) {
+            return 0;
+        }
+    }
+
     writeSelectedDb() {
-        this.db[this.actualGameCharacter.name].buffs = this.buffs;
-        this.storage.set('db', this.db);
+        this.storage.get('db').then((db) => {
+            db[this.actualGameCharacter.name].buffs = this.buffs;
+            this.db = db;
+            this.storage.set('db', this.db);
+        });
     }
 
     computeDamage() {
-        console.log(this.actualGameCharacter);
         this.actualDamages = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
-        var actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
+        const actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
             + this.actualGameCharacter.bab;
         this.actualHits = String(actualHitsCalc);
 
