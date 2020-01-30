@@ -32,6 +32,7 @@ export class EditCharacterPage implements OnInit {
       this.storage.get('db').then((db) => {
 
           db[this.charToEdit.name] = this.charToEdit;
+          console.log(db);
           this.storage.set('db', db);
 
           this.router.navigate(['home']);
@@ -41,7 +42,7 @@ export class EditCharacterPage implements OnInit {
 
   deleteCharacter() {
 
-        let toRemove = this.allChar.indexOf(this.charToEdit);
+        const toRemove = this.allChar.indexOf(this.charToEdit);
 
         if (toRemove > -1) {
         this.allChar.splice(toRemove, 1);
@@ -50,7 +51,7 @@ export class EditCharacterPage implements OnInit {
           delete db[this.charToEdit.name];
           this.storage.set('db', db);
 
-          if(this.allChar.length === 0) {
+          if (this.allChar.length === 0) {
               this.router.navigate(['add-character'], { state: { allCharacters: this.allChar } });
           } else {
               this.router.navigate(['home']);

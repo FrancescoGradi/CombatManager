@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <button mat-button color="secondary" routerLink="">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="actual-pg-div">
+    {{ actualGameCharacter.name }}
+  </div>
+</mat-toolbar>
+
+<table>
+  <tr>
+    <td>Classe:</td>
+    <td>{{ actualGameCharacter.classe }}</td>
+  </tr>
+  <tr>
+    <td>Livello:</td>
+    <td>{{ actualGameCharacter.level }}</td>
+  </tr>
+  <tr>
+    <td>Taglia:</td>
+    <td>{{ actualGameCharacter.size }}</td>
+  </tr>
+  <tr>
+    <td>FOR:</td>
+    <td>{{ actualGameCharacter.characteristics.strength }}</td>
+  </tr>
+  <tr>
+    <td>DEX:</td>
+    <td>{{ actualGameCharacter.characteristics.dexterity }}</td>
+  </tr>
+  <tr>
+    <td>INT:</td>
+    <td>{{ actualGameCharacter.characteristics.intelligence }}</td>
+  </tr>
+  <tr>
+    <td>SAG:</td>
+    <td>{{ actualGameCharacter.characteristics.wisdom }}</td>
+  </tr>
+
+</table>

@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'edit-character',
     loadChildren: () => import('./edit-character/edit-character.module').then( m => m.EditCharacterPageModule)
   },
+  {
+    path: 'character-stats',
+    loadChildren: () => import('./character-stats/character-stats.module').then( m => m.CharacterStatsPageModule)
+  },
 ];
 
 @NgModule({

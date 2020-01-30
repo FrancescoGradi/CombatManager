@@ -52,7 +52,7 @@ export interface GameCharacters {
     buffs: Buff[];
     ac: number;
     hp: number;
-    bab: number;
+    bab: string;
     initiative: number;
     weapon_dice: string;
     size: string;
@@ -88,9 +88,8 @@ export class HomePage implements OnInit {
     selectedCombatBuffs: any;
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
-        /*
-        this.storage.set('db', this.db);
-         */
+
+        // this.storage.set('db', this.db);
 
         // tslint:disable-next-line:variable-name
         this.storage.get('db').then((db) => {
@@ -164,9 +163,19 @@ export class HomePage implements OnInit {
     }
 
     editCharacter($event: MouseEvent, char: GameCharacters) {
+        this.storage.get('db').then((db) => {
+            delete db[char.name];
+            this.storage.set('db', db);
+            this.db = db;
+            console.log(db);
+        });
         this.router.navigate(['edit-character'], { state: { char,
-            actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes,
-            allCharacters: this.allCharacters } });
+            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters } });
+    }
+
+    characterStats($event: MouseEvent) {
+        this.router.navigate(['character-stats'], { state: {
+            actualGameCharacter: this.actualGameCharacter }});
     }
 
     fromScoreToModifier(score: number) {

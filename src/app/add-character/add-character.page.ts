@@ -31,7 +31,7 @@ export class AddCharacterPage implements OnInit {
     buffs: [],
     ac: 0,
     hp: 1,
-    bab: 0,
+    bab: null,
     initiative: 0,
     weapon_dice: null,
     size: null,
