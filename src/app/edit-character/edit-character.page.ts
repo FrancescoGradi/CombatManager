@@ -50,7 +50,11 @@ export class EditCharacterPage implements OnInit {
           delete db[this.charToEdit.name];
           this.storage.set('db', db);
 
-          this.router.navigate(['home']);
+          if(this.allChar.length === 0) {
+              this.router.navigate(['add-character'], { state: { allCharacters: this.allChar } });
+          } else {
+              this.router.navigate(['home']);
+          }
         });
       }
 

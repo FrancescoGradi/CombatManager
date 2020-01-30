@@ -1,3 +1,9 @@
+.toolbar-title {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .pg-form {
   max-width: 500px;
   position: absolute;

@@ -89,52 +89,7 @@ export class HomePage implements OnInit {
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         /*
-        this.buffs.push({
-            ac: 0,
-            ac_list: false,
-            combat_list: false,
-            damage: 0,
-            description: null,
-            extra_attack: 0,
-            fortitude: 1,
-            hit: 0,
-            name: 'Benedizione',
-            reflex: 1,
-            st_list: true,
-            will: 1,
-            type: 'Nessuno',
-            selected: false,
-        });
-
-        this.db['Magnus'] = {
-            name: 'Magnus',
-            classe: 'Chierico',
-            race: 'Nano',
-            level: 11,
-            characteristics: {
-                strength: 16,
-                dexterity: 13,
-                constitution: 15,
-                intelligence: 10,
-                wisdom: 24,
-                charisma: 8,
-            },
-            buffs: [],
-            ac: 33,
-            hp: 92,
-            bab: 8,
-            initiative: 1,
-            weapon_dice: '1d8',
-            size: 'Media',
-            st: {
-                fortitude: 9,
-                reflex: 7,
-                will: 13,
-            },
-        };
-
         this.storage.set('db', this.db);
-
          */
 
         // tslint:disable-next-line:variable-name
@@ -145,17 +100,7 @@ export class HomePage implements OnInit {
                 this.storage.set('db', {});
             }
             this.db = db;
-            // console.log(this.db);
-            // Primo personaggio attuale, prima chiave del dizionario esterno
-            this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
-            // console.log(this.actualGameCharacter);
-            if (this.actualGameCharacter != null) {
-                this.buffs = this.actualGameCharacter.buffs;
-            } else {
-                this.buffs = [];
-            }
-            // console.log(this.buffs);
-            // tslint:disable-next-line:forin
+
             for (const dbKey in this.db) {
                 // if to be removed when erasing db for alpha release
                 // tslint:disable-next-line:triple-equals
@@ -163,6 +108,23 @@ export class HomePage implements OnInit {
                     this.allCharacters.push(db[dbKey]);
                 }
             }
+
+            if (this.allCharacters.length == 0) {
+                this.addCharacter();
+            }
+            // console.log(this.db);
+            // Primo personaggio attuale, prima chiave del dizionario esterno
+            this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
+            // console.log(this.actualGameCharacter);
+            if (this.actualGameCharacter != null) {
+                this.buffs = this.actualGameCharacter.buffs;
+                this.selection = this.actualGameCharacter.name;
+            } else {
+                this.buffs = [];
+            }
+            // console.log(this.buffs);
+            // tslint:disable-next-line:forin
+
             // console.log(this.allCharacters);
             // console.log(this.db[this.actualGameCharacter]);
             if (this.actualGameCharacter != null) {
@@ -171,34 +133,11 @@ export class HomePage implements OnInit {
             // console.log(this.allCharacters.length);
             // Tried to auto-redirect to character creation on first open
             // tslint:disable-next-line:triple-equals
-            if (this.allCharacters.length == 0) {
-                this.addCharacter();
-            }
         });
 
     }
 
-    ngOnInit(): void {
-        this.storage.get('db').then((db) => {
-
-            // Per inizializzare
-            if (db === null) {
-                this.storage.set('db', {});
-            }
-            this.db = db;
-            // console.log(this.db);
-            // Primo personaggio attuale, prima chiave del dizionario esterno
-            this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
-            // console.log(this.actualGameCharacter);
-            if (this.actualGameCharacter != null) {
-                this.buffs = this.actualGameCharacter.buffs;
-            } else {
-                this.buffs = [];
-            }
-            // console.log(this.buffs);
-            this.onSelChange(this.actualGameCharacter);
-        });
-    }
+    ngOnInit(): void { }
 
     onSelChange(c: GameCharacters) {
         if (c != null) {
@@ -221,8 +160,7 @@ export class HomePage implements OnInit {
     }
 
     addCharacter() {
-        this.router.navigate(['add-character'], { state: { actualGameCharacter: this.actualGameCharacter,
-                buffs: this.buffs, types: this.allTypes, allCharacters: this.allCharacters } });
+        this.router.navigate(['add-character'], { state: { allCharacters: this.allCharacters } });
     }
 
     editCharacter($event: MouseEvent, char: GameCharacters) {

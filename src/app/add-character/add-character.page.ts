@@ -17,7 +17,7 @@ export class AddCharacterPage implements OnInit {
     try {
       this.allCharacters = this.router.getCurrentNavigation().extras.state.allCharacters;
     } catch (e) {
-      this.allCharacters = null;
+      this.allCharacters = [];
     }
   }
 

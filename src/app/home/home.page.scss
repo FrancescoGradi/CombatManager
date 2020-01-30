@@ -13,8 +13,12 @@ mat-drawer-container {
 
 .selected-pg {
     width: 100%;
-    padding-left: 10%;
-    align-content: end;
+}
+
+.selected-pg-div {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .edit-char-button {
