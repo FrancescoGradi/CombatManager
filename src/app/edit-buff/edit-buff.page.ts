@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Buff, HomePage} from "../home/home.page";
+import {Buff} from "../home/home.page";
 import {NavController} from "@ionic/angular";
 import {Storage} from "@ionic/storage";
 import {Router} from "@angular/router";
 
-// @ts-ignore
-// @ts-ignore
 @Component({
   selector: 'app-edit-buff',
   templateUrl: './edit-buff.page.html',
@@ -47,12 +45,6 @@ export class EditBuffPage implements OnInit {
         this.buffToEdit = this.router.getCurrentNavigation().extras.state.buff;
         this.types = this.router.getCurrentNavigation().extras.state.types;
         this.selected = this.types[0];
-
-        console.log(this.actualGameCharacter);
-        console.log(this.buffs);
-        console.log(this.buffToEdit);
-        console.log(this.types);
-
     }
 
     ngOnInit() {
@@ -61,10 +53,6 @@ export class EditBuffPage implements OnInit {
     delBuff($event: MouseEvent) {
 
         let indexToRemove = this.buffs.indexOf(<Buff>this.buffToEdit);
-
-        console.log(this.buffs);
-        console.log(this.buffToEdit);
-        console.log(indexToRemove);
 
         if (indexToRemove > -1) {
             this.buffs.splice(indexToRemove, 1);
@@ -78,6 +66,26 @@ export class EditBuffPage implements OnInit {
     }
 
     saveBuff($event: MouseEvent) {
+
+        this.buffToEdit.combat_list = false;
+        this.buffToEdit.ac_list = false;
+        this.buffToEdit.st_list = false;
+
+        if (this.buffToEdit.hit != 0 || this.buffToEdit.damage != 0 || this.buffToEdit.strength_bonus != 0
+            || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null) {
+            this.buffToEdit.combat_list = true;
+        }
+
+        if (this.buffToEdit.ac != 0 || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.description != null) {
+            this.buffToEdit.ac_list = true;
+        }
+
+        if (this.buffToEdit.reflex != 0 || this.buffToEdit.fortitude != 0 || this.buffToEdit.will != 0
+            || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.wisdom_bonus != 0
+            || this.buffToEdit.constitution_bonus != 0 || this.buffToEdit.description != null) {
+            this.buffToEdit.st_list = true;
+        }
+
         this.router.navigate(['home']);
     }
 }

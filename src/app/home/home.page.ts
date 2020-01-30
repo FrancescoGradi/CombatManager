@@ -52,7 +52,7 @@ export interface GameCharacters {
     buffs: Buff[];
     ac: number;
     hp: number;
-    bab: number;
+    bab: string;
     initiative: number;
     weapon_dice: string;
     size: string;
@@ -80,17 +80,19 @@ export class HomePage implements OnInit {
     allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
 
     actualDamages = 0;
-    actualHits = '';
+    actualHits = null;
     actualArmor = 0;
     actualFortitude = 0;
     actualReflex = 0;
     actualWill = 0;
     selectedCombatBuffs: any;
+    selectedAcBuffs: any;
+    selectedStBuffs: any;
+    selected: any;
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
-        /*
-        this.storage.set('db', this.db);
-         */
+
+        // this.storage.set('db', this.db);
 
         // tslint:disable-next-line:variable-name
         this.storage.get('db').then((db) => {
@@ -202,13 +204,16 @@ export class HomePage implements OnInit {
         this.actualReflex = actualReflexCalc;
         this.actualWill = actualWillCalc;
 
+        console.log(actualHitsCalc);
+        console.log(this.actualHits);
+
         // routine per attacchi secondari
         if (this.actualGameCharacter.bab >= 6) {
             this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
             if (this.actualGameCharacter.bab >= 11) {
-                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 10));
                 if (this.actualGameCharacter.bab >= 16) {
-                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 15));
                 }
             }
         }
@@ -259,13 +264,16 @@ export class HomePage implements OnInit {
             + this.actualGameCharacter.bab;
         this.actualHits = String(actualHitsCalc);
 
+        console.log(actualHitsCalc);
+        console.log(this.actualHits);
+
         // routine per attacchi secondari
         if (this.actualGameCharacter.bab >= 6) {
             this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
             if (this.actualGameCharacter.bab >= 11) {
-                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 10));
                 if (this.actualGameCharacter.bab >= 16) {
-                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
+                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 15));
                 }
             }
         }
