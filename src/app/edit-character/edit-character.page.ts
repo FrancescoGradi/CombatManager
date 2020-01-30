@@ -25,6 +25,8 @@ export class EditCharacterPage implements OnInit {
     private actualReflex: number;
     private actualWill: number;
 
+    private computeDamage: any;
+
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         this.charToEdit = this.router.getCurrentNavigation().extras.state.char;
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
@@ -35,6 +37,9 @@ export class EditCharacterPage implements OnInit {
         this.actualFortitude = this.router.getCurrentNavigation().extras.state.actualFortitude;
         this.actualReflex = this.router.getCurrentNavigation().extras.state.actualReflex;
         this.actualWill = this.router.getCurrentNavigation().extras.state.actualWill;
+
+        this.computeDamage = this.router.getCurrentNavigation().extras.state.computeDamage;
+
     }
 
     ngOnInit() {
@@ -47,7 +52,7 @@ export class EditCharacterPage implements OnInit {
             db[this.charToEdit.name] = this.charToEdit;
             this.storage.set('db', db);
 
-            this.reCalcStats(this.charToEdit.buffs);
+            // this.reCalcStats(this.charToEdit.buffs);
 
             this.router.navigate(['home']);
         });

@@ -110,9 +110,6 @@ export class HomePage implements OnInit {
                 }
             }
 
-            console.log(this.allCharacters);
-            console.log(this.allCharacters.length);
-
             if (this.allCharacters.length == 0) {
                 this.addCharacter();
             }
@@ -172,12 +169,12 @@ export class HomePage implements OnInit {
             delete db[char.name];
             this.storage.set('db', db);
             this.db = db;
-            console.log(db);
         });
         this.router.navigate(['edit-character'], { state: { char,
             actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters,
                 actualDamages: this.actualDamages, actualHits: this.actualHits, actualArmor: this.actualArmor,
-                actualFortitude: this.actualFortitude, actualWill: this.actualWill, actualReflex: this.actualReflex } });
+                actualFortitude: this.actualFortitude, actualWill: this.actualWill, actualReflex: this.actualReflex,
+                computeDamage: this.computeDamage() } });
     }
 
     characterStats($event: MouseEvent) {
@@ -227,7 +224,7 @@ export class HomePage implements OnInit {
         this.actualFortitude = actualFortitudeCalc;
         this.actualReflex = actualReflexCalc;
         this.actualWill = actualWillCalc;
-
+        
         let extra_attacksTmpString = '';
         for(let i = 0; i < extra_attacks; i++) {
             extra_attacksTmpString = extra_attacksTmpString.concat('/', this.actualHits);
