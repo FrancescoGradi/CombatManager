@@ -1,9 +1,8 @@
-import {Component, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
-import {MatSelectionList} from '@angular/material';
 
 export interface Characteristics {
     strength: number;
@@ -52,7 +51,7 @@ export interface GameCharacters {
     buffs: Buff[];
     ac: number;
     hp: number;
-    bab: string;
+    bab: number;
     initiative: number;
     weapon_dice: string;
     size: string;
@@ -110,6 +109,9 @@ export class HomePage implements OnInit {
                     this.allCharacters.push(db[dbKey]);
                 }
             }
+
+            console.log(this.allCharacters);
+            console.log(this.allCharacters.length);
 
             if (this.allCharacters.length == 0) {
                 this.addCharacter();
@@ -173,7 +175,9 @@ export class HomePage implements OnInit {
             console.log(db);
         });
         this.router.navigate(['edit-character'], { state: { char,
-            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters } });
+            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters,
+                actualDamages: this.actualDamages, actualHits: this.actualHits, actualArmor: this.actualArmor,
+                actualFortitude: this.actualFortitude, actualWill: this.actualWill, actualReflex: this.actualReflex } });
     }
 
     characterStats($event: MouseEvent) {
@@ -188,13 +192,19 @@ export class HomePage implements OnInit {
     onBuffSelectionChange(selectedCombatBuffs: Buff[]) {
 
         let actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
-        let actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
-            + this.actualGameCharacter.bab;
+        let actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
+            + Number(this.actualGameCharacter.bab);
 
-        let actualArmorCalc = 0;
-        let actualFortitudeCalc = 0;
-        let actualReflexCalc = 0;
-        let actualWillCalc = 0;
+        let actualArmorCalc = Number(this.actualGameCharacter.ac);
+
+        let actualFortitudeCalc = Number(this.actualGameCharacter.st.fortitude)
+            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.constitution));
+        let actualReflexCalc = Number(this.actualGameCharacter.st.reflex)
+            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity));
+        let actualWillCalc = Number(this.actualGameCharacter.st.will)
+            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.wisdom));
+
+        let extra_attacks = 0;
 
         for (const buff of selectedCombatBuffs) {
             actualDamagesCalc += buff.damage;
@@ -203,8 +213,12 @@ export class HomePage implements OnInit {
             actualHitsCalc += Math.floor(buff.strength_bonus / 2);
             actualArmorCalc += Math.floor(buff.ac);
             actualFortitudeCalc += Math.floor(buff.fortitude);
+            actualFortitudeCalc += Math.floor(buff.constitution_bonus / 2);
             actualReflexCalc += Math.floor(buff.reflex);
+            actualReflexCalc += Math.floor(buff.dexterity_bonus / 2);
             actualWillCalc += Math.floor(buff.will);
+            actualWillCalc += Math.floor(buff.wisdom_bonus / 2);
+            extra_attacks += buff.extra_attack;
         }
 
         this.actualDamages = actualDamagesCalc;
@@ -214,8 +228,11 @@ export class HomePage implements OnInit {
         this.actualReflex = actualReflexCalc;
         this.actualWill = actualWillCalc;
 
-        console.log(actualHitsCalc);
-        console.log(this.actualHits);
+        let extra_attacksTmpString = '';
+        for(let i = 0; i < extra_attacks; i++) {
+            extra_attacksTmpString = extra_attacksTmpString.concat('/', this.actualHits);
+        }
+        this.actualHits = this.actualHits.concat(extra_attacksTmpString);
 
         // routine per attacchi secondari
         if (this.actualGameCharacter.bab >= 6) {
@@ -270,12 +287,9 @@ export class HomePage implements OnInit {
 
     computeDamage() {
         this.actualDamages = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
-        const actualHitsCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength)
-            + this.actualGameCharacter.bab;
+        let actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
+            + Number(this.actualGameCharacter.bab);
         this.actualHits = String(actualHitsCalc);
-
-        console.log(actualHitsCalc);
-        console.log(this.actualHits);
 
         // routine per attacchi secondari
         if (this.actualGameCharacter.bab >= 6) {
@@ -287,6 +301,21 @@ export class HomePage implements OnInit {
                 }
             }
         }
+
+        let actualArmorCalc = Number(this.actualGameCharacter.ac);
+
+        let actualFortitudeCalc = Number(this.actualGameCharacter.st.fortitude)
+            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.constitution));
+        let actualReflexCalc = Number(this.actualGameCharacter.st.reflex)
+            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity));
+        let actualWillCalc = Number(this.actualGameCharacter.st.will)
+            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.wisdom));
+
+        this.actualArmor = actualArmorCalc;
+        this.actualFortitude = actualFortitudeCalc;
+        this.actualReflex = actualReflexCalc;
+        this.actualWill = actualWillCalc;
+
     }
 
 }
