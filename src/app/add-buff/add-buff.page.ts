@@ -53,7 +53,20 @@ export class AddBuffPage implements OnInit {
 
         this.storage.get('db').then((db) => {
 
-            // TO-DO: scegliere le liste di appartenenza in base al buff
+            if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0
+                || this.buff.extra_attack != 0 || this.buff.description != null) {
+                this.buff.combat_list = true;
+            }
+
+            if (this.buff.ac != 0 || this.buff.dexterity_bonus != 0 || this.buff.description != null) {
+                this.buff.ac_list = true;
+            }
+
+            if (this.buff.reflex != 0 || this.buff.fortitude != 0 || this.buff.will != 0
+                || this.buff.dexterity_bonus != 0 || this.buff.wisdom_bonus != 0 || this.buff.constitution_bonus != 0
+                || this.buff.description != null) {
+                this.buff.st_list = true;
+            }
 
             // @ts-ignore
             db[this.actualGameCharacter.name].buffs.push(this.buff);
