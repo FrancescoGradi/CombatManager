@@ -165,13 +165,8 @@ export class HomePage implements OnInit {
     }
 
     editCharacter($event: MouseEvent, char: GameCharacters) {
-        this.storage.get('db').then((db) => {
-            delete db[char.name];
-            this.storage.set('db', db);
-            this.db = db;
-        });
         this.router.navigate(['edit-character'], { state: { char,
-            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters,
+            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters, buffs: this.buffs,
                 actualDamages: this.actualDamages, actualHits: this.actualHits, actualArmor: this.actualArmor,
                 actualFortitude: this.actualFortitude, actualWill: this.actualWill, actualReflex: this.actualReflex,
                 computeDamage: this.computeDamage() } });

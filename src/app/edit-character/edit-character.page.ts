@@ -18,6 +18,7 @@ export class EditCharacterPage implements OnInit {
     levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     selected = this.classes[0];
 
+    private buffs: Buff[];
     private actualDamages: number;
     private actualHits: string;
     private actualArmor: number;
@@ -30,6 +31,7 @@ export class EditCharacterPage implements OnInit {
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         this.charToEdit = this.router.getCurrentNavigation().extras.state.char;
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
+        this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
 
         this.actualDamages = this.router.getCurrentNavigation().extras.state.actualDamages;
         this.actualHits = this.router.getCurrentNavigation().extras.state.actualHits;
@@ -51,6 +53,22 @@ export class EditCharacterPage implements OnInit {
 
             db[this.charToEdit.name] = this.charToEdit;
             this.storage.set('db', db);
+
+            let indexToRemove = this.allChar.indexOf(<GameCharacters>this.charToEdit);
+
+            if (indexToRemove > -1) {
+                this.allChar.splice(indexToRemove, 1);
+                this.allChar.push(this.charToEdit);
+                // console.log(this.allChar);
+            }
+
+            this.buffs.push(null);
+            indexToRemove = this.buffs.indexOf(<Buff>null);
+            if (indexToRemove > -1) {
+                this.buffs.splice(indexToRemove, 1);
+                console.log(this.buffs);
+            }
+
 
             // this.reCalcStats(this.charToEdit.buffs);
 
