@@ -48,15 +48,11 @@
 
                         <mat-card-content>
                             <ng-container *ngFor="let buff of combatBuffs.selectedOptions.selected">
-                                <mat-chip-list *ngIf="buff.value.isBonus === true">
-                                    <mat-icon color="accent">arrow_drop_up</mat-icon>
-                                </mat-chip-list>
+                                <mat-icon *ngIf="buff.value.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                             </ng-container>
 
                             <ng-container *ngFor="let buff of combatBuffs.selectedOptions.selected">
-                                <mat-chip-list *ngIf="buff.value.isBonus === false">
-                                    <mat-icon>arrow_drop_down</mat-icon>
-                                </mat-chip-list>
+                                <mat-icon *ngIf="buff.value.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
                             </ng-container>
                         </mat-card-content>
                     </mat-card>
