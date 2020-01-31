@@ -1,5 +1,11 @@
 mat-drawer-container {
     flex: 1 1 auto;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+mat-toolbar {
+    height: 5rem;
 }
 
 .sidenav {
@@ -70,7 +76,7 @@ mat-drawer-container {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    z-index: 2;
+    z-index: 1;
 }
 
 .mat-card {
@@ -83,3 +89,4 @@ mat-drawer-container {
     justify-content: center;
     font-size: medium;
 }
+

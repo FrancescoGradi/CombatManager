@@ -1,39 +1,40 @@
-<mat-drawer-container>
-    <mat-drawer #drawer class="sidenav">
-        <mat-toolbar color="primary" label="Lista Personaggi">
-            <mat-label >Lista Personaggi</mat-label>
-            <button type="button" class="x-button" mat-icon-button (click)="drawer.toggle()">
-                <mat-icon aria-label="close">close</mat-icon>
-            </button>
-        </mat-toolbar>
-
-        <mat-nav-list *ngFor="let c of allCharacters">
-            <a id="pg" mat-list-item (click)="onSelChange(c);drawer.toggle()">
-                <mat-icon aria-label="face">face</mat-icon>
-                <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
-                <button class="edit-char-button" mat-icon-button (click)="editCharacter($event, c)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </a>
-        </mat-nav-list>
-        <button mat-raised-button class="new-button" (click)="addCharacter(); drawer.toggle()" color="primary">
-            Nuovo
+<mat-drawer #drawer class="sidenav">
+    <mat-toolbar color="primary" label="Lista Personaggi">
+        <mat-label >Lista Personaggi</mat-label>
+        <button type="button" class="x-button" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon aria-label="close">close</mat-icon>
         </button>
-    </mat-drawer>
+    </mat-toolbar>
 
-    <div class="sidenav-content">
-        <mat-toolbar color="primary">
-            <button type="button" mat-icon-button (click)="drawer.toggle()">
-                <mat-icon aria-label="menu">menu</mat-icon>
+    <mat-nav-list *ngFor="let c of allCharacters">
+        <a id="pg" mat-list-item (click)="onSelChange(c);drawer.toggle()">
+            <mat-icon aria-label="face">face</mat-icon>
+            <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
+            <button class="edit-char-button" mat-icon-button (click)="editCharacter($event, c)">
+                <mat-icon>edit</mat-icon>
             </button>
-            <div class="selected-pg-div">
-                <span class="selected-pg"> {{ selection }} </span>
-            </div>
-            <button type="button" mat-icon-button style="position: fixed;right: 1rem;">
-                <mat-icon aria-label="face" (click)="characterStats($event)">face</mat-icon>
-            </button>
-        </mat-toolbar>
-    </div>
+        </a>
+    </mat-nav-list>
+    <button mat-raised-button class="new-button" (click)="addCharacter(); drawer.toggle()" color="primary">
+        Nuovo
+    </button>
+</mat-drawer>
+
+<div class="sidenav-content">
+    <mat-toolbar color="primary">
+        <button type="button" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon aria-label="menu">menu</mat-icon>
+        </button>
+        <div class="selected-pg-div">
+            <span class="selected-pg"> {{ selection }} </span>
+        </div>
+        <button type="button" mat-icon-button style="position: fixed;right: 1rem;">
+            <mat-icon aria-label="face" (click)="characterStats($event)">face</mat-icon>
+        </button>
+    </mat-toolbar>
+</div>
+
+<mat-drawer-container>
 
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
 
@@ -67,9 +68,13 @@
                         </mat-card-header>
 
                         <mat-card-content>
-                            <p>
-                                Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
-                            </p>
+                            <ng-container *ngFor="let buff of combatBuffs.selectedOptions.selected">
+                                <mat-icon *ngIf="buff.value.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                            </ng-container>
+
+                            <ng-container *ngFor="let buff of combatBuffs.selectedOptions.selected">
+                                <mat-icon *ngIf="buff.value.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                            </ng-container>
                         </mat-card-content>
                     </mat-card>
 
@@ -85,29 +90,27 @@
                 </ng-container>
             </mat-chip-list>
 
-            <mat-selection-list #combatBuffs [(ngModel)]="selectedCombatBuffs"
-                                (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
+            <mat-selection-list #combatBuffs [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
                     <mat-list-option *ngIf="buff.combat_list === true" class="option-row" [value]="buff">
-                            <div style="display:flex; justify-content:space-between;align-items:center">
-                                <div style="display:flex;align-items:center">
-                                    <div style="display:flex; flex-direction:column">
-                                        <div>
-                                            {{ buff.name }}
-                                        </div>
+                        <div style="display:flex; justify-content:space-between;align-items:center">
+                            <div style="display:flex;align-items:center">
+                                <div style="display:flex; flex-direction:column">
+                                    <div>
+                                        {{ buff.name }}
                                     </div>
                                 </div>
-                                <div>
-                                    <button mat-icon-button (click)="editBuff($event, buff)">
-                                        <mat-icon>edit</mat-icon>
-                                    </button>
-                                </div>
                             </div>
-                            <mat-divider></mat-divider>
+                            <div>
+                                <button mat-icon-button (click)="editBuff($event, buff)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
                     </mat-list-option>
                 </ng-container>
             </mat-selection-list>
-
         </mat-tab>
 
         <mat-tab label="CA">
@@ -121,9 +124,15 @@
                         </mat-card-header>
 
                         <mat-card-content>
-                            <p>
-                                Buffs selezionati: {{ acBuffs.selectedOptions.selected.length }}
-                            </p>
+                            <mat-card-content>
+                                <ng-container *ngFor="let buff of acBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                </ng-container>
+
+                                <ng-container *ngFor="let buff of acBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                </ng-container>
+                            </mat-card-content>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
@@ -138,8 +147,7 @@
             </mat-chip-list>
 
             <mat-selection-list #acBuffs [(ngModel)]="selectedAcBuffs"
-                                (ngModelChange)="onBuffSelectionChange(selectedAcBuffs)">
-
+                            (ngModelChange)="onBuffSelectionChange(selectedAcBuffs)">
                 <ng-container *ngFor="let buff of buffs">
                     <mat-list-option *ngIf="buff.ac_list === true" class="option-row" [value]="buff">                    <div style="display:flex; justify-content:space-between;align-items:center">
                         <div style="display:flex;align-items:center">
@@ -169,9 +177,15 @@
                             <mat-card-title>Tempra: {{ actualFortitude }}</mat-card-title>
                         </mat-card-header>
                         <mat-card-content>
-                            <p>
-                                Buffs selezionati: {{ stBuffs.selectedOptions.selected.length }}
-                            </p>
+                            <mat-card-content>
+                                <ng-container *ngFor="let buff of stBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                </ng-container>
+
+                                <ng-container *ngFor="let buff of stBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                </ng-container>
+                            </mat-card-content>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
@@ -183,9 +197,15 @@
                         </mat-card-header>
 
                         <mat-card-content>
-                            <p>
-                                Buffs selezionati: {{ stBuffs.selectedOptions.selected.length }}
-                            </p>
+                            <mat-card-content>
+                                <ng-container *ngFor="let buff of stBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                </ng-container>
+
+                                <ng-container *ngFor="let buff of stBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                </ng-container>
+                            </mat-card-content>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
@@ -197,9 +217,15 @@
                         </mat-card-header>
 
                         <mat-card-content>
-                            <p>
-                                Buffs selezionati: {{ stBuffs.selectedOptions.selected.length }}
-                            </p>
+                            <mat-card-content>
+                                <ng-container *ngFor="let buff of stBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                </ng-container>
+
+                                <ng-container *ngFor="let buff of stBuffs.selectedOptions.selected">
+                                    <mat-icon *ngIf="buff.value.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                </ng-container>
+                            </mat-card-content>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
@@ -215,7 +241,7 @@
             </mat-chip-list>
 
             <mat-selection-list #stBuffs [(ngModel)]="selectedStBuffs"
-                                (ngModelChange)="onBuffSelectionChange(selectedStBuffs)">
+                            (ngModelChange)="onBuffSelectionChange(selectedStBuffs)">
 
                 <ng-container *ngFor="let buff of buffs">
                     <mat-list-option *ngIf="buff.st_list === true" class="option-row" [value]="buff">                      <div style="display:flex; justify-content:space-between;align-items:center">
@@ -240,9 +266,10 @@
 
     </mat-tab-group>
 
-    <div class="primary-button">
-        <button mat-fab color="primary" (click)="addBuffPage()">
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
 </mat-drawer-container>
+
+<div class="primary-button">
+    <button mat-fab color="primary" (click)="addBuffPage()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

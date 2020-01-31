@@ -1,5 +1,11 @@
 mat-drawer-container {
   flex: 1 1 auto;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+mat-toolbar {
+  height: 5rem;
 }
 
 .toolbar-title {
@@ -65,14 +71,13 @@ mat-drawer-container {
   width: 21rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .stat {
   width: 90%;
   max-width: 6rem;
 }
-
-
 
 .del-button {
   position: relative;

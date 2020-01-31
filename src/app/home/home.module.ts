@@ -28,6 +28,7 @@ import {AddBuffPageModule} from '../add-buff/add-buff.module';
 import {EditBuffPageModule} from '../edit-buff/edit-buff.module';
 import {AddCharacterPageModule} from '../add-character/add-character.module';
 import {EditCharacterPageModule} from '../edit-character/edit-character.module';
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {EditCharacterPageModule} from '../edit-character/edit-character.module';
         AddCharacterPageModule,
         EditCharacterPageModule,
         MatChipsModule,
+        ScrollingModule,
     ],
   declarations: [HomePage]
 })
