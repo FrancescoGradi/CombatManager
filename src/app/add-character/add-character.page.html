@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <button mat-button color="secondary" routerLink="">
+  <button mat-button color="secondary" routerLink="" style="left: -1rem">
     <mat-icon>arrow_back</mat-icon>
   </button>
   <div class="toolbar-title">
@@ -120,7 +120,7 @@
             </td>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="Tempra" [(ngModel)]="character.st.fortitude">
+                <input matInput type="number" placeholder="Bonus Tempra Base" [(ngModel)]="character.st.fortitude">
               </mat-form-field>
             </td>
           </tr>
@@ -132,7 +132,7 @@
             </td>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="Riflessi" [(ngModel)]="character.st.reflex">
+                <input matInput type="number" placeholder="Bonus Riflessi Base" [(ngModel)]="character.st.reflex">
               </mat-form-field>
             </td>
           </tr>
@@ -144,7 +144,7 @@
             </td>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="Volontà" [(ngModel)]="character.st.will">
+                <input matInput type="number" placeholder="Bonus Volontà Base" [(ngModel)]="character.st.will">
               </mat-form-field>
             </td>
           </tr>

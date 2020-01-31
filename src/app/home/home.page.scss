@@ -7,6 +7,11 @@ mat-drawer-container {
     max-width: 20rem;
 }
 
+.x-button {
+    position: absolute;
+    right: 1rem;
+}
+
 .new-button {
     width: 80%;
 }
@@ -23,8 +28,16 @@ mat-drawer-container {
 
 .edit-char-button {
     position: absolute;
-    right: 2rem;
+    right: 1rem;
     up: 0rem;
+    z-index: 1;
+}
+
+.new-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    left: 2rem;
     z-index: 1;
 }
 
