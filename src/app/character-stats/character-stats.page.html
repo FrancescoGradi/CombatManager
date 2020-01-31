@@ -7,34 +7,71 @@
   </div>
 </mat-toolbar>
 
-<table>
-  <tr>
-    <td>Classe:</td>
-    <td>{{ actualGameCharacter.classe }}</td>
-  </tr>
-  <tr>
-    <td>Livello:</td>
-    <td>{{ actualGameCharacter.level }}</td>
-  </tr>
-  <tr>
-    <td>Taglia:</td>
-    <td>{{ actualGameCharacter.size }}</td>
-  </tr>
-  <tr>
-    <td>FOR:</td>
-    <td>{{ actualGameCharacter.characteristics.strength }}</td>
-  </tr>
-  <tr>
-    <td>DEX:</td>
-    <td>{{ actualGameCharacter.characteristics.dexterity }}</td>
-  </tr>
-  <tr>
-    <td>INT:</td>
-    <td>{{ actualGameCharacter.characteristics.intelligence }}</td>
-  </tr>
-  <tr>
-    <td>SAG:</td>
-    <td>{{ actualGameCharacter.characteristics.wisdom }}</td>
-  </tr>
-
-</table>
+<div>
+  <table>
+    <tr>
+      <td>Classe: </td>
+      <td>{{ this.actualGameCharacter.classe }}</td>
+    </tr>
+    <tr>
+      <td>Razza: </td>
+      <td>{{ this.actualGameCharacter.race }}</td>
+    </tr>
+    <tr>
+      <td>Livello: </td>
+      <td>{{ this.actualGameCharacter.level }}</td>
+    </tr>
+    <tr>
+      <td>Taglia: </td>
+      <td>{{ this.actualGameCharacter.size }}</td>
+    </tr>
+    <tr>
+      <td>FOR: </td>
+      <td>{{ this.actualGameCharacter.characteristics.strength }}</td>
+    </tr>
+    <tr>
+      <td>DEX: </td>
+      <td>{{ this.actualGameCharacter.characteristics.dexterity }}</td>
+    </tr>
+    <tr>
+      <td>COS: </td>
+      <td>{{ this.actualGameCharacter.characteristics.constitution }}</td>
+    </tr>
+    <tr>
+      <td>INT: </td>
+      <td>{{ this.actualGameCharacter.characteristics.intelligence }}</td>
+    </tr>
+    <tr>
+      <td>SAG: </td>
+      <td>{{ this.actualGameCharacter.characteristics.wisdom }}</td>
+    </tr>
+    <tr>
+      <td>CAR: </td>
+      <td>{{ this.actualGameCharacter.characteristics.charisma }}</td>
+    </tr>
+    <tr>
+      <td>Punti Ferita: </td>
+      <td>{{ this.actualGameCharacter.hp }}</td>
+    </tr>
+    <tr>
+      <td>Bonus Attacco Base: </td>
+      <td>{{ this.actualGameCharacter.bab }}</td>
+    </tr>
+    <tr>
+      <td>Iniziativa: </td>
+      <td>{{ this.actualGameCharacter.initiative }}</td>
+    </tr>
+    <tr>
+      <td>Tempra: </td>
+      <td>{{ this.actualGameCharacter.st.fortitude }}</td>
+    </tr>
+    <tr>
+      <td>Riflessi: </td>
+      <td>{{ this.actualGameCharacter.st.reflex }}</td>
+    </tr>
+    <tr>
+      <td>Volontà: </td>
+      <td>{{ this.actualGameCharacter.st.will }}</td>
+    </tr>
+  </table>
+</div>
