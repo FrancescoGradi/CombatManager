@@ -9,8 +9,10 @@ mat-toolbar {
 }
 
 .sidenav {
+    position: fixed;
     width: 80%;
     max-width: 20rem;
+    top: 0;
 }
 
 .x-button {

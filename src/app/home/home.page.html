@@ -1,40 +1,37 @@
-<mat-drawer #drawer class="sidenav">
-    <mat-toolbar color="primary" label="Lista Personaggi">
-        <mat-label >Lista Personaggi</mat-label>
-        <button type="button" class="x-button" mat-icon-button (click)="drawer.toggle()">
-            <mat-icon aria-label="close">close</mat-icon>
-        </button>
-    </mat-toolbar>
-
-    <mat-nav-list *ngFor="let c of allCharacters">
-        <a id="pg" mat-list-item (click)="onSelChange(c);drawer.toggle()">
-            <mat-icon aria-label="face">face</mat-icon>
-            <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
-            <button class="edit-char-button" mat-icon-button (click)="editCharacter($event, c)">
-                <mat-icon>edit</mat-icon>
-            </button>
-        </a>
-    </mat-nav-list>
-    <button mat-raised-button class="new-button" (click)="addCharacter(); drawer.toggle()" color="primary">
-        Nuovo
+<mat-toolbar color="primary">
+    <button type="button" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="menu">menu</mat-icon>
     </button>
-</mat-drawer>
-
-<div class="sidenav-content">
-    <mat-toolbar color="primary">
-        <button type="button" mat-icon-button (click)="drawer.toggle()">
-            <mat-icon aria-label="menu">menu</mat-icon>
-        </button>
-        <div class="selected-pg-div">
-            <span class="selected-pg"> {{ selection }} </span>
-        </div>
-        <button type="button" mat-icon-button style="position: fixed;right: 1rem;">
-            <mat-icon aria-label="face" (click)="characterStats($event)">face</mat-icon>
-        </button>
-    </mat-toolbar>
-</div>
+    <div class="selected-pg-div">
+        <span class="selected-pg"> {{ selection }} </span>
+    </div>
+    <button type="button" mat-icon-button style="position: fixed;right: 1rem;">
+        <mat-icon aria-label="face" (click)="characterStats($event)">face</mat-icon>
+    </button>
+</mat-toolbar>
 
 <mat-drawer-container>
+
+    <mat-drawer #drawer class="sidenav">
+        <mat-toolbar color="primary" label="Lista Personaggi">
+            <mat-label >Lista Personaggi</mat-label>
+            <button type="button" class="x-button" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon aria-label="close">close</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list *ngFor="let c of allCharacters">
+            <a id="pg" mat-list-item (click)="onSelChange(c);drawer.toggle()">
+                <mat-icon aria-label="face">face</mat-icon>
+                <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
+                <button class="edit-char-button" mat-icon-button (click)="editCharacter($event, c)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </a>
+        </mat-nav-list>
+        <button mat-raised-button class="new-button" (click)="addCharacter(); drawer.toggle()" color="primary">
+            Nuovo
+        </button>
+    </mat-drawer>
 
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
 
