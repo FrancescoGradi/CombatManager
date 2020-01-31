@@ -7,71 +7,27 @@
   </div>
 </mat-toolbar>
 
-<div>
-  <table>
-    <tr>
-      <td>Classe: </td>
-      <td>{{ this.actualGameCharacter.classe }}</td>
-    </tr>
-    <tr>
-      <td>Razza: </td>
-      <td>{{ this.actualGameCharacter.race }}</td>
-    </tr>
-    <tr>
-      <td>Livello: </td>
-      <td>{{ this.actualGameCharacter.level }}</td>
-    </tr>
-    <tr>
-      <td>Taglia: </td>
-      <td>{{ this.actualGameCharacter.size }}</td>
-    </tr>
-    <tr>
-      <td>FOR: </td>
-      <td>{{ this.actualGameCharacter.characteristics.strength }}</td>
-    </tr>
-    <tr>
-      <td>DEX: </td>
-      <td>{{ this.actualGameCharacter.characteristics.dexterity }}</td>
-    </tr>
-    <tr>
-      <td>COS: </td>
-      <td>{{ this.actualGameCharacter.characteristics.constitution }}</td>
-    </tr>
-    <tr>
-      <td>INT: </td>
-      <td>{{ this.actualGameCharacter.characteristics.intelligence }}</td>
-    </tr>
-    <tr>
-      <td>SAG: </td>
-      <td>{{ this.actualGameCharacter.characteristics.wisdom }}</td>
-    </tr>
-    <tr>
-      <td>CAR: </td>
-      <td>{{ this.actualGameCharacter.characteristics.charisma }}</td>
-    </tr>
-    <tr>
-      <td>Punti Ferita: </td>
-      <td>{{ this.actualGameCharacter.hp }}</td>
-    </tr>
-    <tr>
-      <td>Bonus Attacco Base: </td>
-      <td>{{ this.actualGameCharacter.bab }}</td>
-    </tr>
-    <tr>
-      <td>Iniziativa: </td>
-      <td>{{ this.actualGameCharacter.initiative }}</td>
-    </tr>
-    <tr>
-      <td>Tempra: </td>
-      <td>{{ this.actualGameCharacter.st.fortitude }}</td>
-    </tr>
-    <tr>
-      <td>Riflessi: </td>
-      <td>{{ this.actualGameCharacter.st.reflex }}</td>
-    </tr>
-    <tr>
-      <td>Volontà: </td>
-      <td>{{ this.actualGameCharacter.st.will }}</td>
-    </tr>
-  </table>
-</div>
+<mat-card style="height: 95%">
+  <mat-card>
+    <mat-card-content>
+      <ng-container *ngFor="let buff of activeBuffs">
+        <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff.name }}
+              </div>
+            </div>
+          </div>
+          <div>
+            {{ buff.description }}
+          </div>
+          <div>
+            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
+            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
+          </div>
+        </div>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</mat-card>

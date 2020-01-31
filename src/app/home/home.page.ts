@@ -152,7 +152,7 @@ export class HomePage implements OnInit {
 
     editBuff($event: MouseEvent, buff: Buff) {
         this.router.navigate(['/edit-buff'], { state: { buff,
-                actualGameCharacter: this.actualGameCharacter, buffs: this.buffs, types: this.allTypes,
+                actualGameCharacter: this.actualGameCharacter.name, buffs: this.buffs, types: this.allTypes,
                 allCharacters: this.allCharacters} } );
     }
 
@@ -175,7 +175,7 @@ export class HomePage implements OnInit {
 
     characterStats($event: MouseEvent) {
         this.router.navigate(['character-stats'], { state: {
-            actualGameCharacter: this.actualGameCharacter }});
+            actualGameCharacter: this.actualGameCharacter, activeBuffs: this.selectedCombatBuffs }});
     }
 
     fromScoreToModifier(score: number) {

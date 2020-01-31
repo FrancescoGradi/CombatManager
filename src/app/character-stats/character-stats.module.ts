@@ -7,7 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CharacterStatsPageRoutingModule } from './character-stats-routing.module';
 
 import { CharacterStatsPage } from './character-stats.page';
-import {MatButtonModule, MatIconModule, MatTableModule, MatToolbarModule} from '@angular/material';
+import {
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatTableModule,
+    MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -18,7 +26,10 @@ import {MatButtonModule, MatIconModule, MatTableModule, MatToolbarModule} from '
         MatToolbarModule,
         MatIconModule,
         MatButtonModule,
-        MatTableModule
+        MatTableModule,
+        MatCardModule,
+        MatChipsModule,
+        MatFormFieldModule
     ],
   declarations: [CharacterStatsPage]
 })
