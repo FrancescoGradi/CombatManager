@@ -40,6 +40,7 @@ export interface Buff {
     intelligence_bonus: number;
     wisdom_bonus: number;
     charisma_bonus: number;
+    isBonus: boolean;
 }
 
 export interface GameCharacters {

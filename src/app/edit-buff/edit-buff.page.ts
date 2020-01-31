@@ -32,6 +32,7 @@ export class EditBuffPage implements OnInit {
         intelligence_bonus: 0,
         wisdom_bonus: 0,
         charisma_bonus: 0,
+        isBonus: false,
     };
 
     public types: string[];
@@ -70,6 +71,7 @@ export class EditBuffPage implements OnInit {
         this.buffToEdit.combat_list = false;
         this.buffToEdit.ac_list = false;
         this.buffToEdit.st_list = false;
+        this.buffToEdit.isBonus = false;
 
         if (this.buffToEdit.hit != 0 || this.buffToEdit.damage != 0 || this.buffToEdit.strength_bonus != 0
             || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null
@@ -87,6 +89,14 @@ export class EditBuffPage implements OnInit {
             || this.buffToEdit.constitution_bonus != 0 || this.buffToEdit.description != null
             || this.buffToEdit.description != '') {
             this.buffToEdit.st_list = true;
+        }
+
+        if (this.buffToEdit.hit > 0 || this.buffToEdit.damage > 0 || this.buffToEdit.ac > 0 || this.buffToEdit.fortitude > 0
+            || this.buffToEdit.reflex || this.buffToEdit.will > 0 || this.buffToEdit.strength_bonus > 0
+            || this.buffToEdit.dexterity_bonus > 0 || this.buffToEdit.constitution_bonus > 0 || this.buffToEdit.intelligence_bonus > 0
+            || this.buffToEdit.wisdom_bonus > 0 || this.buffToEdit.charisma_bonus > 0 || this.buffToEdit.extra_attack > 0
+            || this.buffToEdit.description != null) {
+            this.buffToEdit.isBonus = true;
         }
 
         this.router.navigate(['home']);

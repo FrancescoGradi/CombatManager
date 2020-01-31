@@ -47,9 +47,17 @@
                         </mat-card-header>
 
                         <mat-card-content>
-                            <p>
-                                Buffs selezionati: {{ combatBuffs.selectedOptions.selected.length }}
-                            </p>
+                            <ng-container *ngFor="let buff of combatBuffs.selectedOptions.selected">
+                                <mat-chip-list *ngIf="buff.value.isBonus === true">
+                                    <mat-icon color="accent">arrow_drop_up</mat-icon>
+                                </mat-chip-list>
+                            </ng-container>
+
+                            <ng-container *ngFor="let buff of combatBuffs.selectedOptions.selected">
+                                <mat-chip-list *ngIf="buff.value.isBonus === false">
+                                    <mat-icon>arrow_drop_down</mat-icon>
+                                </mat-chip-list>
+                            </ng-container>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
