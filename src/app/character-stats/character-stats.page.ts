@@ -12,13 +12,16 @@ import {Router} from '@angular/router';
 export class CharacterStatsPage implements OnInit {
 
   public actualGameCharacter: GameCharacters;
-  public activeBuffs: Buff[];
+  public activeCombatBuffs: Buff[];
+  public activeACBuffs: Buff[];
+  public activeSTBuffs: Buff[];
 
   constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
 
      this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
-     this.activeBuffs = this.router.getCurrentNavigation().extras.state.activeBuffs;
-     console.log(this.activeBuffs);
+     this.activeCombatBuffs = this.router.getCurrentNavigation().extras.state.activeCombatBuffs;
+     this.activeACBuffs = this.router.getCurrentNavigation().extras.state.activeACBuffs;
+     this.activeSTBuffs = this.router.getCurrentNavigation().extras.state.activeSTBuffs;
 
   }
 

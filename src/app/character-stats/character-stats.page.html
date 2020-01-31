@@ -10,7 +10,43 @@
 <mat-card style="height: 95%">
   <mat-card>
     <mat-card-content>
-      <ng-container *ngFor="let buff of activeBuffs">
+      <ng-container *ngFor="let buff of activeCombatBuffs">
+        <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff.name }}
+              </div>
+            </div>
+          </div>
+          <div>
+            {{ buff.description }}
+          </div>
+          <div>
+            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
+            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngFor="let buff of activeACBuffs">
+        <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff.name }}
+              </div>
+            </div>
+          </div>
+          <div>
+            {{ buff.description }}
+          </div>
+          <div>
+            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
+            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngFor="let buff of activeSTBuffs">
         <div style="display:flex; justify-content:space-between;align-items:center">
           <div style="display:flex;align-items:center">
             <div style="display:flex; flex-direction:column">

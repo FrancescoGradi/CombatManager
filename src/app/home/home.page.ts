@@ -175,7 +175,8 @@ export class HomePage implements OnInit {
 
     characterStats($event: MouseEvent) {
         this.router.navigate(['character-stats'], { state: {
-            actualGameCharacter: this.actualGameCharacter, activeBuffs: this.selectedCombatBuffs }});
+            actualGameCharacter: this.actualGameCharacter, activeCombatBuffs: this.selectedCombatBuffs,
+            activeACBuffs: this.selectedAcBuffs, activeSTBuffs: this.selectedStBuffs }});
     }
 
     fromScoreToModifier(score: number) {

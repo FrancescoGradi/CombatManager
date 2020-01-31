@@ -55,26 +55,31 @@ export class AddBuffPage implements OnInit {
         this.storage.get('db').then((db) => {
 
             if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0
-                || this.buff.extra_attack != 0 || this.buff.description != null || this.buff.description != '') {
+                || this.buff.extra_attack != 0 || (this.buff.description != null && this.buff.description.includes('attacco'))
+                || (this.buff.description != null && this.buff.description.includes('arma'))) {
                 this.buff.combat_list = true;
             }
 
-            if (this.buff.ac != 0 || this.buff.dexterity_bonus != 0 || this.buff.description != null
-                || this.buff.description != '') {
+            if (this.buff.ac != 0 || this.buff.dexterity_bonus != 0
+                || (this.buff.description != null && this.buff.description.includes('armatura'))
+                || (this.buff.description != null && this.buff.description.includes('difesa'))) {
                 this.buff.ac_list = true;
             }
 
             if (this.buff.reflex != 0 || this.buff.fortitude != 0 || this.buff.will != 0
                 || this.buff.dexterity_bonus != 0 || this.buff.wisdom_bonus != 0 || this.buff.constitution_bonus != 0
-                || this.buff.description != null || this.buff.description != '') {
+                || (this.buff.description != null && this.buff.description.includes('salvezza'))
+                || (this.buff.description != null && this.buff.description.includes('movimento'))) {
                 this.buff.st_list = true;
             }
 
-            if (this.buff.hit > 0 || this.buff.damage > 0 || this.buff.ac > 0 || this.buff.fortitude > 0 || this.buff.reflex
+            if (this.buff.hit > 0 || this.buff.damage > 0 || this.buff.ac > 0 || this.buff.fortitude > 0 || this.buff.reflex > 0
                 || this.buff.will > 0 || this.buff.strength_bonus > 0 || this.buff.dexterity_bonus > 0 || this.buff.constitution_bonus > 0
                 || this.buff.intelligence_bonus > 0 || this.buff.wisdom_bonus > 0 || this.buff.charisma_bonus > 0
-                || this.buff.extra_attack > 0 || this.buff.description != null) {
+                || this.buff.extra_attack > 0 || (this.buff.description != null && this.buff.description.includes('+'))) {
                 this.buff.isBonus = true;
+            } else {
+                this.buff.isBonus = false;
             }
 
             // @ts-ignore
