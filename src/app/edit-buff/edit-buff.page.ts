@@ -74,20 +74,17 @@ export class EditBuffPage implements OnInit {
         this.buffToEdit.isBonus = false;
 
         if (this.buffToEdit.hit != 0 || this.buffToEdit.damage != 0 || this.buffToEdit.strength_bonus != 0
-            || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null
-            || this.buffToEdit.description != '') {
+            || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null) {
             this.buffToEdit.combat_list = true;
         }
 
-        if (this.buffToEdit.ac != 0 || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.description != null
-            || this.buffToEdit.description != '') {
+        if (this.buffToEdit.ac != 0 || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.description != null) {
             this.buffToEdit.ac_list = true;
         }
 
         if (this.buffToEdit.reflex != 0 || this.buffToEdit.fortitude != 0 || this.buffToEdit.will != 0
             || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.wisdom_bonus != 0
-            || this.buffToEdit.constitution_bonus != 0 || this.buffToEdit.description != null
-            || this.buffToEdit.description != '') {
+            || this.buffToEdit.constitution_bonus != 0 || this.buffToEdit.description != null) {
             this.buffToEdit.st_list = true;
         }
 
