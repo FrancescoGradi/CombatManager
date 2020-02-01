@@ -50,7 +50,15 @@ mat-toolbar {
 }
 
 .normal-card {
-    margin: 0rem;
+    text-align: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+.ts-card {
+    text-align: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .edit-buff-button {
@@ -83,6 +91,8 @@ mat-toolbar {
 
 .mat-card {
     text-align: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .mat-card-title {

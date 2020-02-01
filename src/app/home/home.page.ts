@@ -183,7 +183,7 @@ export class HomePage implements OnInit {
         return Math.floor((score - 10) / 2);
     }
 
-    onBuffSelectionChange(selectedCombatBuffs: Buff[]) {
+    onBuffSelectionChange(selectedBuffs: Buff[]) {
 
         let actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
         let actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
@@ -200,7 +200,7 @@ export class HomePage implements OnInit {
 
         let extra_attacks = 0;
 
-        for (const buff of selectedCombatBuffs) {
+        for (let buff of selectedBuffs) {
             actualDamagesCalc += buff.damage;
             actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
             actualHitsCalc += buff.hit;
@@ -238,6 +238,10 @@ export class HomePage implements OnInit {
                 }
             }
         }
+
+        console.log(this.buffs);
+        console.log(this.selectedCombatBuffs);
+
         this.writeSelectedDb();
     }
 

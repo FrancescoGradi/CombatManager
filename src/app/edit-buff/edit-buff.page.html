@@ -22,7 +22,7 @@
 
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">fitness_center</mat-icon></td>
-    <td><mat-form-field type="number" class="ts-buff">
+    <td><mat-form-field class="ts-buff">
       <input matInput type="number" placeholder="Bonus Tiro" [(ngModel)]="buffToEdit.hit" name="hit_e">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
@@ -33,16 +33,16 @@
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">shield</mat-icon></td>
     <td>
-      <mat-form-field type="number" class="ca-buff">
-        <input matInput placeholder="Bonus Classe Armatura" [(ngModel)]="buffToEdit.ac" name="ac_e">
+      <mat-form-field class="ca-buff">
+        <input matInput type="number" placeholder="Bonus Classe Armatura" [(ngModel)]="buffToEdit.ac" name="ac_e">
       </mat-form-field>
     </td>
   </tr></table>
 
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">bolt</mat-icon></td>
-    <td><mat-form-field type="number" class="ts-buff">
-      <input matInput placeholder="Bonus Tempra" [(ngModel)]="buffToEdit.fortitude" name="fortitude_e">
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Tempra" [(ngModel)]="buffToEdit.fortitude" name="fortitude_e">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
       <input matInput type="number" placeholder="Bonus Riflessi" [(ngModel)]="buffToEdit.reflex" name="reflex_e">
