@@ -168,10 +168,7 @@ export class HomePage implements OnInit {
 
     editCharacter($event: MouseEvent, char: GameCharacters) {
         this.router.navigate(['edit-character'], { state: { char,
-            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters, buffs: this.buffs,
-                actualDamages: this.actualDamages, actualHits: this.actualHits, actualArmor: this.actualArmor,
-                actualFortitude: this.actualFortitude, actualWill: this.actualWill, actualReflex: this.actualReflex,
-                computeDamage: this.computeDamage() } });
+            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters, buffs: this.buffs } });
     }
 
     characterStats($event: MouseEvent) {
@@ -290,6 +287,7 @@ export class HomePage implements OnInit {
 
     computeDamage() {
         let actualHitsCalc = 0;
+        this.actualDamages = 0;
         if (this.actualGameCharacter.typeAttack === 'distanza') {
             actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity))
                 + Number(this.actualGameCharacter.bab);
