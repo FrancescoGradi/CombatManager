@@ -27,7 +27,7 @@ export class AddCharacterPage implements OnInit {
     classe: null,
     race: null,
     level: 1,
-    characteristics: {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0},
+    characteristics: {strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10},
     buffs: [],
     ac: 0,
     hp: 1,
@@ -35,6 +35,7 @@ export class AddCharacterPage implements OnInit {
     initiative: 0,
     weapon_dice: null,
     size: null,
+    typeAttack: 'mischia',
     st: {fortitude: 0, reflex: 0, will: 0},
   };
 

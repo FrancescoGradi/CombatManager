@@ -56,6 +56,7 @@ export interface GameCharacters {
     initiative: number;
     weapon_dice: string;
     size: string;
+    typeAttack: string;
     st: SavingThrows;
 }
 
@@ -185,9 +186,16 @@ export class HomePage implements OnInit {
 
     onBuffSelectionChange(selectedBuffs: Buff[]) {
 
-        let actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
-        let actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
-            + Number(this.actualGameCharacter.bab);
+        let actualHitsCalc = 0;
+        let actualDamagesCalc = 0;
+        if (this.actualGameCharacter.typeAttack === 'distanza') {
+            actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity))
+                + Number(this.actualGameCharacter.bab);
+        } else {
+            actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
+            actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
+                + Number(this.actualGameCharacter.bab);
+        }
 
         let actualArmorCalc = Number(this.actualGameCharacter.ac);
 
@@ -239,9 +247,6 @@ export class HomePage implements OnInit {
             }
         }
 
-        console.log(this.buffs);
-        console.log(this.selectedCombatBuffs);
-
         this.writeSelectedDb();
     }
 
@@ -284,9 +289,15 @@ export class HomePage implements OnInit {
     }
 
     computeDamage() {
-        this.actualDamages = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
-        let actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
-            + Number(this.actualGameCharacter.bab);
+        let actualHitsCalc = 0;
+        if (this.actualGameCharacter.typeAttack === 'distanza') {
+            actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity))
+                + Number(this.actualGameCharacter.bab);
+        } else {
+            this.actualDamages = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
+            actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
+                + Number(this.actualGameCharacter.bab);
+        }
         this.actualHits = String(actualHitsCalc);
 
         // routine per attacchi secondari
@@ -313,7 +324,6 @@ export class HomePage implements OnInit {
         this.actualFortitude = actualFortitudeCalc;
         this.actualReflex = actualReflexCalc;
         this.actualWill = actualWillCalc;
-
     }
 
 }

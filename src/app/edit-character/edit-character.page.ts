@@ -16,6 +16,7 @@ export class EditCharacterPage implements OnInit {
     classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico'];
     sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
     levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    attackTypes: string[] = ['mischia', 'distanza'];
     selected = this.classes[0];
 
     private buffs: Buff[];
@@ -41,7 +42,6 @@ export class EditCharacterPage implements OnInit {
         this.actualWill = this.router.getCurrentNavigation().extras.state.actualWill;
 
         this.computeDamage = this.router.getCurrentNavigation().extras.state.computeDamage;
-
     }
 
     ngOnInit() {
@@ -53,6 +53,8 @@ export class EditCharacterPage implements OnInit {
 
             db[this.charToEdit.name] = this.charToEdit;
             this.storage.set('db', db);
+
+            console.log(this.charToEdit);
 
             let indexToRemove = this.allChar.indexOf(<GameCharacters>this.charToEdit);
 
@@ -66,7 +68,6 @@ export class EditCharacterPage implements OnInit {
             indexToRemove = this.buffs.indexOf(<Buff>null);
             if (indexToRemove > -1) {
                 this.buffs.splice(indexToRemove, 1);
-                console.log(this.buffs);
             }
 
 

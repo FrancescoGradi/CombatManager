@@ -20,7 +20,7 @@
             </button>
         </mat-toolbar>
         <mat-nav-list *ngFor="let c of allCharacters">
-            <a id="pg" mat-list-item (click)="onSelChange(c);drawer.toggle()">
+            <a mat-list-item (click)="onSelChange(c);drawer.toggle()" [ngClass]="c === actualGameCharacter ? 'selected' : 'unselected'">
                 <mat-icon aria-label="face">face</mat-icon>
                 <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
                 <button class="edit-char-button" mat-icon-button (click)="editCharacter($event, c)">

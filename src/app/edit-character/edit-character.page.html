@@ -92,6 +92,11 @@
             </mat-form-field>
           </div>
           <div class="column">
+            <mat-radio-group class="radio-buttons" [(ngModel)]="charToEdit.typeAttack" name="typeAttack_e">
+              <mat-radio-button *ngFor="let type of attackTypes" [value]="type">
+                <i>{{ type }}</i>
+              </mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
       </div>

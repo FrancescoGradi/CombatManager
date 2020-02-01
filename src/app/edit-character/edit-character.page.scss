@@ -75,6 +75,11 @@ mat-toolbar {
   width: 100%;
 }
 
+.radio-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 .icon-add-buff {
   position: relative;
   float: left;

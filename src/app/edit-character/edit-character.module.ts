@@ -17,6 +17,7 @@ import {
     MatTabsModule,
     MatToolbarModule
 } from '@angular/material';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
     imports: [
@@ -31,7 +32,8 @@ import {
         MatTabsModule,
         MatToolbarModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatRadioModule
     ],
   declarations: [EditCharacterPage]
 })
