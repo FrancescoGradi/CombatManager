@@ -8,11 +8,14 @@
 </mat-toolbar>
 
 <mat-card style="height: 95%">
+  <mat-slide-toggle (click)="onToggleChange($event)">
+    Tutti i buffs
+  </mat-slide-toggle>
   <mat-card>
-    <mat-card-content>
+    <mat-card-content *ngIf="this.allBuffs === false">
       <ng-container *ngFor="let buff of activeCombatBuffs">
-        <div style="display:flex; justify-content:space-between;align-items:center">
-          <div style="display:flex;align-items:center">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <div style="display:flex; align-items:center">
             <div style="display:flex; flex-direction:column">
               <div>
                 {{ buff.name }}
@@ -59,8 +62,26 @@
             {{ buff.description }}
           </div>
           <div>
-            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
-            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
+            <div *ngIf="buff.selected === true">
+              <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
+              <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </mat-card-content>
+    <mat-card-content *ngIf="this.allBuffs === true">
+      <ng-container *ngFor="let buff of this.actualGameCharacter.buffs">
+        <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div>
+                {{ buff.name }}
+              </div>
+            </div>
+          </div>
+          <div>
+            {{ buff.description }}
           </div>
         </div>
       </ng-container>

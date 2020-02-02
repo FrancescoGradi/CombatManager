@@ -15,6 +15,7 @@ export class CharacterStatsPage implements OnInit {
   public activeCombatBuffs: Buff[];
   public activeACBuffs: Buff[];
   public activeSTBuffs: Buff[];
+  allBuffs: boolean;
 
   constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
 
@@ -22,10 +23,15 @@ export class CharacterStatsPage implements OnInit {
      this.activeCombatBuffs = this.router.getCurrentNavigation().extras.state.activeCombatBuffs;
      this.activeACBuffs = this.router.getCurrentNavigation().extras.state.activeACBuffs;
      this.activeSTBuffs = this.router.getCurrentNavigation().extras.state.activeSTBuffs;
+     this.allBuffs = false;
 
   }
 
   ngOnInit() {
+  }
+
+  onToggleChange($event) {
+      this.allBuffs = !this.allBuffs;
   }
 
 }

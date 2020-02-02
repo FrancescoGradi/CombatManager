@@ -12,7 +12,7 @@ import {
     MatCardModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatIconModule,
+    MatIconModule, MatSlideToggleModule,
     MatTableModule,
     MatToolbarModule
 } from '@angular/material';
@@ -29,7 +29,8 @@ import {
         MatTableModule,
         MatCardModule,
         MatChipsModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatSlideToggleModule
     ],
   declarations: [CharacterStatsPage]
 })
