@@ -85,6 +85,12 @@ mat-toolbar {
     z-index: 0;
 }
 
+.hidden-option-row {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
 .primary-button {
     position: fixed;
     bottom: 1rem;

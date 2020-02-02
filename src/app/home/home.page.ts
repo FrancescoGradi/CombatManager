@@ -148,7 +148,7 @@ export class HomePage implements OnInit {
             this.selection = c.name;
             this.buffs = c.buffs;
             this.actualGameCharacter = c;
-            this.onBuffSelectionChange([]);
+            this.onBuffSelectionChange(this.selectedCombatBuffs);
         }
     }
 
@@ -183,6 +183,17 @@ export class HomePage implements OnInit {
     }
 
     onBuffSelectionChange(selectedBuffs: Buff[]) {
+
+        for (let buff of this.buffs) {
+            buff.selected = false;
+            // @ts-ignore
+            for (let sel of selectedBuffs) {
+                if (buff == sel) {
+                    buff.selected = true;
+                    sel.selected = true;
+                }
+            }
+        }
 
         let actualHitsCalc = 0;
         let actualDamagesCalc = 0;
@@ -282,6 +293,7 @@ export class HomePage implements OnInit {
         this.storage.get('db').then((db) => {
             db[this.actualGameCharacter.name].buffs = this.buffs;
             this.db = db;
+            console.log(this.db);
             this.storage.set('db', this.db);
         });
     }

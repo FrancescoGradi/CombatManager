@@ -46,11 +46,11 @@
 
                         <mat-card-content>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                <mat-icon *ngIf="buff.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                <mat-icon *ngIf="buff.isBonus === true && buff.combat_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                             </ng-container>
 
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                <mat-icon *ngIf="buff.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                <mat-icon *ngIf="buff.isBonus === false && buff.combat_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                             </ng-container>
                         </mat-card-content>
                     </mat-card>
@@ -66,11 +66,11 @@
 
                         <mat-card-content>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                <mat-icon *ngIf="buff.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                <mat-icon *ngIf="buff.isBonus === true && buff.combat_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                             </ng-container>
 
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                <mat-icon *ngIf="buff.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                <mat-icon *ngIf="buff.isBonus === false && buff.combat_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                             </ng-container>
                         </mat-card-content>
                     </mat-card>
@@ -89,8 +89,7 @@
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option *ngIf="buff.combat_list === true" class="option-row" checkboxPosition="before"
-                                     [value]="buff" [selected]="buff.selected">
+                    <mat-list-option [ngClass]="buff.combat_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff" [selected]="buff.selected">
                         <div style="display:flex; justify-content:space-between;align-items:center">
                             <div style="display:flex;align-items:center">
                                 <div style="display:flex; flex-direction:column">
@@ -123,12 +122,12 @@
 
                         <mat-card-content>
                             <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedAcBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === true && buff.ac_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                                 </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedAcBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === false && buff.ac_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                                 </ng-container>
                             </mat-card-content>
                         </mat-card-content>
@@ -136,17 +135,18 @@
                 </mat-grid-tile>
             </mat-grid-list>
 
-            <mat-chip-list [(ngModel)]="selectedAcBuffs">
-                <ng-container *ngFor="let buff of selectedAcBuffs">
+            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                <ng-container *ngFor="let buff of selectedCombatBuffs">
                     <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
                         <small><i> {{ buff.description }}</i></small>
                     </mat-chip>
                 </ng-container>
             </mat-chip-list>
 
-            <mat-selection-list [(ngModel)]="selectedAcBuffs" (ngModelChange)="onBuffSelectionChange(selectedAcBuffs)">
+            <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option *ngIf="buff.ac_list === true" class="option-row" checkboxPosition="before" [value]="buff">
+                    <mat-list-option [ngClass]="buff.ac_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before"
+                                     [value]="buff" [selected]="buff.selected">
                         <div style="display:flex; justify-content:space-between;align-items:center">
                         <div style="display:flex;align-items:center">
                             <div style="display:flex; flex-direction:column">
@@ -176,12 +176,12 @@
                         </mat-card-header>
                         <mat-card-content>
                             <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedStBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                                 </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedStBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                                 </ng-container>
                             </mat-card-content>
                         </mat-card-content>
@@ -196,12 +196,12 @@
 
                         <mat-card-content>
                             <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedStBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                                 </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedStBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                                 </ng-container>
                             </mat-card-content>
                         </mat-card-content>
@@ -216,12 +216,12 @@
 
                         <mat-card-content>
                             <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedStBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                                 </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedStBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                                <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                    <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                                 </ng-container>
                             </mat-card-content>
                         </mat-card-content>
@@ -230,19 +230,20 @@
 
             </mat-grid-list>
 
-            <mat-chip-list [(ngModel)]="selectedStBuffs">
-                <ng-container *ngFor="let buff of selectedStBuffs">
+            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                <ng-container *ngFor="let buff of selectedCombatBuffs">
                     <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
                         <small><i> {{ buff.description }}</i></small>
                     </mat-chip>
                 </ng-container>
             </mat-chip-list>
 
-            <mat-selection-list [(ngModel)]="selectedStBuffs"
-                                (ngModelChange)="onBuffSelectionChange(selectedStBuffs)">
+            <mat-selection-list [(ngModel)]="selectedCombatBuffs"
+                                (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
 
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option *ngIf="buff.st_list === true" class="option-row" checkboxPosition="before" [value]="buff">
+                    <mat-list-option [ngClass]="buff.st_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before"
+                                     [value]="buff" [selected]="buff.selected">
                         <div style="display:flex; justify-content:space-between;align-items:center">
                         <div style="display:flex;align-items:center">
                             <div style="display:flex; flex-direction:column">
