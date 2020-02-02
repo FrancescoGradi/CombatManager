@@ -69,11 +69,22 @@
         </td>
 
         <td>
-          <mat-form-field>
+          <mat-form-field class="ts-buff">
             <mat-label>Tipo</mat-label>
             <mat-select [(ngModel)]="buffToEdit.type" name="type_e">
               <mat-option *ngFor="let t of types" [value]="t">
                 {{ t }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+
+        <td>
+          <mat-form-field class="ts-buff">
+            <mat-label>Aumento Taglia</mat-label>
+            <mat-select [(ngModel)]="buffToEdit.size" name="size_e">
+              <mat-option *ngFor="let s of sizes" [value]="s">
+                {{ s }}
               </mat-option>
             </mat-select>
           </mat-form-field>

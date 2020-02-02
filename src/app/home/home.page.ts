@@ -41,6 +41,7 @@ export interface Buff {
     wisdom_bonus: number;
     charisma_bonus: number;
     isBonus: boolean;
+    size: string;
 }
 
 export interface GameCharacters {
@@ -131,7 +132,7 @@ export class HomePage implements OnInit {
             // console.log(this.allCharacters);
             // console.log(this.db[this.actualGameCharacter]);
             if (this.actualGameCharacter != null) {
-                this.computeDamage();
+                this.onBuffSelectionChange([]);
             }
             // console.log(this.allCharacters.length);
             // Tried to auto-redirect to character creation on first open
@@ -147,7 +148,7 @@ export class HomePage implements OnInit {
             this.selection = c.name;
             this.buffs = c.buffs;
             this.actualGameCharacter = c;
-            this.computeDamage();
+            this.onBuffSelectionChange([]);
         }
     }
 
@@ -284,44 +285,4 @@ export class HomePage implements OnInit {
             this.storage.set('db', this.db);
         });
     }
-
-    computeDamage() {
-        let actualHitsCalc = 0;
-        this.actualDamages = 0;
-        if (this.actualGameCharacter.typeAttack === 'distanza') {
-            actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity))
-                + Number(this.actualGameCharacter.bab);
-        } else {
-            this.actualDamages = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
-            actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
-                + Number(this.actualGameCharacter.bab);
-        }
-        this.actualHits = String(actualHitsCalc);
-
-        // routine per attacchi secondari
-        if (this.actualGameCharacter.bab >= 6) {
-            this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 5));
-            if (this.actualGameCharacter.bab >= 11) {
-                this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 10));
-                if (this.actualGameCharacter.bab >= 16) {
-                    this.actualHits = this.actualHits.concat('/', String(actualHitsCalc - 15));
-                }
-            }
-        }
-
-        let actualArmorCalc = Number(this.actualGameCharacter.ac);
-
-        let actualFortitudeCalc = Number(this.actualGameCharacter.st.fortitude)
-            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.constitution));
-        let actualReflexCalc = Number(this.actualGameCharacter.st.reflex)
-            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity));
-        let actualWillCalc = Number(this.actualGameCharacter.st.will)
-            + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.wisdom));
-
-        this.actualArmor = actualArmorCalc;
-        this.actualFortitude = actualFortitudeCalc;
-        this.actualReflex = actualReflexCalc;
-        this.actualWill = actualWillCalc;
-    }
-
 }

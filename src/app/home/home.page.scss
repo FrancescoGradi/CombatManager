@@ -5,7 +5,10 @@ mat-drawer-container {
 }
 
 mat-toolbar {
-    height: 5rem;
+}
+
+#home-toolbar {
+    z-index: 0;
 }
 
 .sidenav {

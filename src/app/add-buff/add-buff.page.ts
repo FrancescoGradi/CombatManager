@@ -16,6 +16,7 @@ export class AddBuffPage implements OnInit {
     public types: string[];
     public actualGameCharacter: { [p: string]: any };
     private buffs: Buff[];
+    sizes: string[] = ['No', 'Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
@@ -45,6 +46,7 @@ export class AddBuffPage implements OnInit {
         wisdom_bonus: 0,
         charisma_bonus: 0,
         isBonus: false,
+        size: 'No',
     };
 
     ngOnInit() {
@@ -54,13 +56,13 @@ export class AddBuffPage implements OnInit {
 
         this.storage.get('db').then((db) => {
 
-            if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0
+            if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0 || this.buff.size != 'No'
                 || this.buff.extra_attack != 0 || (this.buff.description != null && this.buff.description.includes('attacco'))
                 || (this.buff.description != null && this.buff.description.includes('arma'))) {
                 this.buff.combat_list = true;
             }
 
-            if (this.buff.ac != 0 || this.buff.dexterity_bonus != 0
+            if (this.buff.ac != 0 || this.buff.dexterity_bonus != 0 || this.buff.size != 'No'
                 || (this.buff.description != null && this.buff.description.includes('armatura'))
                 || (this.buff.description != null && this.buff.description.includes('difesa'))) {
                 this.buff.ac_list = true;
