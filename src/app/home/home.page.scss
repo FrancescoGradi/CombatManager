@@ -5,7 +5,10 @@ mat-drawer-container {
 }
 
 mat-toolbar {
-    height: 5rem;
+}
+
+#home-toolbar {
+    z-index: 0;
 }
 
 .sidenav {
@@ -50,7 +53,15 @@ mat-toolbar {
 }
 
 .normal-card {
-    margin: 0rem;
+    text-align: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+.ts-card {
+    text-align: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .edit-buff-button {
@@ -74,6 +85,12 @@ mat-toolbar {
     z-index: 0;
 }
 
+.hidden-option-row {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
 .primary-button {
     position: fixed;
     bottom: 1rem;
@@ -83,6 +100,8 @@ mat-toolbar {
 
 .mat-card {
     text-align: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .mat-card-title {
@@ -92,3 +111,10 @@ mat-toolbar {
     font-size: medium;
 }
 
+.selected {
+    background-color: lightgrey;
+}
+
+.unselected {
+
+}

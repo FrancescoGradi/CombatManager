@@ -22,7 +22,7 @@
 
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">fitness_center</mat-icon></td>
-    <td><mat-form-field type="number" class="ts-buff">
+    <td><mat-form-field class="ts-buff">
       <input matInput type="number" placeholder="Bonus Tiro" [(ngModel)]="buff.hit" name="hit">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
@@ -33,16 +33,16 @@
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">shield</mat-icon></td>
     <td>
-      <mat-form-field type="number" class="ca-buff">
-        <input matInput placeholder="Bonus Classe Armatura" [(ngModel)]="buff.ac" name="ac">
+      <mat-form-field class="ca-buff">
+        <input matInput type="number" placeholder="Bonus Classe Armatura" [(ngModel)]="buff.ac" name="ac">
       </mat-form-field>
     </td>
   </tr></table>
 
   <table cellspacing="0"><tr>
     <td><mat-icon matSuffix color="accent" class="icon-add-buff">bolt</mat-icon></td>
-    <td><mat-form-field type="number" class="ts-buff">
-      <input matInput placeholder="Bonus Tempra" [(ngModel)]="buff.fortitude" name="fortitude">
+    <td><mat-form-field class="ts-buff">
+      <input matInput type="number" placeholder="Bonus Tempra" [(ngModel)]="buff.fortitude" name="fortitude">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
       <input matInput type="number" placeholder="Bonus Riflessi" [(ngModel)]="buff.reflex" name="reflex">
@@ -67,13 +67,22 @@
                    name="extra_attack">
           </mat-form-field>
         </td>
-
         <td>
-          <mat-form-field>
+          <mat-form-field class="ts-buff">
             <mat-label>Tipo</mat-label>
             <mat-select [(ngModel)]="buff.type" name="type">
               <mat-option *ngFor="let t of types" [value]="t">
                 {{ t }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="ts-buff">
+            <mat-label>Aumento Taglia</mat-label>
+            <mat-select [(ngModel)]="buff.size" name="size">
+              <mat-option *ngFor="let s of sizes" [value]="s">
+                {{ s }}
               </mat-option>
             </mat-select>
           </mat-form-field>

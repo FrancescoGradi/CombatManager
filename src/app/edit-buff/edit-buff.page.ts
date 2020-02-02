@@ -33,12 +33,14 @@ export class EditBuffPage implements OnInit {
         wisdom_bonus: 0,
         charisma_bonus: 0,
         isBonus: false,
+        size: 'No',
     };
 
     public types: string[];
     public selected: string;
     public actualGameCharacter: string;
     public buffs: Buff[];
+    sizes: string[] = ['No', 'Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
 
     constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
@@ -73,12 +75,13 @@ export class EditBuffPage implements OnInit {
         this.buffToEdit.st_list = false;
         this.buffToEdit.isBonus = false;
 
-        if (this.buffToEdit.hit != 0 || this.buffToEdit.damage != 0 || this.buffToEdit.strength_bonus != 0
+        if (this.buffToEdit.hit != 0 || this.buffToEdit.damage != 0 || this.buffToEdit.strength_bonus != 0 || this.buffToEdit.size != 'No'
             || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null) {
             this.buffToEdit.combat_list = true;
         }
 
-        if (this.buffToEdit.ac != 0 || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.description != null) {
+        if (this.buffToEdit.ac != 0 || this.buffToEdit.dexterity_bonus != 0 || this.buffToEdit.description != null
+            || this.buffToEdit.size != 'No') {
             this.buffToEdit.ac_list = true;
         }
 
