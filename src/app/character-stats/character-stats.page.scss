@@ -10,3 +10,19 @@ mat-toolbar {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.table-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row-div {
+  display: flex;
+  align-items: center;
+}
+
+.col-div {
+  display: flex;
+  flex-direction: column;
+}
