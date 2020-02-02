@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import {Buff, Characteristics, GameCharacters} from '../home/home.page';
+import {ClassDialog, ClassDialogData} from '../class-dialog/class-dialog.component';
 
 @Component({
   selector: 'app-add-character',
@@ -41,10 +42,12 @@ export class AddCharacterPage implements OnInit {
 
   classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico'];
   sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
-  levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+
+  private dialog: ClassDialogData;
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
