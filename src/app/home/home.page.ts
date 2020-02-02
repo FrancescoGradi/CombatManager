@@ -216,6 +216,7 @@ export class HomePage implements OnInit {
             + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.wisdom));
 
         let extra_attacks = 0;
+        let actualSize = this.actualGameCharacter.size;
 
         for (let buff of selectedBuffs) {
             actualDamagesCalc += buff.damage;
@@ -230,7 +231,13 @@ export class HomePage implements OnInit {
             actualWillCalc += Math.floor(buff.will);
             actualWillCalc += Math.floor(buff.wisdom_bonus / 2);
             extra_attacks += buff.extra_attack;
+            if (buff.size != 'No' && buff.size != actualSize) {
+                actualSize = buff.size;
+            }
         }
+
+        actualHitsCalc += this.getSizeModifier(actualSize);
+        actualArmorCalc += this.getSizeModifier(actualSize);
 
         this.actualDamages = actualDamagesCalc;
         this.actualHits = String(actualHitsCalc);
@@ -257,6 +264,18 @@ export class HomePage implements OnInit {
         }
 
         this.writeSelectedDb();
+    }
+
+    getSizeModifier(size: string) {
+        if (size === 'Colossale') { return -8 }
+        else if (size === 'Gigantesca') { return -4 }
+        else if (size === 'Enorme') { return -2 }
+        else if (size === 'Grande') { return -1 }
+        else if (size === 'Piccola') { return +1 }
+        else if (size === 'Minuscola') { return +2 }
+        else if (size === 'Minuta') { return +4 }
+        else if (size === 'Piccolissima') { return +8 }
+        else return 0;
     }
 
     getWeaponDice() {
@@ -293,7 +312,6 @@ export class HomePage implements OnInit {
         this.storage.get('db').then((db) => {
             db[this.actualGameCharacter.name].buffs = this.buffs;
             this.db = db;
-            console.log(this.db);
             this.storage.set('db', this.db);
         });
     }
