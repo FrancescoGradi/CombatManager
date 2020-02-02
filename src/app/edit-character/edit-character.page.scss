@@ -38,32 +38,12 @@ mat-toolbar {
   text-align: center;
 }
 
-.info-col50 {
-  flex: 45%;
-  text-align: center;
-}
-
 .attr-table {
   text-align: center;
 }
 
 .stat {
   width: 55%;
-}
-
-.name-pg {
-  width: 100%;
-  flex-direction: column;
-  align-content: center;
-}
-
-.race-pg {
-  width: 90%;
-  max-width: 6rem;
-}
-
-.class-pg {
-  width: 90%;
 }
 
 .save-button {
@@ -77,12 +57,6 @@ mat-toolbar {
 .radio-buttons {
   display: flex;
   flex-direction: column;
-}
-
-.icon-add-buff {
-  position: relative;
-  float: left;
-  margin-right: 1rem;
 }
 
 .save-button-div {

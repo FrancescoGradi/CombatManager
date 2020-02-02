@@ -184,10 +184,10 @@ export class HomePage implements OnInit {
 
     onBuffSelectionChange(selectedBuffs: Buff[]) {
 
-        for (let buff of this.buffs) {
+        for (const buff of this.buffs) {
             buff.selected = false;
             // @ts-ignore
-            for (let sel of selectedBuffs) {
+            for (const sel of selectedBuffs) {
                 if (buff == sel) {
                     buff.selected = true;
                     sel.selected = true;
@@ -218,7 +218,7 @@ export class HomePage implements OnInit {
         let extra_attacks = 0;
         let actualSize = this.actualGameCharacter.size;
 
-        for (let buff of selectedBuffs) {
+        for (const buff of selectedBuffs) {
             actualDamagesCalc += buff.damage;
             actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
             actualHitsCalc += buff.hit;
@@ -245,9 +245,9 @@ export class HomePage implements OnInit {
         this.actualFortitude = actualFortitudeCalc;
         this.actualReflex = actualReflexCalc;
         this.actualWill = actualWillCalc;
-        
+
         let extra_attacksTmpString = '';
-        for(let i = 0; i < extra_attacks; i++) {
+        for (let i = 0; i < extra_attacks; i++) {
             extra_attacksTmpString = extra_attacksTmpString.concat('/', this.actualHits);
         }
         this.actualHits = this.actualHits.concat(extra_attacksTmpString);
@@ -267,15 +267,7 @@ export class HomePage implements OnInit {
     }
 
     getSizeModifier(size: string) {
-        if (size === 'Colossale') { return -8 }
-        else if (size === 'Gigantesca') { return -4 }
-        else if (size === 'Enorme') { return -2 }
-        else if (size === 'Grande') { return -1 }
-        else if (size === 'Piccola') { return +1 }
-        else if (size === 'Minuscola') { return +2 }
-        else if (size === 'Minuta') { return +4 }
-        else if (size === 'Piccolissima') { return +8 }
-        else return 0;
+        if (size === 'Colossale') { return -8; } else if (size === 'Gigantesca') { return -4; } else if (size === 'Enorme') { return -2; } else if (size === 'Grande') { return -1; } else if (size === 'Piccola') { return +1; } else if (size === 'Minuscola') { return +2; } else if (size === 'Minuta') { return +4; } else if (size === 'Piccolissima') { return +8; } else { return 0; }
     }
 
     getWeaponDice() {
