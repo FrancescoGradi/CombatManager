@@ -87,6 +87,7 @@ export class HomePage implements OnInit {
     actualFortitude = 0;
     actualReflex = 0;
     actualWill = 0;
+    actualWeaponDice: string;
     selectedCombatBuffs: any;
     selectedAcBuffs: any;
     selectedStBuffs: any;
@@ -188,7 +189,7 @@ export class HomePage implements OnInit {
             buff.selected = false;
             // @ts-ignore
             for (let sel of selectedBuffs) {
-                if (buff == sel) {
+                if (buff === sel) {
                     buff.selected = true;
                     sel.selected = true;
                 }
@@ -238,6 +239,8 @@ export class HomePage implements OnInit {
 
         actualHitsCalc += this.getSizeModifier(actualSize);
         actualArmorCalc += this.getSizeModifier(actualSize);
+        let actualWeaponDiceCalc = this.actualGameCharacter.weapon_dice;
+        this.actualWeaponDice = this.getWeaponSizeDice(actualWeaponDiceCalc, actualSize);
 
         this.actualDamages = actualDamagesCalc;
         this.actualHits = String(actualHitsCalc);
@@ -278,6 +281,41 @@ export class HomePage implements OnInit {
         else return 0;
     }
 
+    private getWeaponSizeDice(actualWeaponDiceCalc: string, actualSize: string) {
+
+        if (actualSize === 'Media') { return actualWeaponDiceCalc }
+
+        if (actualSize === 'Grande' || actualSize === 'Enorme' || actualSize === 'Gigantesca' || actualSize === 'Colossale') {
+            if (actualWeaponDiceCalc === '1d2') { return '1d3' }
+            else if (actualWeaponDiceCalc ==='1d3') { return '1d4' }
+            else if (actualWeaponDiceCalc ==='1d4') { return '1d6' }
+            else if (actualWeaponDiceCalc ==='1d6') { return '1d8' }
+            else if (actualWeaponDiceCalc ==='1d8') { return '2d6' }
+            else if (actualWeaponDiceCalc ==='1d10') { return '1d6' }
+            else if (actualWeaponDiceCalc ==='1d12') { return '2d6' }
+            else if (actualWeaponDiceCalc ==='2d4') { return '2d6' }
+            else if (actualWeaponDiceCalc ==='2d6') { return '3d6' }
+            else if (actualWeaponDiceCalc ==='2d8') { return '3d8' }
+            else if (actualWeaponDiceCalc ==='2d10') { return '4d8' }
+        }
+
+        if (actualSize === 'Piccolissima' || actualSize === 'Minuta' || actualSize === 'Minuscola' || actualSize === 'Piccola') {
+            if (actualWeaponDiceCalc ==='1d2') { return '' }
+            else if (actualWeaponDiceCalc ==='1d3') { return '1' }
+            else if (actualWeaponDiceCalc ==='1d4') { return '1d2' }
+            else if (actualWeaponDiceCalc ==='1d6') { return '1d3' }
+            else if (actualWeaponDiceCalc ==='1d8') { return '1d4' }
+            else if (actualWeaponDiceCalc ==='1d10') { return '1d6' }
+            else if (actualWeaponDiceCalc ==='1d12') { return '1d8' }
+            else if (actualWeaponDiceCalc ==='2d4') { return '1d4' }
+            else if (actualWeaponDiceCalc ==='2d6') { return '1d8' }
+            else if (actualWeaponDiceCalc ==='2d8') { return '1d10' }
+            else if (actualWeaponDiceCalc ==='2d10') { return '2d6' }
+        }
+
+        return '';
+    }
+
     getWeaponDice() {
         try { return this.actualGameCharacter.weapon_dice; } catch (e) {
             return '';
@@ -315,4 +353,6 @@ export class HomePage implements OnInit {
             this.storage.set('db', this.db);
         });
     }
+
+
 }
