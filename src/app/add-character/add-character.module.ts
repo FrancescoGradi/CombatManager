@@ -34,10 +34,13 @@ import {MatRadioModule} from '@angular/material/radio';
         MatRadioModule,
         MatDialogModule,
     ],
-  entryComponents: [ClassDialogComponent],
+  entryComponents: [
+      ClassDialogComponent,
+      ],
   declarations: [
       AddCharacterPage,
-      ClassDialogComponent],
+      ClassDialogComponent,
+  ],
   exports: [AddCharacterPage],
 })
 export class AddCharacterPageModule {}

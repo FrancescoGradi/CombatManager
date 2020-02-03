@@ -3,6 +3,9 @@ import {Buff, GameCharacters} from '../home/home.page';
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
+import {ClassDialogComponent} from '../class-dialog/class-dialog.component';
+import {DoubleCheckDialogComponent} from '../double-check-dialog/double-check-dialog.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-edit-character',
@@ -22,7 +25,7 @@ export class EditCharacterPage implements OnInit {
     private buffs: Buff[];
     private actualGameCharacter: GameCharacters;
 
-    constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
+    constructor(public dialog: MatDialog, public navCtrl: NavController, public storage: Storage, public router: Router) {
         this.charToEdit = this.router.getCurrentNavigation().extras.state.char;
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
@@ -46,6 +49,17 @@ export class EditCharacterPage implements OnInit {
             this.router.navigate(['home']);
         });
 
+    }
+
+    openDoubleCheckDialog() {
+        let dialogRef = this.dialog.open(DoubleCheckDialogComponent);
+        dialogRef.afterClosed().subscribe(result => {
+            const res = result;
+            console.log(res);
+            if (res === 'true') {
+                this.deleteCharacter();
+            }
+        });
     }
 
     deleteCharacter() {

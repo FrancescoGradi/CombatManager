@@ -171,6 +171,7 @@ export class HomePage implements OnInit {
     editCharacter($event: MouseEvent, char: GameCharacters) {
         this.router.navigate(['edit-character'], { state: { char,
             actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters, buffs: this.buffs } });
+        this.actualGameCharacter = this.allCharacters[0];
     }
 
     characterStats($event: MouseEvent) {
@@ -221,7 +222,7 @@ export class HomePage implements OnInit {
         let extra_attacks = 0;
         let actualSize = this.actualGameCharacter.size;
 
-        if (selectedBuffs != []) {
+        if (selectedBuffs !== []) {
             for (const buff of selectedBuffs) {
                 actualDamagesCalc += buff.damage;
                 actualDamagesCalc += Math.floor(buff.strength_bonus / 2);

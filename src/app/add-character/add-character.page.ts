@@ -79,7 +79,7 @@ export class AddCharacterPage implements OnInit {
     let dialogRef = this.dialog.open(ClassDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
        this.classes.push(result);
-    })
+    });
   }
 
 }

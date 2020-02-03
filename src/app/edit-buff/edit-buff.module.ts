@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import {EditBuffPage} from './edit-buff.page';
 import {MatSidenavModule} from '@angular/material';
+import {DoubleCheckBuffDialogComponent} from '../double-check-buff-dialog/double-check-buff-dialog.component';
 
 @NgModule({
     imports: [
@@ -33,7 +34,13 @@ import {MatSidenavModule} from '@angular/material';
         MatDialogModule,
         MatSidenavModule,
     ],
-  declarations: [ EditBuffPage ],
+    entryComponents: [
+        DoubleCheckBuffDialogComponent,
+    ],
+  declarations: [
+      EditBuffPage,
+      DoubleCheckBuffDialogComponent,
+  ],
   exports: [ EditBuffPage ],
 })
 export class EditBuffPageModule {}

@@ -8,7 +8,7 @@ import { EditCharacterPageRoutingModule } from './edit-character-routing.module'
 
 import { EditCharacterPage } from './edit-character.page';
 import {
-    MatButtonModule,
+    MatButtonModule, MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -19,6 +19,7 @@ import {
 } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {DoubleCheckDialogComponent} from '../double-check-dialog/double-check-dialog.component';
 
 @NgModule({
     imports: [
@@ -35,8 +36,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         MatInputModule,
         MatButtonModule,
         MatRadioModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatDialogModule,
     ],
-  declarations: [EditCharacterPage]
+    entryComponents: [DoubleCheckDialogComponent],
+  declarations: [
+      EditCharacterPage,
+      DoubleCheckDialogComponent,
+  ]
 })
 export class EditCharacterPageModule {}

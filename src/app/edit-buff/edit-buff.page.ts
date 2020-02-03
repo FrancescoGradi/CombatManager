@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Buff} from "../home/home.page";
-import {NavController} from "@ionic/angular";
-import {Storage} from "@ionic/storage";
-import {Router} from "@angular/router";
+import {Buff} from '../home/home.page';
+import {NavController} from '@ionic/angular';
+import {Storage} from '@ionic/storage';
+import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
+import {DoubleCheckBuffDialogComponent} from '../double-check-buff-dialog/double-check-buff-dialog.component';
 
 @Component({
   selector: 'app-edit-buff',
@@ -42,7 +44,7 @@ export class EditBuffPage implements OnInit {
     public buffs: Buff[];
     sizes: string[] = ['No', 'Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
 
-    constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
+    constructor(public navCtrl: NavController, public storage: Storage, public router: Router, public dialog: MatDialog) {
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
         this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
         this.buffToEdit = this.router.getCurrentNavigation().extras.state.buff;
@@ -101,4 +103,16 @@ export class EditBuffPage implements OnInit {
 
         this.router.navigate(['home']);
     }
+
+    openDoubleCheckDialog($event) {
+        let dialogRef = this.dialog.open(DoubleCheckBuffDialogComponent);
+        dialogRef.afterClosed().subscribe(result => {
+            const res = result;
+            console.log(res);
+            if (res === 'true') {
+                this.delBuff($event);
+            }
+        });
+    }
+
 }
