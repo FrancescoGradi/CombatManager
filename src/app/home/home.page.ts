@@ -42,6 +42,7 @@ export interface Buff {
     charisma_bonus: number;
     isBonus: boolean;
     size: string;
+    multiplier: number;
 }
 
 export interface GameCharacters {
@@ -58,6 +59,7 @@ export interface GameCharacters {
     weapon_dice: string;
     size: string;
     typeAttack: string;
+    type_weapon: string;
     st: SavingThrows;
 }
 
@@ -205,9 +207,14 @@ export class HomePage implements OnInit {
             actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.dexterity))
                 + Number(this.actualGameCharacter.bab);
         } else {
-            actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
             actualHitsCalc = Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength))
                 + Number(this.actualGameCharacter.bab);
+
+            if (this.actualGameCharacter.type_weapon === 'a due mani') {
+                actualDamagesCalc = Math.floor((this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength) * 1.5));
+            } else{
+                actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
+            }
         }
 
         let actualArmorCalc = Number(this.actualGameCharacter.ac);
@@ -220,7 +227,9 @@ export class HomePage implements OnInit {
             + Number(this.fromScoreToModifier(this.actualGameCharacter.characteristics.wisdom));
 
         let extra_attacks = 0;
+        let actualMultiplier = 1;
         let actualSize = this.actualGameCharacter.size;
+
 
         if (selectedBuffs !== []) {
             for (const buff of selectedBuffs) {
@@ -239,6 +248,9 @@ export class HomePage implements OnInit {
                 if (buff.size != 'No' && buff.size != actualSize) {
                     actualSize = buff.size;
                 }
+                if (buff.multiplier > actualMultiplier) {
+                    actualMultiplier = buff.multiplier;
+                }
             }
         }
 
@@ -246,6 +258,8 @@ export class HomePage implements OnInit {
         actualArmorCalc += this.getSizeModifier(actualSize);
         let actualWeaponDiceCalc = this.actualGameCharacter.weapon_dice;
         this.actualWeaponDice = this.getWeaponSizeDice(actualWeaponDiceCalc, actualSize);
+
+        actualDamagesCalc *= actualMultiplier;
 
         this.actualDamages = actualDamagesCalc;
         this.actualHits = String(actualHitsCalc);

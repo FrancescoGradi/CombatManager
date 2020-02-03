@@ -55,9 +55,8 @@
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Bonus Attacco Base" [(ngModel)]="charToEdit.bab" name="bab_e">
-              </mat-form-field></td>
-
+              <input matInput placeholder="Classe Armatura" [(ngModel)]="charToEdit.ac" name="ac_e">
+            </mat-form-field></td>
             <td class="column"><mat-form-field class="stat">
                 <input matInput placeholder="Bonus Riflessi Base" [(ngModel)]="charToEdit.st.reflex" name="ref_e">
               </mat-form-field></td>
@@ -73,8 +72,8 @@
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Classe Armatura" [(ngModel)]="charToEdit.ac" name="ac_e">
-              </mat-form-field></td>
+              <input matInput placeholder="Bonus Attacco Base" [(ngModel)]="charToEdit.bab" name="bab_e">
+            </mat-form-field></td>
             <td class="column"><mat-form-field class="stat">
               <input matInput type="string" placeholder="Danni Arma" [(ngModel)]="charToEdit.weapon_dice" name="wd_e">
             </mat-form-field></td>
@@ -83,6 +82,13 @@
             <td><mat-radio-group class="radio-buttons" [(ngModel)]="charToEdit.typeAttack" name="typeAttack_e">
               <mat-radio-button class="radio-button" *ngFor="let type of attackTypes" [value]="type">
                 <i>{{ type }}</i>
+              </mat-radio-button>
+            </mat-radio-group></td>
+          </tr>
+          <tr [ngClass]="charToEdit.typeAttack === 'mischia' ? 'row' : 'hidden-row'" class="row">
+            <td><mat-radio-group class="radio-buttons" [(ngModel)]="charToEdit.type_weapon" name="type-weapon_e">
+              <mat-radio-button class="radio-button" *ngFor="let typeW of weaponTypes" [value]="typeW">
+                <i>{{ typeW }}</i>
               </mat-radio-button>
             </mat-radio-group></td>
           </tr>

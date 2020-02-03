@@ -31,6 +31,12 @@ mat-drawer-container {
   margin: 0 auto;
 }
 
+.hidden-row {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 .column {
   width: 100%;
   margin: 0 auto;

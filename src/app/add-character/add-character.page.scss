@@ -47,6 +47,12 @@ mat-horizontal-stepper {
   width: 100%;
 }
 
+.hidden-row {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 .stepper {
   max-width: 500px;
   position: relative;

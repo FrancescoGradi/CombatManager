@@ -3,7 +3,7 @@
     <mat-icon>arrow_back</mat-icon>
   </button>
   <div class="toolbar-title">
-    Crea nuovo personaggio
+    Crea Nuovo Personaggio
   </div>
 </mat-toolbar>
 
@@ -118,7 +118,7 @@
           <tr class="row">
             <td class="column">
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="BAB" [(ngModel)]="character.bab">
+                <input matInput type="number" placeholder="Classe Armatura" [(ngModel)]="character.ac">
               </mat-form-field>
             </td>
             <td class="column">
@@ -142,7 +142,7 @@
           <tr class="row">
             <td class="column">
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="Classe Armatura" [(ngModel)]="character.ac">
+                <input matInput type="number" placeholder="BAB" [(ngModel)]="character.bab">
               </mat-form-field>
             </td>
             <td class="column">
@@ -152,9 +152,16 @@
             </td>
           </tr>
           <tr class="row">
-            <td><mat-radio-group class="radio-buttons" [(ngModel)]="character.typeAttack" name="typeAttack_e">
+            <td><mat-radio-group class="radio-buttons" [(ngModel)]="character.typeAttack" name="typeAttack">
               <mat-radio-button class="radio-button" *ngFor="let type of attackTypes" [value]="type">
                 <i>{{ type }}</i>
+              </mat-radio-button>
+            </mat-radio-group></td>
+          </tr>
+          <tr [ngClass]="character.typeAttack === 'mischia' ? 'row' : 'hidden-row'" class="row">
+            <td><mat-radio-group class="radio-buttons" [(ngModel)]="character.type_weapon" name="type-weapon">
+              <mat-radio-button class="radio-button" *ngFor="let typeW of weaponTypes" [value]="typeW">
+                <i>{{ typeW }}</i>
               </mat-radio-button>
             </mat-radio-group></td>
           </tr>

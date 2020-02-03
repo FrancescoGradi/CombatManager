@@ -62,13 +62,21 @@
 
       <table cellspacing="0"><tr>
         <td>
-          <mat-form-field class="ts-buff">
-            <input matInput type="number" placeholder="Attacchi extra" [(ngModel)]="buff.extra_attack"
+          <mat-form-field class="extra-buff">
+            <input matInput type="number" placeholder="Attacchi Extra" [(ngModel)]="buff.extra_attack"
                    name="extra_attack">
           </mat-form-field>
         </td>
         <td>
-          <mat-form-field class="ts-buff">
+          <mat-form-field class="extra-buff">
+            <input matInput type="number" placeholder="Moltiplicatore Danni" [(ngModel)]="buff.multiplier"
+                   name="multiplier">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="extra-buff">
             <mat-label>Tipo</mat-label>
             <mat-select [(ngModel)]="buff.type" name="type">
               <mat-option *ngFor="let t of types" [value]="t">
@@ -78,7 +86,7 @@
           </mat-form-field>
         </td>
         <td>
-          <mat-form-field class="ts-buff">
+          <mat-form-field class="extra-buff">
             <mat-label>Aumento Taglia</mat-label>
             <mat-select [(ngModel)]="buff.size" name="size">
               <mat-option *ngFor="let s of sizes" [value]="s">
@@ -89,6 +97,16 @@
         </td>
       </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel style="margin-top: 1rem">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Bonus Caratteristiche
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
       <div class="attr-table">
         <table>

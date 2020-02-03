@@ -39,6 +39,7 @@ export class AddCharacterPage implements OnInit {
     weapon_dice: '1d4',
     size: null,
     typeAttack: 'mischia',
+    type_weapon: 'a una mano',
     st: {fortitude: 0, reflex: 0, will: 0},
   };
 
@@ -46,6 +47,7 @@ export class AddCharacterPage implements OnInit {
   sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
   levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   attackTypes: string[] = ['mischia', 'distanza'];
+  weaponTypes: string[] = ['a una mano', 'a due mani'];
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -65,7 +67,6 @@ export class AddCharacterPage implements OnInit {
 
       db[this.character.name] = this.character;
       this.storage.set('db', db);
-      console.log(this.character);
 
       this.allCharacters.push(this.character);
 

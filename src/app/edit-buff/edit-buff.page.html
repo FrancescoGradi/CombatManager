@@ -59,7 +59,6 @@
           Altri
         </mat-panel-title>
       </mat-expansion-panel-header>
-
       <table cellspacing="0"><tr>
         <td>
           <mat-form-field class="ts-buff">
@@ -67,30 +66,46 @@
                    name="extra_attack_e">
           </mat-form-field>
         </td>
-
         <td>
           <mat-form-field class="ts-buff">
-            <mat-label>Tipo</mat-label>
-            <mat-select [(ngModel)]="buffToEdit.type" name="type_e">
-              <mat-option *ngFor="let t of types" [value]="t">
-                {{ t }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
-
-        <td>
-          <mat-form-field class="ts-buff">
-            <mat-label>Aumento Taglia</mat-label>
-            <mat-select [(ngModel)]="buffToEdit.size" name="size_e">
-              <mat-option *ngFor="let s of sizes" [value]="s">
-                {{ s }}
-              </mat-option>
-            </mat-select>
+            <input matInput type="number" placeholder="Moltiplicatore danni" [(ngModel)]="buffToEdit.multiplier"
+                   name="multiplier_e">
           </mat-form-field>
         </td>
       </tr>
+        <tr>
+          <td>
+            <mat-form-field class="ts-buff">
+              <mat-label>Tipo</mat-label>
+              <mat-select [(ngModel)]="buffToEdit.type" name="type_e">
+                <mat-option *ngFor="let t of types" [value]="t">
+                  {{ t }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="ts-buff">
+              <mat-label>Aumento Taglia</mat-label>
+              <mat-select [(ngModel)]="buffToEdit.size" name="size_e">
+                <mat-option *ngFor="let s of sizes" [value]="s">
+                  {{ s }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel style="margin-top: 1rem">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Bonus Caratteristiche
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
       <div class="attr-table">
         <table>
@@ -132,7 +147,6 @@
           </tr>
         </table>
       </div>
-
     </mat-expansion-panel>
   </mat-accordion>
 

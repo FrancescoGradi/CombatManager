@@ -20,6 +20,7 @@ export class EditCharacterPage implements OnInit {
     sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
     levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     attackTypes: string[] = ['mischia', 'distanza'];
+    weaponTypes: string[] = ['a una mano', 'a due mani'];
     selected = this.classes[0];
 
     private buffs: Buff[];
@@ -30,8 +31,6 @@ export class EditCharacterPage implements OnInit {
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
         this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
-
-        console.log(this.charToEdit);
     }
 
     ngOnInit() {
@@ -55,7 +54,6 @@ export class EditCharacterPage implements OnInit {
         let dialogRef = this.dialog.open(DoubleCheckDialogComponent);
         dialogRef.afterClosed().subscribe(result => {
             const res = result;
-            console.log(res);
             if (res === 'true') {
                 this.deleteCharacter();
             }

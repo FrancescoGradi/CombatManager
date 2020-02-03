@@ -23,7 +23,7 @@ mat-toolbar {
   align-items: center;
   justify-content: center;
   margin: 2rem auto;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .name-buff {
@@ -35,6 +35,12 @@ mat-toolbar {
 .ts-buff {
   width: 90%;
   max-width: 6rem;
+}
+
+.extra-buff {
+  width: 90%;
+  max-width: 8rem;
+  margin: 0 auto;
 }
 
 .ca-buff {

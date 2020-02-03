@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import {AddBuffPage} from './add-buff.page';
-import {MatSidenavModule} from '@angular/material';
+import {MatDividerModule, MatSidenavModule} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -31,6 +31,7 @@ import {MatSidenavModule} from '@angular/material';
         MatSelectModule,
         ReactiveFormsModule,
         MatSidenavModule,
+        MatDividerModule,
     ],
   declarations: [ AddBuffPage ],
   exports: [ AddBuffPage ],

@@ -8,8 +8,8 @@
 </mat-toolbar>
 
 <mat-card style="height: 95%">
-  <mat-slide-toggle (click)="onToggleChange($event)">
-    Tutti i buffs
+  <mat-slide-toggle class="toggle" (click)="onToggleChange($event)">
+    <i>Tutti i buffs</i>
   </mat-slide-toggle>
   <mat-card>
     <mat-card-content *ngIf="this.allBuffs === false">

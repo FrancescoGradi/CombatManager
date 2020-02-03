@@ -36,6 +36,7 @@ export class EditBuffPage implements OnInit {
         charisma_bonus: 0,
         isBonus: false,
         size: 'No',
+        multiplier: 1,
     };
 
     public types: string[];
@@ -78,7 +79,7 @@ export class EditBuffPage implements OnInit {
         this.buffToEdit.isBonus = false;
 
         if (this.buffToEdit.hit != 0 || this.buffToEdit.damage != 0 || this.buffToEdit.strength_bonus != 0 || this.buffToEdit.size != 'No'
-            || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null) {
+            || this.buffToEdit.extra_attack != 0 || this.buffToEdit.description != null || this.buffToEdit.multiplier != 1) {
             this.buffToEdit.combat_list = true;
         }
 
@@ -97,7 +98,7 @@ export class EditBuffPage implements OnInit {
             || this.buffToEdit.reflex || this.buffToEdit.will > 0 || this.buffToEdit.strength_bonus > 0
             || this.buffToEdit.dexterity_bonus > 0 || this.buffToEdit.constitution_bonus > 0 || this.buffToEdit.intelligence_bonus > 0
             || this.buffToEdit.wisdom_bonus > 0 || this.buffToEdit.charisma_bonus > 0 || this.buffToEdit.extra_attack > 0
-            || this.buffToEdit.description != null) {
+            || this.buffToEdit.multiplier != 1 || this.buffToEdit.description != null) {
             this.buffToEdit.isBonus = true;
         }
 
@@ -108,7 +109,6 @@ export class EditBuffPage implements OnInit {
         let dialogRef = this.dialog.open(DoubleCheckBuffDialogComponent);
         dialogRef.afterClosed().subscribe(result => {
             const res = result;
-            console.log(res);
             if (res === 'true') {
                 this.delBuff($event);
             }

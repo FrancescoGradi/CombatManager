@@ -47,6 +47,7 @@ export class AddBuffPage implements OnInit {
         charisma_bonus: 0,
         isBonus: false,
         size: 'No',
+        multiplier: 1,
     };
 
     ngOnInit() {
@@ -57,7 +58,7 @@ export class AddBuffPage implements OnInit {
         this.storage.get('db').then((db) => {
 
             if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0 || this.buff.size != 'No'
-                || this.buff.extra_attack != 0 || (this.buff.description != null && this.buff.description.includes('attacco'))
+                || this.buff.extra_attack != 0 || this.buff.multiplier != 1 ||(this.buff.description != null && this.buff.description.includes('attacco'))
                 || (this.buff.description != null && this.buff.description.includes('arma'))) {
                 this.buff.combat_list = true;
             }
@@ -78,7 +79,7 @@ export class AddBuffPage implements OnInit {
             if (this.buff.hit > 0 || this.buff.damage > 0 || this.buff.ac > 0 || this.buff.fortitude > 0 || this.buff.reflex > 0
                 || this.buff.will > 0 || this.buff.strength_bonus > 0 || this.buff.dexterity_bonus > 0 || this.buff.constitution_bonus > 0
                 || this.buff.intelligence_bonus > 0 || this.buff.wisdom_bonus > 0 || this.buff.charisma_bonus > 0
-                || this.buff.extra_attack > 0 || (this.buff.description != null && this.buff.description.includes('+'))) {
+                || this.buff.extra_attack > 0 || this.buff.multiplier != 1 || (this.buff.description != null && this.buff.description.includes('+'))) {
                 this.buff.isBonus = true;
             } else {
                 this.buff.isBonus = false;
