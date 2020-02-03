@@ -17,8 +17,8 @@ import {
     MatTabsModule,
     MatToolbarModule
 } from '@angular/material';
-import {MatRadioModule} from "@angular/material/radio";
-import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
     imports: [
