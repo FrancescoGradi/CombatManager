@@ -14,22 +14,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule, MatStepperModule} from '@angular/material';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AddCharacterPageRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AddCharacterPageRoutingModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatRadioModule,
+    ],
   declarations: [AddCharacterPage],
   exports: [AddCharacterPage],
 })

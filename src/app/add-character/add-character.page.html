@@ -7,22 +7,16 @@
   </div>
 </mat-toolbar>
 
-<div style="height: 95%">
   <mat-horizontal-stepper labelPosition="bottom" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Informazioni Generali</ng-template>
-        <div class="name-pg">
           <mat-form-field class="name-pg">
             <input matInput placeholder="Nome Personaggio" formControlName="firstCtrl" [(ngModel)]="character.name" required>
           </mat-form-field>
-        </div>
-        <div class="race-pg">
           <mat-form-field class="race-pg">
             <input matInput placeholder="Razza" formControlName="firstCtrl" [(ngModel)]="character.race">
           </mat-form-field>
-        </div>
-        <div class="class-pg">
           <mat-form-field class="class-pg" appearance="outline">
             <mat-label>Classe</mat-label>
             <mat-select [(ngModel)]="character.classe" formControlName="firstCtrl">
@@ -32,7 +26,6 @@
               <button mat-button style="width: 100%; text-align: left">Nuova Classe...</button>
             </mat-select>
           </mat-form-field>
-        </div>
         <div class="row">
           <div class="level-pg">
             <mat-form-field style="max-width: 100px" appearance="outline">
@@ -55,118 +48,120 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="next-first">
-          <button class="next-button" mat-button matStepperNext color="primary">Avanti</button>
+        <div class="next">
+          <button mat-button matStepperNext color="primary">Avanti</button>
         </div>
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Caratteristiche</ng-template>
-        <div class="attr-table">
-          <table>
-            <tr>
-              <td>
+          <table class="characteristics-table">
+            <tr class="row">
+              <td class="column">
                 <mat-form-field class="stat">
                   <input matInput type="number" formControlName="secondCtrl" placeholder="FOR" [(ngModel)]="character.characteristics.strength">
                 </mat-form-field>
               </td>
-              <td>
+              <td class="column">
                 <mat-form-field class="stat">
                   <input matInput type="number" formControlName="secondCtrl" placeholder="INT" [(ngModel)]="character.characteristics.intelligence">
                 </mat-form-field>
               </td>
             </tr>
-            <tr>
-              <td>
+            <tr class="row">
+              <td class="column">
                 <mat-form-field class="stat">
                   <input matInput type="number" formControlName="secondCtrl" placeholder="DES" [(ngModel)]="character.characteristics.dexterity">
                 </mat-form-field>
               </td>
-              <td>
+              <td class="column">
                 <mat-form-field class="stat">
                   <input matInput type="number" formControlName="secondCtrl" placeholder="SAG" [(ngModel)]="character.characteristics.wisdom">
                 </mat-form-field>
               </td>
             </tr>
-            <tr>
-              <td>
+            <tr class="row">
+              <td class="column">
                 <mat-form-field class="stat">
                   <input matInput type="number" formControlName="secondCtrl" placeholder="COS" [(ngModel)]="character.characteristics.constitution">
                 </mat-form-field>
               </td>
-              <td>
+              <td class="column">
                 <mat-form-field class="stat">
                   <input matInput type="number" formControlName="secondCtrl" placeholder="CAR" [(ngModel)]="character.characteristics.charisma">
                 </mat-form-field>
               </td>
             </tr>
+            <div class="next">
+              <button mat-button matStepperPrevious color="warn">Indietro</button>
+              <button mat-button matStepperNext color="primary">Avanti</button>
+            </div>
           </table>
-        </div>
-        <div class="next">
-          <button class="back-button" mat-button matStepperPrevious color="warn">Indietro</button>
-          <button class="next-button" mat-button matStepperNext color="primary" style="left: 65%">Avanti</button>
-        </div>
       </form>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>BAB, TS e simili</ng-template>
-      <div class="attr-table">
-        <table>
-          <tr>
-            <td>
+        <table class="characteristics-table">
+          <tr class="row">
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="Punti Ferita" [(ngModel)]="character.hp">
               </mat-form-field>
             </td>
-            <td>
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="Bonus Tempra Base" [(ngModel)]="character.st.fortitude">
               </mat-form-field>
             </td>
           </tr>
-          <tr>
-            <td>
+          <tr class="row">
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="BAB" [(ngModel)]="character.bab">
               </mat-form-field>
             </td>
-            <td>
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="Bonus Riflessi Base" [(ngModel)]="character.st.reflex">
               </mat-form-field>
             </td>
           </tr>
-          <tr>
-            <td>
+          <tr class="row">
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="Iniziativa" [(ngModel)]="character.initiative">
               </mat-form-field>
             </td>
-            <td>
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="Bonus Volontà Base" [(ngModel)]="character.st.will">
               </mat-form-field>
             </td>
           </tr>
-          <tr style="padding-top: 5%">
-            <td>
+          <tr class="row">
+            <td class="column">
               <mat-form-field class="stat">
                 <input matInput type="number" placeholder="Classe Armatura" [(ngModel)]="character.ac">
               </mat-form-field>
             </td>
-            <td>
+            <td class="column">
               <mat-form-field class="stat">
-                <textarea matInput type="string" placeholder="Danni Arma" [(ngModel)]="character.weapon_dice"></textarea>
+                <input matInput type="string" placeholder="Danni Arma" [(ngModel)]="character.weapon_dice">
               </mat-form-field>
             </td>
           </tr>
+          <tr class="row">
+            <td><mat-radio-group class="radio-buttons" [(ngModel)]="character.typeAttack" name="typeAttack_e">
+              <mat-radio-button class="radio-button" *ngFor="let type of attackTypes" [value]="type">
+                <i>{{ type }}</i>
+              </mat-radio-button>
+            </mat-radio-group></td>
+          </tr>
+          <div class="next-last">
+            <button mat-button matStepperPrevious color="warn">Indietro</button>
+            <button mat-raised-button color="primary" (click)="saveCharacter($event)">Salva</button>
+          </div>
         </table>
-      </div>
-      <div class="next">
-        <button class="back-button" mat-button matStepperPrevious color="warn">Indietro</button>
-        <button class="save-button" mat-raised-button color="primary" (click)="saveCharacter($event)">Salva</button>
-      </div>
     </mat-step>
   </mat-horizontal-stepper>
-</div>

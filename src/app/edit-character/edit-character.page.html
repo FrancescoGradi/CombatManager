@@ -7,161 +7,151 @@
   </div>
 </mat-toolbar>
 
-<form class="pg-form">
-  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
-    <mat-tab label="Statistiche">
-      <div style="padding-top: 3%">
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
+<mat-drawer-container>
+
+  <form class="pg-form">
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+      <mat-tab label="Caratteristiche">
+        <table cellspacing="0" class="element-edit-table">
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
               <input matInput placeholder="FOR" [(ngModel)]="charToEdit.characteristics.strength" name="str_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
+            </mat-form-field></td>
+
+            <td class="column"><mat-form-field class="stat">
               <input matInput placeholder="INT" [(ngModel)]="charToEdit.characteristics.intelligence" name="int_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
+            </mat-form-field></td>
+          </tr>
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
               <input matInput placeholder="DES" [(ngModel)]="charToEdit.characteristics.dexterity" name="dex_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
+            </mat-form-field></td>
+
+            <td class="column"><mat-form-field class="stat">
               <input matInput placeholder="SAG" [(ngModel)]="charToEdit.characteristics.wisdom" name="wis_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
+            </mat-form-field></td>
+          </tr>
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
               <input matInput placeholder="COS" [(ngModel)]="charToEdit.characteristics.constitution" name="cos_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
+            </mat-form-field></td>
+
+            <td class="column"><mat-form-field class="stat">
               <input matInput placeholder="CAR" [(ngModel)]="charToEdit.characteristics.charisma" name="char_e">
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-      <div style="padding-top: 7%">
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Punti Ferita" [(ngModel)]="charToEdit.hp" name="hp_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Bonus Tempra Base" [(ngModel)]="charToEdit.st.fortitude" name="for_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Bonus Attacco Base" [(ngModel)]="charToEdit.bab" name="bab_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Bonus Riflessi Base" [(ngModel)]="charToEdit.st.reflex" name="ref_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Iniziativa" [(ngModel)]="charToEdit.initiative" name="init_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Bonus Volontà Base" [(ngModel)]="charToEdit.st.will" name="will_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <mat-form-field class="stat">
-              <input matInput placeholder="Classe Armatura" [(ngModel)]="charToEdit.ac" name="ac_e">
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-radio-group class="radio-buttons" [(ngModel)]="charToEdit.typeAttack" name="typeAttack_e">
-              <mat-radio-button *ngFor="let type of attackTypes" [value]="type">
+            </mat-form-field></td>
+          </tr>
+        </table>
+      </mat-tab>
+      <mat-tab label="Statistiche">
+        <table cellspacing="0" class="element-edit-table">
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Punti Ferita" [(ngModel)]="charToEdit.hp" name="hp_e">
+              </mat-form-field></td>
+
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Bonus Tempra Base" [(ngModel)]="charToEdit.st.fortitude" name="for_e">
+              </mat-form-field></td>
+          </tr>
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Bonus Attacco Base" [(ngModel)]="charToEdit.bab" name="bab_e">
+              </mat-form-field></td>
+
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Bonus Riflessi Base" [(ngModel)]="charToEdit.st.reflex" name="ref_e">
+              </mat-form-field></td>
+          </tr>
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Iniziativa" [(ngModel)]="charToEdit.initiative" name="init_e">
+              </mat-form-field></td>
+
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Bonus Volontà Base" [(ngModel)]="charToEdit.st.will" name="will_e">
+              </mat-form-field></td>
+          </tr>
+          <tr class="row">
+            <td class="column"><mat-form-field class="stat">
+                <input matInput placeholder="Classe Armatura" [(ngModel)]="charToEdit.ac" name="ac_e">
+              </mat-form-field></td>
+            <td class="column"><mat-form-field class="stat">
+              <input matInput type="string" placeholder="Danni Arma" [(ngModel)]="charToEdit.weapon_dice" name="wd_e">
+            </mat-form-field></td>
+          </tr>
+          <tr class="row">
+            <td><mat-radio-group class="radio-buttons" [(ngModel)]="charToEdit.typeAttack" name="typeAttack_e">
+              <mat-radio-button class="radio-button" *ngFor="let type of attackTypes" [value]="type">
                 <i>{{ type }}</i>
               </mat-radio-button>
-            </mat-radio-group>
+            </mat-radio-group></td>
+          </tr>
+        </table>
+
+      </mat-tab>
+      <mat-tab label="Info">
+        <div style="text-align: center">
+          <div class="info-row">
+            <div class="info-col">
+              <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%">
+                <input matInput placeholder="Nome Personaggio" [(ngModel)]="charToEdit.name" name="name_e">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-col">
+              <mat-form-field appearance="outline" style="width: 90%">
+                <input matInput placeholder="Razza" [(ngModel)]="charToEdit.race" name="race_e">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-col">
+              <mat-form-field appearance="outline" style="width: 90%">
+                <mat-label>Classe</mat-label>
+                <mat-select [(ngModel)]="charToEdit.classe" name="class_e">
+                  <mat-option *ngFor="let c of classes" [value]="c">
+                    {{ c }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-col">
+              <mat-form-field appearance="outline" style="width: 90%">
+                <mat-label>Livello</mat-label>
+                <mat-select  [(ngModel)]="charToEdit.level" name="lv_e">
+                  <mat-option *ngFor="let l of levels" [value]="l">
+                    {{ l }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-col">
+              <mat-form-field appearance="outline" style="width: 90%">
+                <mat-label>Taglia</mat-label>
+                <mat-select [(ngModel)]="charToEdit.size" name="size_e">
+                  <mat-option *ngFor="let s of sizes" [value]="s">
+                    {{ s }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="Informazioni">
-      <div style="text-align: center">
-        <div class="info-row">
-          <div class="info-col">
-            <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%">
-              <input matInput placeholder="Nome Personaggio" [(ngModel)]="charToEdit.name" name="name_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="info-row">
-          <div class="info-col">
-            <mat-form-field appearance="outline" style="width: 90%">
-              <input matInput placeholder="Razza" [(ngModel)]="charToEdit.race" name="race_e">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="info-row">
-          <div class="info-col">
-            <mat-form-field appearance="outline" style="width: 90%">
-              <mat-label>Classe</mat-label>
-              <mat-select [(ngModel)]="charToEdit.classe" name="class_e">
-                <mat-option *ngFor="let c of classes" [value]="c">
-                  {{ c }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="info-row">
-          <div class="info-col">
-            <mat-form-field appearance="outline" style="width: 90%">
-              <mat-label>Livello</mat-label>
-              <mat-select  [(ngModel)]="charToEdit.level" name="lv_e">
-                <mat-option *ngFor="let l of levels" [value]="l">
-                  {{ l }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="info-row">
-          <div class="info-col">
-            <mat-form-field appearance="outline" style="width: 90%">
-              <mat-label>Taglia</mat-label>
-              <mat-select [(ngModel)]="charToEdit.size" name="size_e">
-                <mat-option *ngFor="let s of sizes" [value]="s">
-                  {{ s }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
-  <div class="save-button-div">
-    <div style="margin-bottom: 3%">
-      <button mat-flat-button color="primary" (click)="editCharacter()" class="save-button">Salva</button>
-    </div>
-    <div>
-      <button mat-flat-button color="warn" (click)="deleteCharacter()" class="delete-button">Elimina</button>
-    </div>
-  </div>
-</form>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+
+  <table cellspacing="0" class="save-button-div"><tr>
+    <td><button mat-flat-button color="warn" (click)="deleteCharacter()" class="del-button">Elimina</button></td>
+    <td><button mat-flat-button color="primary" (click)="editCharacter()" class="save-button">Salva</button></td>
+  </tr>
+  </table>
+
+</mat-drawer-container>
+
+

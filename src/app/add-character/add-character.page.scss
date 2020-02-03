@@ -4,19 +4,11 @@
   transform: translateX(-50%);
 }
 
-mat-toolbar {
-}
-
-.pg-form {
-  max-width: 500px;
-  position: absolute;
-  float: top;
-  align-content: center;
-  align-self: center;
-  width: 90%;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5rem;
+mat-horizontal-stepper {
+  flex: 1 1 auto;
+  flex-grow: 1;
+  overflow: auto;
+  text-align: center;
 }
 
 .name-pg {
@@ -55,44 +47,59 @@ mat-toolbar {
   width: 100%;
 }
 
-.attr-table {
+.stepper {
+  max-width: 500px;
+  position: relative;
+  float: top;
   align-content: center;
   align-self: center;
-  text-align: center;
-  width: 90%;
-  max-width: 500px;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 4rem;
+}
+
+.characteristics-table {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.column {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .stat {
-  width: 50%;
-  max-width: 200px;
+  width: 95%;
+  margin: 0 auto;
+  max-width: 9rem;
 }
 
 .next {
-  width: 100%;
-  margin-right: 10%;
-  margin-left: 5%;
+  float: right;
 }
 
-.next-first {
-  width: 100%;
-  margin-right: 10%;
-  margin-left: 75%;
+.next-last {
+  margin-top: 1rem;
+  float: right;
 }
 
 .next-button {
-  margin-right: 10%;
-  margin-left: 2%;
 }
 
 .back-button {
-  margin-left: 45%;
-  margin-right: -66%;
 }
 
-
 .save-button {
-  margin-left: 64%;
+}
+
+.radio-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.radio-button {
+  margin: 1rem;
 }
 
 .icon-add-buff {

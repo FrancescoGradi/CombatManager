@@ -18,6 +18,7 @@ import {
     MatToolbarModule
 } from '@angular/material';
 import {MatRadioModule} from "@angular/material/radio";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import {MatRadioModule} from "@angular/material/radio";
         MatToolbarModule,
         MatInputModule,
         MatButtonModule,
-        MatRadioModule
+        MatRadioModule,
+        MatSidenavModule
     ],
   declarations: [EditCharacterPage]
 })
