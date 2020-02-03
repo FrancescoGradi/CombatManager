@@ -13,7 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule, MatStepperModule} from '@angular/material';
+import {MatDialogModule, MatSelectModule, MatStepperModule} from '@angular/material';
+import {ClassDialogComponent} from '../class-dialog/class-dialog.component';
 
 @NgModule({
   imports: [
@@ -29,8 +30,13 @@ import {MatSelectModule, MatStepperModule} from '@angular/material';
     MatStepperModule,
     ReactiveFormsModule,
     MatSelectModule,
+      MatDialogModule,
   ],
-  declarations: [AddCharacterPage],
+  entryComponents: [ClassDialogComponent],
+  declarations: [
+      AddCharacterPage,
+      ClassDialogComponent,
+      ],
   exports: [AddCharacterPage],
 })
 export class AddCharacterPageModule {}

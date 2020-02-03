@@ -120,7 +120,7 @@
         <div class="info-row">
           <div class="info-col">
             <mat-form-field appearance="outline" style="width: 90%">
-              <mat-label>Classe</mat-label>
+              <mat-label>{{ charToEdit.classe }}</mat-label>
               <mat-select [(ngModel)]="charToEdit.classe" name="class_e">
                 <mat-option *ngFor="let c of classes" [value]="c">
                   {{ c }}

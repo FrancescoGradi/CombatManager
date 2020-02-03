@@ -4,8 +4,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
-import {Buff, Characteristics, GameCharacters} from '../home/home.page';
-import {ClassDialog, ClassDialogData} from '../class-dialog/class-dialog.component';
+import { Buff, Characteristics, GameCharacters } from '../home/home.page';
+import { MatDialog } from '@angular/material/dialog';
+import {ClassDialogComponent} from '../class-dialog/class-dialog.component';
 
 @Component({
   selector: 'app-add-character',
@@ -14,7 +15,8 @@ import {ClassDialog, ClassDialogData} from '../class-dialog/class-dialog.compone
 })
 export class AddCharacterPage implements OnInit {
 
-  constructor(private _formBuilder: FormBuilder, public navCtrl: NavController, public storage: Storage, public router: Router) {
+  constructor(private _formBuilder: FormBuilder, public navCtrl: NavController, public storage: Storage, public router: Router,
+              public dialog: MatDialog) {
     try {
       this.allCharacters = this.router.getCurrentNavigation().extras.state.allCharacters;
     } catch (e) {
@@ -47,8 +49,6 @@ export class AddCharacterPage implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  private dialog: ClassDialogData;
-
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -72,6 +72,13 @@ export class AddCharacterPage implements OnInit {
 
     }));
 
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(ClassDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+       this.classes.push(result);
+    })
   }
 
 }
