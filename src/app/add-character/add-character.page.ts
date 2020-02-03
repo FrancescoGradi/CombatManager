@@ -36,7 +36,7 @@ export class AddCharacterPage implements OnInit {
     hp: 1,
     bab: 0,
     initiative: 0,
-    weapon_dice: null,
+    weapon_dice: '1d4',
     size: null,
     typeAttack: 'mischia',
     st: {fortitude: 0, reflex: 0, will: 0},
@@ -45,6 +45,7 @@ export class AddCharacterPage implements OnInit {
   classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico'];
   sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
   levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  attackTypes: string[] = ['mischia', 'distanza'];
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;

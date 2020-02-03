@@ -27,6 +27,8 @@ export class EditCharacterPage implements OnInit {
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
         this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
+
+        console.log(this.charToEdit);
     }
 
     ngOnInit() {

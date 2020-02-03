@@ -188,10 +188,12 @@ export class HomePage implements OnInit {
         for (const buff of this.buffs) {
             buff.selected = false;
             // @ts-ignore
-            for (const sel of selectedBuffs) {
-                if (buff == sel) {
-                    buff.selected = true;
-                    sel.selected = true;
+            if (selectedBuffs != []) {
+                for (const sel of selectedBuffs) {
+                    if (buff == sel) {
+                        buff.selected = true;
+                        sel.selected = true;
+                    }
                 }
             }
         }
@@ -219,21 +221,23 @@ export class HomePage implements OnInit {
         let extra_attacks = 0;
         let actualSize = this.actualGameCharacter.size;
 
-        for (const buff of selectedBuffs) {
-            actualDamagesCalc += buff.damage;
-            actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
-            actualHitsCalc += buff.hit;
-            actualHitsCalc += Math.floor(buff.strength_bonus / 2);
-            actualArmorCalc += Math.floor(buff.ac);
-            actualFortitudeCalc += Math.floor(buff.fortitude);
-            actualFortitudeCalc += Math.floor(buff.constitution_bonus / 2);
-            actualReflexCalc += Math.floor(buff.reflex);
-            actualReflexCalc += Math.floor(buff.dexterity_bonus / 2);
-            actualWillCalc += Math.floor(buff.will);
-            actualWillCalc += Math.floor(buff.wisdom_bonus / 2);
-            extra_attacks += buff.extra_attack;
-            if (buff.size != 'No' && buff.size != actualSize) {
-                actualSize = buff.size;
+        if (selectedBuffs != []) {
+            for (const buff of selectedBuffs) {
+                actualDamagesCalc += buff.damage;
+                actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
+                actualHitsCalc += buff.hit;
+                actualHitsCalc += Math.floor(buff.strength_bonus / 2);
+                actualArmorCalc += Math.floor(buff.ac);
+                actualFortitudeCalc += Math.floor(buff.fortitude);
+                actualFortitudeCalc += Math.floor(buff.constitution_bonus / 2);
+                actualReflexCalc += Math.floor(buff.reflex);
+                actualReflexCalc += Math.floor(buff.dexterity_bonus / 2);
+                actualWillCalc += Math.floor(buff.will);
+                actualWillCalc += Math.floor(buff.wisdom_bonus / 2);
+                extra_attacks += buff.extra_attack;
+                if (buff.size != 'No' && buff.size != actualSize) {
+                    actualSize = buff.size;
+                }
             }
         }
 

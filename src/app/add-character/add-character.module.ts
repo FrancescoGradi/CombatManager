@@ -15,28 +15,30 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule, MatSelectModule, MatStepperModule} from '@angular/material';
 import {ClassDialogComponent} from '../class-dialog/class-dialog.component';
+import {MatSelectModule, MatStepperModule} from '@angular/material';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AddCharacterPageRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-      MatDialogModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AddCharacterPageRoutingModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatDialogModule,
+    ],
   entryComponents: [ClassDialogComponent],
   declarations: [
       AddCharacterPage,
-      ClassDialogComponent,
-      ],
+      ClassDialogComponent],
   exports: [AddCharacterPage],
 })
 export class AddCharacterPageModule {}
