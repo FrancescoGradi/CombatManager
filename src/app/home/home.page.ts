@@ -257,10 +257,12 @@ export class HomePage implements OnInit {
         actualHitsCalc += this.getSizeModifier(actualSize);
         actualArmorCalc += this.getSizeModifier(actualSize);
         let actualWeaponDiceCalc = this.actualGameCharacter.weapon_dice;
-        this.actualWeaponDice = this.getWeaponSizeDice(actualWeaponDiceCalc, actualSize);
+        actualWeaponDiceCalc = this.getWeaponSizeDice(actualWeaponDiceCalc, actualSize);
 
         actualDamagesCalc *= actualMultiplier;
+        actualWeaponDiceCalc = this.getWeaponDiceAfterMultiplier(actualWeaponDiceCalc, actualMultiplier);
 
+        this.actualWeaponDice = actualWeaponDiceCalc;
         this.actualDamages = actualDamagesCalc;
         this.actualHits = String(actualHitsCalc);
         this.actualArmor = actualArmorCalc;
@@ -333,6 +335,21 @@ export class HomePage implements OnInit {
         }
 
         return '';
+    }
+
+    getWeaponDiceAfterMultiplier(actualWeaponDice: string, multiplier: number) {
+        let n_dice = '';
+        let i = 0;
+        while (actualWeaponDice.charAt(i) != 'd') {
+            n_dice = n_dice.concat(actualWeaponDice.charAt(i));
+            i += 1;
+        }
+        let n_dice_mul = Number(n_dice) * multiplier;
+        n_dice = String(n_dice_mul);
+        for ( ; i < actualWeaponDice.length; i++) {
+            n_dice = n_dice.concat(actualWeaponDice.charAt(i))
+        }
+        return n_dice;
     }
 
     getWeaponDice() {
