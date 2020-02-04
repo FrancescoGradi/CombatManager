@@ -1,14 +1,4 @@
-<mat-toolbar color="primary" id="home-toolbar">
-    <button type="button" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="menu">menu</mat-icon>
-    </button>
-    <div class="selected-pg-div">
-        <span class="selected-pg"> {{ selection }} </span>
-    </div>
-    <button type="button" mat-icon-button style="position: fixed;right: 1rem;">
-        <mat-icon aria-label="face" (click)="characterStats($event)">face</mat-icon>
-    </button>
-</mat-toolbar>
+
 
 <mat-drawer-container>
     <mat-drawer #drawer class="sidenav">
@@ -31,6 +21,18 @@
             Nuovo
         </button>
     </mat-drawer>
+
+    <mat-toolbar color="primary" id="home-toolbar">
+        <button type="button" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon aria-label="menu">menu</mat-icon>
+        </button>
+        <div class="selected-pg-div">
+            <span class="selected-pg"> {{ selection }} </span>
+        </div>
+        <button type="button" mat-icon-button style="position: absolute;right: 1rem;">
+            <mat-icon aria-label="face" (click)="characterStats($event)">face</mat-icon>
+        </button>
+    </mat-toolbar>
 
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
 

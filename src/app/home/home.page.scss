@@ -8,7 +8,6 @@ mat-toolbar {
 }
 
 #home-toolbar {
-    z-index: 0;
 }
 
 .sidenav {
@@ -16,6 +15,7 @@ mat-toolbar {
     width: 80%;
     max-width: 20rem;
     top: 0;
+    z-index: 4;
 }
 
 .x-button {
@@ -32,7 +32,7 @@ mat-toolbar {
 }
 
 .selected-pg-div {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }

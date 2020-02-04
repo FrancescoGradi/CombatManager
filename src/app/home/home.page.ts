@@ -151,7 +151,7 @@ export class HomePage implements OnInit {
             this.selection = c.name;
             this.buffs = c.buffs;
             this.actualGameCharacter = c;
-            this.onBuffSelectionChange(this.selectedCombatBuffs);
+            this.onBuffSelectionChange([]);
         }
     }
 
