@@ -38,14 +38,11 @@
 
         <mat-tab label="COMBAT">
 
-            <mat-grid-list cols="2" rowHeight="10rem">
+            <mat-grid-list cols="2" rowHeight="9rem">
                 <mat-grid-tile>
-                    <mat-card class="normal-card">
-                        <mat-card-header>
-                            <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>Tiri: +{{ actualHits }}</mat-card-title>
-                        </mat-card-header>
-
-                        <mat-card-content>
+                    <mat-card class="normal-card-combat">
+                        <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>Tiri: <b>+{{ actualHits }}</b></mat-card-title>
+                        <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === true && buff.combat_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                             </ng-container>
@@ -53,19 +50,16 @@
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === false && buff.combat_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                             </ng-container>
-                        </mat-card-content>
+                        </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
+                    <mat-card class="normal-card-combat">
+                        <mat-card-title [(ngModel)]="actualDamages" ngDefaultControl>
+                            Danni: <b>{{ actualWeaponDice }} +{{ actualDamages }}</b> </mat-card-title>
 
-                    <mat-card class="normal-card">
-                        <mat-card-header>
-                            <mat-card-title [(ngModel)]="actualDamages" ngDefaultControl>
-                                Danni: {{ actualWeaponDice }} +{{ actualDamages }} </mat-card-title>
-                        </mat-card-header>
-
-                        <mat-card-content>
+                        <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === true && buff.combat_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
                             </ng-container>
@@ -73,11 +67,9 @@
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === false && buff.combat_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
                             </ng-container>
-                        </mat-card-content>
+                        </mat-card-footer>
                     </mat-card>
-
                 </mat-grid-tile>
-
             </mat-grid-list>
 
             <mat-chip-list [(ngModel)]="selectedCombatBuffs">
@@ -112,26 +104,22 @@
         </mat-tab>
 
         <mat-tab label="CA">
-            <mat-grid-list cols="1" rowHeight="10rem" gutterSize="1rem">
+            <mat-grid-list cols="1" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="normal-card">
-                        <mat-card-header>
-                            <mat-card-title [(ngModel)]="actualArmor" ngDefaultControl>
-                                Classe armatura: {{ actualArmor }}
-                            </mat-card-title>
-                        </mat-card-header>
+                        <mat-card-title [(ngModel)]="actualArmor" ngDefaultControl>
+                            Classe Armatura: <b>{{ actualArmor }}</b>
+                        </mat-card-title>
 
-                        <mat-card-content>
-                            <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true && buff.ac_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
-                                </ng-container>
+                        <mat-card-footer>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === true && buff.ac_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                            </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false && buff.ac_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
-                                </ng-container>
-                            </mat-card-content>
-                        </mat-card-content>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === false && buff.ac_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                            </ng-container>
+                        </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
             </mat-grid-list>
@@ -169,63 +157,51 @@
         </mat-tab>
 
         <mat-tab label="TS">
-            <mat-grid-list cols="3" rowHeight="10rem" gutterSize="0.5rem">
+            <mat-grid-list cols="3" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-header [(ngModel)]="actualFortitude" ngDefaultControl>
-                            <mat-card-title>Tempra: {{ actualFortitude }}</mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
-                                </ng-container>
+                        <mat-card-title [(ngModel)]="actualFortitude" ngDefaultControl>Tempra: <b>{{ actualFortitude }}</b></mat-card-title>
+                        <mat-card-footer>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                            </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
-                                </ng-container>
-                            </mat-card-content>
-                        </mat-card-content>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                            </ng-container>
+                        </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-header [(ngModel)]="actualReflex" ngDefaultControl>
-                            <mat-card-title>Riflessi: {{ actualReflex }}</mat-card-title>
-                        </mat-card-header>
+                        <mat-card-title [(ngModel)]="actualReflex" ngDefaultControl>Riflessi: <b>{{ actualReflex }}</b></mat-card-title>
 
-                        <mat-card-content>
-                            <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
-                                </ng-container>
+                        <mat-card-footer>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                            </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
-                                </ng-container>
-                            </mat-card-content>
-                        </mat-card-content>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                            </ng-container>
+                        </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-header [(ngModel)]="actualWill" ngDefaultControl>
-                            <mat-card-title>Volontà: {{ actualWill }}</mat-card-title>
-                        </mat-card-header>
+                        <mat-card-title [(ngModel)]="actualWill" ngDefaultControl>Volontà: <b>{{ actualWill }}</b></mat-card-title>
 
-                        <mat-card-content>
-                            <mat-card-content>
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
-                                </ng-container>
+                        <mat-card-footer>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
+                            </ng-container>
 
-                                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                                    <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
-                                </ng-container>
-                            </mat-card-content>
-                        </mat-card-content>
+                            <ng-container *ngFor="let buff of selectedCombatBuffs">
+                                <mat-icon *ngIf="buff.isBonus === false && buff.st_list" class="mat-icon-sel">arrow_drop_down</mat-icon>
+                            </ng-container>
+                        </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
 

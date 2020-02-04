@@ -53,15 +53,31 @@ mat-toolbar {
 }
 
 .normal-card {
+    width: 55%;
+    min-height: 4rem;
+    max-width: 20rem;
     text-align: center;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
+    margin: 0 auto;
+}
+
+.normal-card-combat {
+    width: 90%;
+    min-height: 4rem;
+    max-width: 20rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+mat-card-title {
+    text-align: center;
 }
 
 .ts-card {
+    width: 100%;
+    min-height: 4rem;
+    max-width: 20rem;
     text-align: center;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
+    margin: 0 auto;
 }
 
 .edit-buff-button {
