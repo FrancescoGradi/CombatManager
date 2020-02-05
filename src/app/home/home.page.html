@@ -160,7 +160,7 @@
             <mat-grid-list cols="3" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-title [(ngModel)]="actualFortitude" ngDefaultControl>Tempra: <b>{{ actualFortitude }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualFortitude" ngDefaultControl>Tempra: <b>+{{ actualFortitude }}</b></mat-card-title>
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
@@ -175,7 +175,7 @@
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-title [(ngModel)]="actualReflex" ngDefaultControl>Riflessi: <b>{{ actualReflex }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualReflex" ngDefaultControl>Riflessi: <b>+{{ actualReflex }}</b></mat-card-title>
 
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
@@ -191,7 +191,7 @@
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-title [(ngModel)]="actualWill" ngDefaultControl>Volontà: <b>{{ actualWill }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualWill" ngDefaultControl>Volontà: <b>+{{ actualWill }}</b></mat-card-title>
 
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">

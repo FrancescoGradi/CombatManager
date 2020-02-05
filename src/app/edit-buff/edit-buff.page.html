@@ -61,13 +61,13 @@
       </mat-expansion-panel-header>
       <table cellspacing="0"><tr>
         <td>
-          <mat-form-field class="ts-buff">
+          <mat-form-field class="extra-buff">
             <input matInput type="number" placeholder="Attacchi in più" [(ngModel)]="buffToEdit.extra_attack"
                    name="extra_attack_e">
           </mat-form-field>
         </td>
         <td>
-          <mat-form-field class="ts-buff">
+          <mat-form-field class="extra-buff">
             <input matInput type="number" placeholder="Moltiplicatore danni" [(ngModel)]="buffToEdit.multiplier"
                    name="multiplier_e">
           </mat-form-field>
@@ -75,7 +75,7 @@
       </tr>
         <tr>
           <td>
-            <mat-form-field class="ts-buff">
+            <mat-form-field class="extra-buff">
               <mat-label>Tipo</mat-label>
               <mat-select [(ngModel)]="buffToEdit.type" name="type_e">
                 <mat-option *ngFor="let t of types" [value]="t">
@@ -85,7 +85,7 @@
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="ts-buff">
+            <mat-form-field class="extra-buff">
               <mat-label>Aumento Taglia</mat-label>
               <mat-select [(ngModel)]="buffToEdit.size" name="size_e">
                 <mat-option *ngFor="let s of sizes" [value]="s">
