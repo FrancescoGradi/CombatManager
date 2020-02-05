@@ -1,7 +1,5 @@
 mat-drawer-container {
-    flex: 1 1 auto;
-    flex-grow: 1;
-    overflow: auto;
+    height: 100%;
 }
 
 mat-toolbar {
@@ -9,6 +7,18 @@ mat-toolbar {
 
 #home-toolbar {
 }
+
+mat-chip-list {
+    width: 100%;
+    max-width: 500px;
+}
+
+mat-tab-group {
+    flex: 1 1 auto;
+    overflow: auto;
+    flex-grow: 1;
+}
+
 
 .sidenav {
     position: fixed;

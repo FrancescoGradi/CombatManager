@@ -35,7 +35,7 @@
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" [selectedIndex]="selectedTab"
                    (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
 
-        <mat-tab label="COMBAT">
+        <mat-tab label="COMBAT" layout-fill>
 
             <mat-grid-list cols="2" rowHeight="9rem">
                 <mat-grid-tile>
@@ -71,13 +71,15 @@
                 </mat-grid-tile>
             </mat-grid-list>
 
-            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
-                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                    <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
-                        <small><i> {{ buff.description }}</i></small>
-                    </mat-chip>
-                </ng-container>
-            </mat-chip-list>
+            <div style="margin-left: 1rem; margin-right: 1rem;">
+                <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                    <ng-container *ngFor="let buff of selectedCombatBuffs">
+                        <mat-chip *ngIf="null !== buff.description">
+                            <small><i> {{ buff.description }}</i></small>
+                        </mat-chip>
+                    </ng-container>
+                </mat-chip-list>
+            </div>
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
@@ -102,7 +104,7 @@
             </mat-selection-list>
         </mat-tab>
 
-        <mat-tab label="CA">
+        <mat-tab label="CA" layout-fill>
             <mat-grid-list cols="1" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="normal-card">
@@ -123,13 +125,15 @@
                 </mat-grid-tile>
             </mat-grid-list>
 
-            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
-                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                    <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
-                        <small><i> {{ buff.description }}</i></small>
-                    </mat-chip>
-                </ng-container>
-            </mat-chip-list>
+            <div style="margin-left: 1rem; margin-right: 1rem;">
+                <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                    <ng-container *ngFor="let buff of selectedCombatBuffs">
+                        <mat-chip *ngIf="null !== buff.description">
+                            <small><i> {{ buff.description }}</i></small>
+                        </mat-chip>
+                    </ng-container>
+                </mat-chip-list>
+            </div>
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
@@ -155,7 +159,7 @@
             </mat-selection-list>
         </mat-tab>
 
-        <mat-tab label="TS">
+        <mat-tab label="TS" layout-fill>
             <mat-grid-list cols="3" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="ts-card">
@@ -203,16 +207,17 @@
                         </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
-
             </mat-grid-list>
 
-            <mat-chip-list [(ngModel)]="selectedCombatBuffs">
-                <ng-container *ngFor="let buff of selectedCombatBuffs">
-                    <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
-                        <small><i> {{ buff.description }}</i></small>
-                    </mat-chip>
-                </ng-container>
-            </mat-chip-list>
+            <div style="margin-left: 1rem; margin-right: 1rem;">
+                <mat-chip-list [(ngModel)]="selectedCombatBuffs">
+                    <ng-container *ngFor="let buff of selectedCombatBuffs">
+                        <mat-chip *ngIf="null !== buff.description" style="left: 1rem">
+                            <small><i> {{ buff.description }}</i></small>
+                        </mat-chip>
+                    </ng-container>
+                </mat-chip-list>
+            </div>
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs"
                                 (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
