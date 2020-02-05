@@ -20,6 +20,8 @@ import {
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {DoubleCheckDialogComponent} from '../double-check-dialog/double-check-dialog.component';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
 
 @NgModule({
     imports: [
@@ -40,9 +42,13 @@ import {DoubleCheckDialogComponent} from '../double-check-dialog/double-check-di
         MatDialogModule,
     ],
     entryComponents: [DoubleCheckDialogComponent],
-  declarations: [
+    declarations: [
       EditCharacterPage,
       DoubleCheckDialogComponent,
-  ]
+    ],
+    providers: [{
+        provide: HAMMER_GESTURE_CONFIG,
+        useClass: HammerGestureConfig
+    }]
 })
 export class EditCharacterPageModule {}

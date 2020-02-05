@@ -13,7 +13,7 @@ export class CharacterStatsPage implements OnInit {
 
   public actualGameCharacter: GameCharacters;
   public activeCombatBuffs: Buff[];
-  private title: string;
+  public title: string;
   allBuffs: boolean;
 
   constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {

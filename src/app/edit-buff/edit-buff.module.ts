@@ -37,10 +37,10 @@ import {DoubleCheckBuffDialogComponent} from '../double-check-buff-dialog/double
     entryComponents: [
         DoubleCheckBuffDialogComponent,
     ],
-  declarations: [
+    declarations: [
       EditBuffPage,
       DoubleCheckBuffDialogComponent,
-  ],
-  exports: [ EditBuffPage ],
+    ],
+    exports: [ EditBuffPage ],
 })
 export class EditBuffPageModule {}

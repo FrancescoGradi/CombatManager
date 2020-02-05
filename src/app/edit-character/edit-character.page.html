@@ -10,7 +10,8 @@
 <mat-drawer-container>
 
   <form class="pg-form">
-    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" [selectedIndex]="selectedTab"
+                   (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
       <mat-tab label="Caratteristiche">
         <table cellspacing="0" class="element-edit-table">
           <tr class="row">

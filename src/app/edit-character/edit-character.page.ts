@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {Buff, GameCharacters} from '../home/home.page';
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
@@ -6,13 +6,34 @@ import {Router} from '@angular/router';
 import {ClassDialogComponent} from '../class-dialog/class-dialog.component';
 import {DoubleCheckDialogComponent} from '../double-check-dialog/double-check-dialog.component';
 import {MatDialog} from '@angular/material';
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-edit-character',
   templateUrl: './edit-character.page.html',
   styleUrls: ['./edit-character.page.scss'],
 })
-export class EditCharacterPage implements OnInit {
+export class EditCharacterPage implements AfterViewInit {
+
+    // @ts-ignore
+    @ViewChild(MatTabGroup) group;
+    @ViewChildren(MatTab) tabs;
+    tab_num = 0;
+    selectedTab = 0;
+    SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+
+    number_tabs;
+    ngAfterViewInit(){
+        this.tab_num = this.tabs.length;
+    }
+    swipe(eType){
+        if(eType === this.SWIPE_ACTION.RIGHT && this.selectedTab > 0){
+            this.selectedTab--;
+        }
+        else if(eType === this.SWIPE_ACTION.LEFT && this.selectedTab < this.tab_num){
+            this.selectedTab++;
+        }
+    }
 
     charToEdit: GameCharacters;
     allChar: GameCharacters[];
@@ -31,9 +52,6 @@ export class EditCharacterPage implements OnInit {
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
         this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
-    }
-
-    ngOnInit() {
     }
 
     editCharacter() {

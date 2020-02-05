@@ -82,19 +82,14 @@ export class HomePage implements AfterViewInit {
     number_tabs;
     ngAfterViewInit(){
         this.tab_num = this.tabs.length;
-        console.log(this.group);
     }
     swipe(eType){
-        console.log(eType);
-        if(eType === this.SWIPE_ACTION.LEFT && this.selectedTab > 0){
-            console.log("movin left");
+        if(eType === this.SWIPE_ACTION.RIGHT && this.selectedTab > 0){
             this.selectedTab--;
         }
-        else if(eType === this.SWIPE_ACTION.RIGHT && this.selectedTab < this.tab_num){
-            console.log("movin right");
+        else if(eType === this.SWIPE_ACTION.LEFT && this.selectedTab < this.tab_num){
             this.selectedTab++;
         }
-        console.log(this.selected);
     }
 
     selection = '';
@@ -169,8 +164,6 @@ export class HomePage implements AfterViewInit {
         });
 
     }
-
-    ngOnInit(): void { }
 
     onSelChange(c: GameCharacters) {
         if (c != null) {
