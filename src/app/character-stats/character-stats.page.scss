@@ -1,9 +1,22 @@
+mat-drawer-container {
+  flex: 1 1 auto;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.mat-card-buffs {
+  width: 95%;
+  max-width: 500px;
+  margin: 1rem auto;
+}
+
 .actual-pg {
   width: 100%;
 }
 
 .toggle {
-  margin: 1rem;
+  position: absolute;
+  right: 1rem;
 }
 
 .actual-pg-div {
@@ -26,4 +39,15 @@
 .col-div {
   display: flex;
   flex-direction: column;
+}
+
+.description-div {
+  position: fixed;
+  right: 3rem;
+  overflow: hidden;
+  text-overflow: fade;
+  display: -webkit-box;
+  max-width: 40%;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }

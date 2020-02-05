@@ -13,17 +13,15 @@ export class CharacterStatsPage implements OnInit {
 
   public actualGameCharacter: GameCharacters;
   public activeCombatBuffs: Buff[];
-  public activeACBuffs: Buff[];
-  public activeSTBuffs: Buff[];
+  private title: string;
   allBuffs: boolean;
 
   constructor(public navCtrl: NavController, public storage: Storage, public router: Router) {
 
      this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
      this.activeCombatBuffs = this.router.getCurrentNavigation().extras.state.activeCombatBuffs;
-     this.activeACBuffs = this.router.getCurrentNavigation().extras.state.activeACBuffs;
-     this.activeSTBuffs = this.router.getCurrentNavigation().extras.state.activeSTBuffs;
-     this.allBuffs = false;
+     this.allBuffs = true;
+     this.title = 'Tutti i Buff';
 
   }
 
@@ -32,6 +30,11 @@ export class CharacterStatsPage implements OnInit {
 
   onToggleChange($event) {
       this.allBuffs = !this.allBuffs;
+      if (this.title === 'Tutti i Buff') {
+          this.title = 'Buff Attivi';
+      } else {
+          this.title = 'Tutti i Buff';
+      }
   }
 
 }

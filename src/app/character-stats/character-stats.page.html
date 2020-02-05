@@ -3,96 +3,59 @@
     <mat-icon>arrow_back</mat-icon>
   </button>
   <div class="actual-pg-div">
-    {{ actualGameCharacter.name }}
+    {{ title }}
   </div>
+  <mat-slide-toggle class="toggle" (click)="onToggleChange($event)"></mat-slide-toggle>
 </mat-toolbar>
 
-<mat-card style="height: 95%">
-  <mat-slide-toggle class="toggle" (click)="onToggleChange($event)">
-    <i>Tutti i buffs</i>
-  </mat-slide-toggle>
-  <mat-card>
-    <mat-card-content *ngIf="this.allBuffs === false">
-      <ng-container *ngFor="let buff of activeCombatBuffs">
-        <div class="table-div">
-          <div class="row-div">
-            <div class="col-div">
-              <div>
-                {{ buff.name }}
+<mat-drawer-container>
+    <mat-card class="mat-card-buffs">
+      <mat-card-content *ngIf="this.allBuffs === false">
+        <ng-container *ngFor="let buff of activeCombatBuffs">
+          <div class="table-div">
+            <div class="row-div">
+              <div class="col-div">
+                <div>
+                  {{ buff.name }}
+                </div>
+              </div>
+            </div>
+            <div class="description-div">
+              <small>{{ buff.description }}</small>
+            </div>
+            <div>
+              <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
+              <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
+            </div>
+          </div>
+        </ng-container>
+      </mat-card-content>
+      <mat-card-content *ngIf="this.allBuffs === true">
+        <ng-container *ngFor="let buff of this.actualGameCharacter.buffs">
+          <div class="table-div">
+            <div class="row-div">
+              <div class="col-div">
+                <div>
+                  {{ buff.name }}
+                </div>
+              </div>
+            </div>
+            <div class="description-div">
+              <small>{{ buff.description }}</small>
+            </div>
+            <div>
+              <div *ngIf="buff.selected === true">
+                <mat-icon color="accent" *ngIf="buff.isBonus === true" style="visibility: visible">arrow_drop_up</mat-icon>
+                <mat-icon *ngIf="buff.isBonus === false" style="visibility: visible">arrow_drop_down</mat-icon>
+              </div>
+              <div *ngIf="buff.selected === false">
+                <mat-icon color="accent" *ngIf="buff.isBonus === true" style="visibility: hidden">arrow_drop_up</mat-icon>
+                <mat-icon *ngIf="buff.isBonus === false" style="visibility: hidden">arrow_drop_down</mat-icon>
               </div>
             </div>
           </div>
-          <div>
-            {{ buff.description }}
-          </div>
-          <div>
-            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
-            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
-          </div>
-        </div>
-      </ng-container>
-      <ng-container *ngFor="let buff of activeACBuffs">
-        <div class="table-div">
-          <div class="row-div">
-            <div class="col-div">
-              <div>
-                {{ buff.name }}
-              </div>
-            </div>
-          </div>
-          <div>
-            {{ buff.description }}
-          </div>
-          <div>
-            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
-            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
-          </div>
-        </div>
-      </ng-container>
-      <ng-container *ngFor="let buff of activeSTBuffs">
-        <div class="table-div">
-          <div class="row-div">
-            <div class="col-div">
-              <div>
-                {{ buff.name }}
-              </div>
-            </div>
-          </div>
-          <div>
-            {{ buff.description }}
-          </div>
-          <div>
-            <mat-icon color="accent" *ngIf="buff.isBonus === true">arrow_drop_up</mat-icon>
-            <mat-icon *ngIf="buff.isBonus === false">arrow_drop_down</mat-icon>
-          </div>
-        </div>
-      </ng-container>
-    </mat-card-content>
-    <mat-card-content *ngIf="this.allBuffs === true">
-      <ng-container *ngFor="let buff of this.actualGameCharacter.buffs">
-        <div class="table-div">
-          <div class="row-div">
-            <div class="col-div">
-              <div>
-                {{ buff.name }}
-              </div>
-            </div>
-          </div>
-          <div>
-            {{ buff.description }}
-          </div>
-          <div>
-            <div *ngIf="buff.selected === true">
-              <mat-icon color="accent" *ngIf="buff.isBonus === true" style="visibility: visible">arrow_drop_up</mat-icon>
-              <mat-icon *ngIf="buff.isBonus === false" style="visibility: visible">arrow_drop_down</mat-icon>
-            </div>
-            <div *ngIf="buff.selected === false">
-              <mat-icon color="accent" *ngIf="buff.isBonus === true" style="visibility: hidden">arrow_drop_up</mat-icon>
-              <mat-icon *ngIf="buff.isBonus === false" style="visibility: hidden">arrow_drop_down</mat-icon>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </mat-card-content>
-  </mat-card>
-</mat-card>
+        </ng-container>
+      </mat-card-content>
+    </mat-card>
+</mat-drawer-container>
+

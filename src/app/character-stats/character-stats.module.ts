@@ -12,7 +12,7 @@ import {
     MatCardModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatIconModule, MatSlideToggleModule,
+    MatIconModule, MatSidenavModule, MatSlideToggleModule,
     MatTableModule,
     MatToolbarModule
 } from '@angular/material';
@@ -30,7 +30,8 @@ import {
         MatCardModule,
         MatChipsModule,
         MatFormFieldModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatSidenavModule
     ],
   declarations: [CharacterStatsPage]
 })

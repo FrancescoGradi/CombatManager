@@ -1,5 +1,3 @@
-
-
 <mat-drawer-container>
     <mat-drawer #drawer class="sidenav">
         <mat-toolbar color="primary" label="Lista Personaggi">
@@ -82,7 +80,7 @@
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option [ngClass]="buff.combat_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff" [selected]="buff.selected">
+                    <mat-list-option [ngClass]="buff.combat_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff" [disableRipple]="!buff.selected">
                         <div style="display:flex; justify-content:space-between;align-items:center">
                             <div style="display:flex;align-items:center">
                                 <div style="display:flex; flex-direction:column">
