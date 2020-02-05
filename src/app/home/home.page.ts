@@ -4,6 +4,7 @@ import {MatTab, MatTabGroup} from '@angular/material/tabs';
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
+import {MatDrawer} from '@angular/material';
 
 export interface Characteristics {
     strength: number;
@@ -130,7 +131,6 @@ export class HomePage implements AfterViewInit {
             this.db = db;
 
             for (const dbKey in this.db) {
-                // if to be removed when erasing db for alpha release
                 // tslint:disable-next-line:triple-equals
                 if (dbKey != 'null') {
                     this.allCharacters.push(db[dbKey]);
@@ -158,11 +158,15 @@ export class HomePage implements AfterViewInit {
             if (this.actualGameCharacter != null) {
                 this.onBuffSelectionChange([]);
             }
-            // console.log(this.allCharacters.length);
-            // Tried to auto-redirect to character creation on first open
-            // tslint:disable-next-line:triple-equals
+
+            console.log('Boom bitch!');
         });
 
+    }
+
+    editRoutine(drawer: MatDrawer, $event: MouseEvent, c: GameCharacters) {
+        this.editCharacter($event, c);
+        drawer.toggle();
     }
 
     onSelChange(c: GameCharacters) {
@@ -191,8 +195,7 @@ export class HomePage implements AfterViewInit {
 
     editCharacter($event: MouseEvent, char: GameCharacters) {
         this.router.navigate(['edit-character'], { state: { char,
-            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters, buffs: this.buffs } });
-        this.actualGameCharacter = this.allCharacters[0];
+            actualGameCharacter: this.actualGameCharacter, allCharacters: this.allCharacters, buffs: this.buffs} });
     }
 
     characterStats($event: MouseEvent) {
@@ -231,7 +234,7 @@ export class HomePage implements AfterViewInit {
 
             if (this.actualGameCharacter.type_weapon === 'a due mani') {
                 actualDamagesCalc = Math.floor((this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength) * 1.5));
-            } else{
+            } else {
                 actualDamagesCalc = this.fromScoreToModifier(this.actualGameCharacter.characteristics.strength);
             }
         }

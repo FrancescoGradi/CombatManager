@@ -44,6 +44,7 @@ export class EditCharacterPage implements AfterViewInit {
     weaponTypes: string[] = ['a una mano', 'a due mani'];
     selected = this.classes[0];
 
+
     private buffs: Buff[];
     private actualGameCharacter: GameCharacters;
 
@@ -52,6 +53,10 @@ export class EditCharacterPage implements AfterViewInit {
         this.allChar = this.router.getCurrentNavigation().extras.state.allCharacters;
         this.actualGameCharacter = this.router.getCurrentNavigation().extras.state.actualGameCharacter;
         this.buffs = this.router.getCurrentNavigation().extras.state.buffs;
+
+        if (this.classes.indexOf(this.charToEdit.classe) === -1) {
+            this.classes.push(this.charToEdit.classe);
+        }
     }
 
     editCharacter() {
@@ -61,9 +66,8 @@ export class EditCharacterPage implements AfterViewInit {
             db[this.charToEdit.name] = this.charToEdit;
             this.storage.set('db', db);
 
-            this.actualGameCharacter = this.charToEdit;
-
             this.router.navigate(['home']);
+
         });
 
     }
