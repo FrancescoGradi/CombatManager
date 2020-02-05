@@ -1,9 +1,9 @@
 <mat-label mat-dialog-title>Inserisci nuova classe</mat-label>
 <mat-dialog-content>
   <div style="align-content: center">
-      <input id="newClass" placeholder="Classe" style="width: 100%" label="NewClass" [(ngModel)]="text">
+      <input matInput id="newClass" placeholder="Classe" style="width: 100%" label="NewClass" [(ngModel)]="text">
   </div>
-  <div style="width: 100%; text-align: center">
+  <div style="width: 100%; text-align: center; margin-top: 1rem">
       <button mat-button mat-dialog-close="{{ this.text }}">OK</button>
       <button mat-button mat-dialog-close>Chiudi</button>
   </div>
