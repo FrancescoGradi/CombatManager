@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {MatTab, MatTabGroup} from '@angular/material/tabs';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
@@ -69,7 +70,32 @@ export interface GameCharacters {
     styleUrls: ['home.page.scss'],
 })
 
-export class HomePage implements OnInit {
+export class HomePage implements AfterViewInit {
+
+    // @ts-ignore
+    @ViewChild(MatTabGroup) group;
+    @ViewChildren(MatTab) tabs;
+    tab_num = 0;
+    selectedTab = 0;
+    SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+
+    number_tabs;
+    ngAfterViewInit(){
+        this.tab_num = this.tabs.length;
+        console.log(this.group);
+    }
+    swipe(eType){
+        console.log(eType);
+        if(eType === this.SWIPE_ACTION.LEFT && this.selectedTab > 0){
+            console.log("movin left");
+            this.selectedTab--;
+        }
+        else if(eType === this.SWIPE_ACTION.RIGHT && this.selectedTab < this.tab_num){
+            console.log("movin right");
+            this.selectedTab++;
+        }
+        console.log(this.selected);
+    }
 
     selection = '';
 

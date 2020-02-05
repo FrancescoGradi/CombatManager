@@ -32,7 +32,7 @@
         </button>
     </mat-toolbar>
 
-    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" [selectedIndex]="selectedTab" swipeleft="swipe($event.type)" swiperight="swipe($event.type)">
 
         <mat-tab label="COMBAT">
 

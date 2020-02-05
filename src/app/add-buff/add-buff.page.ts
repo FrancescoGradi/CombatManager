@@ -85,16 +85,19 @@ export class AddBuffPage implements OnInit {
                 this.buff.isBonus = false;
             }
 
-            // @ts-ignore
-            db[this.actualGameCharacter.name].buffs.push(this.buff);
-            this.storage.set('db', db);
+            if (this.buff.combat_list === false && this.buff.ac_list === false && this.buff.st_list === false) {
+                this.router.navigate(['home']);
+            } else {
+                // @ts-ignore
+                db[this.actualGameCharacter.name].buffs.push(this.buff);
+                this.storage.set('db', db);
 
-            // questo e' il riferimento dell'array in home, se lo modifica, essendo bindato, aggiorna in automatico la
-            // lista
-            this.buffs.push(this.buff);
+                // questo e' il riferimento dell'array in home, se lo modifica, essendo bindato, aggiorna in automatico la
+                // lista
+                this.buffs.push(this.buff);
 
-            this.router.navigate(['home']);
-
+                this.router.navigate(['home']);
+            }
         });
 
     }

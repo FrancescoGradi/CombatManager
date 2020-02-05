@@ -102,7 +102,11 @@ export class EditBuffPage implements OnInit {
             this.buffToEdit.isBonus = true;
         }
 
-        this.router.navigate(['home']);
+        if (this.buffToEdit.combat_list === false && this.buffToEdit.ac_list === false && this.buffToEdit.st_list === false) {
+            this.delBuff($event);
+        } else {
+            this.router.navigate(['home']);
+        }
     }
 
     openDoubleCheckDialog($event) {

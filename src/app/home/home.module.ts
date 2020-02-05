@@ -29,6 +29,7 @@ import {EditBuffPageModule} from '../edit-buff/edit-buff.module';
 import {AddCharacterPageModule} from '../add-character/add-character.module';
 import {EditCharacterPageModule} from '../edit-character/edit-character.module';
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -61,7 +62,11 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
         MatChipsModule,
         ScrollingModule,
     ],
-  declarations: [HomePage]
+    declarations: [HomePage],
+    providers: [{
+        provide: HAMMER_GESTURE_CONFIG,
+        useClass: HammerGestureConfig
+    }]
 })
 
 export class HomePageModule { }
