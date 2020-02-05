@@ -83,7 +83,14 @@
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option [ngClass]="buff.combat_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff" [disableRipple]="!buff.selected">
+                    <div [ngClass]="buff.combat_list ? 'button-edit-buff' : 'hidden-option-row'">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-direction:column;">
+                            <button mat-icon-button (click)="editBuff($event, buff)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <mat-list-option [ngClass]="buff.combat_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff">
                         <div style="display:flex; justify-content:space-between;align-items:center">
                             <div style="display:flex;align-items:center">
                                 <div style="display:flex; flex-direction:column">
@@ -91,11 +98,6 @@
                                         {{ buff.name }}
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <button mat-icon-button (click)="editBuff($event, buff)">
-                                    <mat-icon>edit</mat-icon>
-                                </button>
                             </div>
                         </div>
                         <mat-divider></mat-divider>
@@ -137,22 +139,23 @@
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs" (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option [ngClass]="buff.ac_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before"
-                                     [value]="buff" [selected]="buff.selected">
-                        <div style="display:flex; justify-content:space-between;align-items:center">
-                        <div style="display:flex;align-items:center">
-                            <div style="display:flex; flex-direction:column">
-                                <div>
-                                    {{ buff.name }}
-                                </div>
-                            </div>
-                        </div>
-                        <div>
+                    <div [ngClass]="buff.ac_list ? 'button-edit-buff' : 'hidden-option-row'">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-direction:column;">
                             <button mat-icon-button (click)="editBuff($event, buff)">
                                 <mat-icon>edit</mat-icon>
                             </button>
                         </div>
                     </div>
+                    <mat-list-option [ngClass]="buff.ac_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff">
+                        <div style="display:flex; justify-content:space-between;align-items:center">
+                            <div style="display:flex;align-items:center">
+                                <div style="display:flex; flex-direction:column">
+                                    <div>
+                                        {{ buff.name }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <mat-divider></mat-divider>
                     </mat-list-option>
                 </ng-container>
@@ -221,24 +224,24 @@
 
             <mat-selection-list [(ngModel)]="selectedCombatBuffs"
                                 (ngModelChange)="onBuffSelectionChange(selectedCombatBuffs)">
-
                 <ng-container *ngFor="let buff of buffs">
-                    <mat-list-option [ngClass]="buff.st_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before"
-                                     [value]="buff" [selected]="buff.selected">
-                        <div style="display:flex; justify-content:space-between;align-items:center">
-                        <div style="display:flex;align-items:center">
-                            <div style="display:flex; flex-direction:column">
-                                <div>
-                                    {{ buff.name }}
-                                </div>
-                            </div>
-                        </div>
-                        <div>
+                    <div [ngClass]="buff.st_list ? 'button-edit-buff' : 'hidden-option-row'">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-direction:column;">
                             <button mat-icon-button (click)="editBuff($event, buff)">
                                 <mat-icon>edit</mat-icon>
                             </button>
                         </div>
                     </div>
+                    <mat-list-option [ngClass]="buff.st_list ? 'option-row' : 'hidden-option-row'" checkboxPosition="before" [value]="buff">
+                        <div style="display:flex; justify-content:space-between;align-items:center">
+                            <div style="display:flex;align-items:center">
+                                <div style="display:flex; flex-direction:column">
+                                    <div>
+                                        {{ buff.name }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <mat-divider></mat-divider>
                     </mat-list-option>
                 </ng-container>

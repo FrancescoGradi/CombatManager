@@ -114,7 +114,16 @@ mat-card-title {
 }
 
 .option-row {
+    width: 100%;
+    margin: 0;
     z-index: 0;
+}
+
+.button-edit-buff {
+    position: absolute;
+    right: 0.5rem;
+    margin-top: 4px;
+    z-index: 1;
 }
 
 .hidden-option-row {

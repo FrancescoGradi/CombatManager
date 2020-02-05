@@ -358,15 +358,17 @@ export class HomePage implements AfterViewInit {
 
     getWeaponDiceAfterMultiplier(actualWeaponDice: string, multiplier: number) {
         let n_dice = '';
-        let i = 0;
-        while (actualWeaponDice.charAt(i) != 'd') {
-            n_dice = n_dice.concat(actualWeaponDice.charAt(i));
-            i += 1;
-        }
-        let n_dice_mul = Number(n_dice) * multiplier;
-        n_dice = String(n_dice_mul);
-        for ( ; i < actualWeaponDice.length; i++) {
-            n_dice = n_dice.concat(actualWeaponDice.charAt(i))
+        if (actualWeaponDice != '') {
+            let i = 0;
+            while (actualWeaponDice.charAt(i) != 'd' && i < 20) {
+                n_dice = n_dice.concat(actualWeaponDice.charAt(i));
+                i += 1;
+            }
+            let n_dice_mul = Number(n_dice) * multiplier;
+            n_dice = String(n_dice_mul);
+            for ( ; i < actualWeaponDice.length; i++) {
+                n_dice = n_dice.concat(actualWeaponDice.charAt(i))
+            }
         }
         return n_dice;
     }
