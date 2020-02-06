@@ -3,7 +3,7 @@ import {MatTab, MatTabGroup} from '@angular/material/tabs';
 
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
-import {Router} from '@angular/router';
+import {Router, NavigationEnd} from '@angular/router';
 import {MatDrawer} from '@angular/material';
 
 export interface Characteristics {
@@ -164,6 +164,13 @@ export class HomePage implements AfterViewInit {
             if (this.actualGameCharacter != null) {
                 this.onBuffSelectionChange(this.selectedCombatBuffs);
             }
+
+            this.router.events.subscribe((ev) => {
+                if (ev instanceof NavigationEnd) {
+                    this.onBuffSelectionChange(this.selectedCombatBuffs);
+                }
+            });
+
         });
 
     }
