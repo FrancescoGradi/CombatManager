@@ -144,9 +144,15 @@ export class HomePage implements AfterViewInit {
             // Primo personaggio attuale, prima chiave del dizionario esterno
             this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
             // console.log(this.actualGameCharacter);
+            this.selectedCombatBuffs = [];
             if (this.actualGameCharacter != null) {
                 this.buffs = this.actualGameCharacter.buffs;
                 this.selection = this.actualGameCharacter.name;
+                for (const buff of this.buffs) {
+                    if (buff.selected === true) {
+                        this.selectedCombatBuffs.push(buff);
+                    }
+                }
             } else {
                 this.buffs = [];
             }
@@ -156,10 +162,8 @@ export class HomePage implements AfterViewInit {
             // console.log(this.allCharacters);
             // console.log(this.db[this.actualGameCharacter]);
             if (this.actualGameCharacter != null) {
-                this.onBuffSelectionChange([]);
+                this.onBuffSelectionChange(this.selectedCombatBuffs);
             }
-
-            console.log('Boom bitch!');
         });
 
     }
@@ -174,7 +178,14 @@ export class HomePage implements AfterViewInit {
             this.selection = c.name;
             this.buffs = c.buffs;
             this.actualGameCharacter = c;
-            this.onBuffSelectionChange([]);
+
+            this.selectedCombatBuffs = [];
+            for (const buff of this.buffs) {
+                if (buff.selected === true) {
+                    this.selectedCombatBuffs.push(buff);
+                }
+            }
+            this.onBuffSelectionChange(this.selectedCombatBuffs);
         }
     }
 
@@ -213,8 +224,8 @@ export class HomePage implements AfterViewInit {
         for (const buff of this.buffs) {
             buff.selected = false;
             // @ts-ignore
-            if (selectedBuffs != []) {
-                for (const sel of selectedBuffs) {
+            if (this.selectedCombatBuffs != []) {
+                for (const sel of this.selectedCombatBuffs) {
                     if (buff == sel) {
                         buff.selected = true;
                         sel.selected = true;
@@ -253,8 +264,8 @@ export class HomePage implements AfterViewInit {
         let actualSize = this.actualGameCharacter.size;
 
 
-        if (selectedBuffs !== []) {
-            for (const buff of selectedBuffs) {
+        if (this.selectedCombatBuffs !== []) {
+            for (const buff of this.selectedCombatBuffs) {
                 actualDamagesCalc += buff.damage;
                 actualDamagesCalc += Math.floor(buff.strength_bonus / 2);
                 actualHitsCalc += buff.hit;
@@ -408,6 +419,13 @@ export class HomePage implements AfterViewInit {
 
     writeSelectedDb() {
         this.storage.get('db').then((db) => {
+            this.actualGameCharacter.buffs = this.buffs;
+            for (let i = 0; i < this.allCharacters.length; i++) {
+                if (this.allCharacters[i] === this.actualGameCharacter) {
+                    this.allCharacters[i].buffs = this.buffs;
+                }
+            }
+
             db[this.actualGameCharacter.name].buffs = this.buffs;
             this.db = db;
             this.storage.set('db', this.db);
