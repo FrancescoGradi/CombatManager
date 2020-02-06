@@ -21,7 +21,7 @@
   </mat-form-field>
 
   <table cellspacing="0"><tr>
-    <td><mat-icon matSuffix color="accent" class="icon-add-buff">fitness_center</mat-icon></td>
+    <td><mat-icon svgIcon="damage_icon" matSuffix color="accent" class="icon-add-buff"></mat-icon></td>
     <td><mat-form-field class="ts-buff">
       <input matInput type="number" placeholder="Bonus Tiro" [(ngModel)]="buff.hit" name="hit">
     </mat-form-field></td>
@@ -31,7 +31,7 @@
   </tr></table>
 
   <table cellspacing="0"><tr>
-    <td><mat-icon matSuffix color="accent" class="icon-add-buff">shield</mat-icon></td>
+    <td><mat-icon svgIcon="ca_icon" matSuffix color="accent" class="icon-add-buff"></mat-icon></td>
     <td>
       <mat-form-field class="ca-buff">
         <input matInput type="number" placeholder="Bonus Classe Armatura" [(ngModel)]="buff.ac" name="ac">
@@ -40,7 +40,7 @@
   </tr></table>
 
   <table cellspacing="0"><tr>
-    <td><mat-icon matSuffix color="accent" class="icon-add-buff">bolt</mat-icon></td>
+    <td><mat-icon svgIcon="ts_icon" matSuffix color="accent" class="icon-add-buff"></mat-icon></td>
     <td><mat-form-field class="ts-buff">
       <input matInput type="number" placeholder="Bonus Tempra" [(ngModel)]="buff.fortitude" name="fortitude">
     </mat-form-field></td>

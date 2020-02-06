@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,8 +15,22 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
   ) {
+    this.matIconRegistry.addSvgIcon(
+        `ca_icon`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/CA Icon-1.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `damage_icon`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Damage Icon-1.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `ts_icon`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/TS Icon-1.svg`)
+    );
     this.initializeApp();
   }
 
