@@ -36,7 +36,15 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleLightContent();
+
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        this.statusBar.styleBlackOpaque();
+        this.statusBar.backgroundColorByName('black')
+      } else {
+        this.statusBar.styleDefault();
+        this.statusBar.backgroundColorByName('white');
+      }
+
       this.splashScreen.hide();
     });
   }
