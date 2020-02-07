@@ -28,7 +28,12 @@ mat-horizontal-stepper {
   body {
     background-color: #424242;
   }
+}
 
+@media (prefers-color-scheme: light) {
+  .button-next {
+    color: #870000;
+  }
 }
 
 .name-pg {

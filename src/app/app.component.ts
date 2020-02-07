@@ -41,8 +41,8 @@ export class AppComponent {
         this.statusBar.styleBlackOpaque();
         this.statusBar.backgroundColorByName('black');
       } else {
-        this.statusBar.styleDefault();
-        this.statusBar.backgroundColorByName('white');
+        this.statusBar.styleLightContent();
+        this.statusBar.backgroundColorByHexString('#870000');
       }
 
       this.splashScreen.hide();
