@@ -40,7 +40,7 @@
             <mat-grid-list cols="2" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="normal-card-combat">
-                        <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>Tiri: <b>+{{ actualHits }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualHits" ngDefaultControl>Tiri: <b>{{actualHits > 0 ? '+' : ''}}{{ actualHits }}</b></mat-card-title>
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === true && buff.combat_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
@@ -56,7 +56,7 @@
                 <mat-grid-tile>
                     <mat-card class="normal-card-combat">
                         <mat-card-title [(ngModel)]="actualDamages" ngDefaultControl>
-                            Danni: <b>{{ actualWeaponDice }} +{{ actualDamages }}</b> </mat-card-title>
+                            Danni: <b>{{ actualWeaponDice }} {{actualDamages > 0 ? '+' : ''}}{{ actualDamages }}</b> </mat-card-title>
 
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
@@ -168,7 +168,7 @@
             <mat-grid-list cols="3" rowHeight="9rem">
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-title [(ngModel)]="actualFortitude" ngDefaultControl>Tempra: <b>+{{ actualFortitude }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualFortitude" ngDefaultControl>Tempra: <b>{{actualFortitude > 0 ? '+' : ''}}{{ actualFortitude }}</b></mat-card-title>
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
                                 <mat-icon *ngIf="buff.isBonus === true && buff.st_list" color="accent" class="mat-icon-sel">arrow_drop_up</mat-icon>
@@ -183,7 +183,7 @@
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-title [(ngModel)]="actualReflex" ngDefaultControl>Riflessi: <b>+{{ actualReflex }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualReflex" ngDefaultControl>Riflessi: <b>{{actualReflex > 0 ? '+' : ''}}{{ actualReflex }}</b></mat-card-title>
 
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">
@@ -199,7 +199,7 @@
 
                 <mat-grid-tile>
                     <mat-card class="ts-card">
-                        <mat-card-title [(ngModel)]="actualWill" ngDefaultControl>Volontà: <b>+{{ actualWill }}</b></mat-card-title>
+                        <mat-card-title [(ngModel)]="actualWill" ngDefaultControl>Volontà: <b>{{actualWill > 0 ? '+' : ''}}{{ actualWill }}</b></mat-card-title>
 
                         <mat-card-footer>
                             <ng-container *ngFor="let buff of selectedCombatBuffs">

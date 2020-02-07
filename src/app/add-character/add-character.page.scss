@@ -11,6 +11,26 @@ mat-horizontal-stepper {
   text-align: center;
 }
 
+@media (prefers-color-scheme: dark) {
+  input {
+    color: white;
+  }
+
+  .button-next {
+    color: white;
+  }
+
+  .radio-button {
+    margin: 1rem;
+    color: white;
+  }
+
+  body {
+    background-color: #424242;
+  }
+
+}
+
 .name-pg {
   width: 100%;
   flex-direction: column;
@@ -59,7 +79,7 @@ mat-horizontal-stepper {
   float: top;
   align-content: center;
   align-self: center;
-  width: 95%;
+  width: 100%;
   align-items: center;
   justify-content: center;
   margin: 0 auto;

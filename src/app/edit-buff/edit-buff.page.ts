@@ -94,12 +94,16 @@ export class EditBuffPage implements OnInit {
             this.buffToEdit.st_list = true;
         }
 
-        if (this.buffToEdit.hit > 0 || this.buffToEdit.damage > 0 || this.buffToEdit.ac > 0 || this.buffToEdit.fortitude > 0
-            || this.buffToEdit.reflex || this.buffToEdit.will > 0 || this.buffToEdit.strength_bonus > 0
-            || this.buffToEdit.dexterity_bonus > 0 || this.buffToEdit.constitution_bonus > 0 || this.buffToEdit.intelligence_bonus > 0
-            || this.buffToEdit.wisdom_bonus > 0 || this.buffToEdit.charisma_bonus > 0 || this.buffToEdit.extra_attack > 0
-            || this.buffToEdit.multiplier != 1 || this.buffToEdit.description != null) {
+        if (this.buffToEdit.hit > 0 || this.buffToEdit.damage > 0 || this.buffToEdit.ac > 0
+            || this.buffToEdit.fortitude > 0 || this.buffToEdit.reflex > 0 || this.buffToEdit.will > 0
+            || this.buffToEdit.strength_bonus > 0 || this.buffToEdit.dexterity_bonus > 0
+            || this.buffToEdit.constitution_bonus > 0 || this.buffToEdit.intelligence_bonus > 0
+            || this.buffToEdit.wisdom_bonus > 0 || this.buffToEdit.charisma_bonus > 0
+            || this.buffToEdit.extra_attack > 0 || this.buffToEdit.multiplier > 1
+            || (this.buffToEdit.description != null && this.buffToEdit.description.includes('+'))) {
             this.buffToEdit.isBonus = true;
+        } else {
+            this.buffToEdit.isBonus = false;
         }
 
         if (this.buffToEdit.combat_list === false && this.buffToEdit.ac_list === false && this.buffToEdit.st_list === false) {
