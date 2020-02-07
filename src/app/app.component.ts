@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MatIconRegistry } from "@angular/material/icon";
-import { DomSanitizer } from "@angular/platform-browser";
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -39,7 +39,7 @@ export class AppComponent {
 
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         this.statusBar.styleBlackOpaque();
-        this.statusBar.backgroundColorByName('black')
+        this.statusBar.backgroundColorByName('black');
       } else {
         this.statusBar.styleDefault();
         this.statusBar.backgroundColorByName('white');
