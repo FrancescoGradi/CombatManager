@@ -23,10 +23,16 @@
   <table cellspacing="0"><tr>
     <td><mat-icon svgIcon="damage_icon" matSuffix color="accent" class="icon-add-buff"></mat-icon></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Tiro" [(ngModel)]="buff.hit" name="hit">
+      <mat-placeholder>
+        Bonus Tiro
+      </mat-placeholder>
+      <input matInput type="number" [(ngModel)]="buff.hit" name="hit">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Danni" [(ngModel)]="buff.damage" name="damage">
+      <mat-placeholder>
+        Bonus Danni
+      </mat-placeholder>
+      <input matInput type="number" [(ngModel)]="buff.damage" name="damage">
     </mat-form-field></td>
   </tr></table>
 
@@ -34,7 +40,10 @@
     <td><mat-icon svgIcon="ca_icon" matSuffix color="accent" class="icon-add-buff"></mat-icon></td>
     <td>
       <mat-form-field class="ca-buff">
-        <input matInput type="number" placeholder="Bonus Classe Armatura" [(ngModel)]="buff.ac" name="ac">
+        <mat-placeholder>
+          Bonus Classe Armatura
+        </mat-placeholder>
+        <input matInput type="number" [(ngModel)]="buff.ac" name="ac">
       </mat-form-field>
     </td>
   </tr></table>
@@ -42,13 +51,22 @@
   <table cellspacing="0"><tr>
     <td><mat-icon svgIcon="ts_icon" matSuffix color="accent" class="icon-add-buff"></mat-icon></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Tempra" [(ngModel)]="buff.fortitude" name="fortitude">
+      <mat-placeholder>
+        Bonus Tempra
+      </mat-placeholder>
+      <input matInput type="number" [(ngModel)]="buff.fortitude" name="fortitude">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Riflessi" [(ngModel)]="buff.reflex" name="reflex">
+      <mat-placeholder>
+        Bonus Riflessi
+      </mat-placeholder>
+      <input matInput type="number" [(ngModel)]="buff.reflex" name="reflex">
     </mat-form-field></td>
     <td><mat-form-field class="ts-buff">
-      <input matInput type="number" placeholder="Bonus Volontà" [(ngModel)]="buff.will" name="will">
+      <mat-placeholder>
+        Bonus Volontà
+      </mat-placeholder>
+      <input matInput type="number" [(ngModel)]="buff.will" name="will">
     </mat-form-field></td>
   </tr></table>
 
@@ -63,13 +81,19 @@
       <table cellspacing="0"><tr>
         <td>
           <mat-form-field class="extra-buff">
-            <input matInput type="number" placeholder="Attacchi Extra" [(ngModel)]="buff.extra_attack"
+            <mat-placeholder>
+              Attacchi Extra
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="buff.extra_attack"
                    name="extra_attack">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="extra-buff">
-            <input matInput type="number" placeholder="Moltiplicatore Danni" [(ngModel)]="buff.multiplier"
+            <mat-placeholder>
+              Molt. Danni
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="buff.multiplier"
                    name="multiplier">
           </mat-form-field>
         </td>
@@ -113,36 +137,54 @@
           <tr>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="FOR Bonus" [(ngModel)]="buff.strength_bonus" name="strength_bonus">
+                <mat-placeholder>
+                  FOR Bonus
+                </mat-placeholder>
+                <input matInput type="number" [(ngModel)]="buff.strength_bonus" name="strength_bonus">
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="INT Bonus" [(ngModel)]="buff.intelligence_bonus" name="intelligence_bonus">
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field class="stat">
-                <input matInput type="number" placeholder="DES Bonus" [(ngModel)]="buff.dexterity_bonus" name="dexterity_bonus">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="stat">
-                <input matInput type="number" placeholder="SAG Bonus" [(ngModel)]="buff.wisdom_bonus" name="wisdom_bonus">
+                <mat-placeholder>
+                  INT Bonus
+                </mat-placeholder>
+                <input matInput type="number" [(ngModel)]="buff.intelligence_bonus" name="intelligence_bonus">
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="COS Bonus" [(ngModel)]="buff.constitution_bonus" name="consitution_bonus">
+                <mat-placeholder>
+                  DES Bonus
+                </mat-placeholder>
+                <input matInput type="number" [(ngModel)]="buff.dexterity_bonus" name="dexterity_bonus">
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="stat">
-                <input matInput type="number" placeholder="CAR Bonus" [(ngModel)]="buff.charisma_bonus" name="charisma_bonus">
+                <mat-placeholder>
+                  SAG Bonus
+                </mat-placeholder>
+                <input matInput type="number" [(ngModel)]="buff.wisdom_bonus" name="wisdom_bonus">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="stat">
+                <mat-placeholder>
+                  COS Bonus
+                </mat-placeholder>
+                <input matInput type="number" [(ngModel)]="buff.constitution_bonus" name="consitution_bonus">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="stat">
+                <mat-placeholder>
+                  CAR Bonus
+                </mat-placeholder>
+                <input matInput type="number" [(ngModel)]="buff.charisma_bonus" name="charisma_bonus">
               </mat-form-field>
             </td>
           </tr>

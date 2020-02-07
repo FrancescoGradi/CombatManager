@@ -25,35 +25,91 @@ export class AddBuffPage implements OnInit {
     }
 
     buff: Buff = {
-        ac: 0,
+        ac: null,
         ac_list: false,
         combat_list: false,
-        damage: 0,
+        damage: null,
         description: null,
-        extra_attack: 0,
-        fortitude: 0,
-        hit: 0,
+        extra_attack: null,
+        fortitude: null,
+        hit: null,
         name: null,
-        reflex: 0,
+        reflex: null,
         st_list: false,
-        will: 0,
+        will: null,
         type: 'Nessuno',
         selected: false,
-        strength_bonus: 0,
-        dexterity_bonus: 0,
-        constitution_bonus: 0,
-        intelligence_bonus: 0,
-        wisdom_bonus: 0,
-        charisma_bonus: 0,
+        strength_bonus: null,
+        dexterity_bonus: null,
+        constitution_bonus: null,
+        intelligence_bonus: null,
+        wisdom_bonus: null,
+        charisma_bonus: null,
         isBonus: false,
         size: 'No',
-        multiplier: 1,
+        multiplier: null,
     };
 
     ngOnInit() {
     }
 
     saveBuff($event: MouseEvent) {
+
+        if (this.buff.ac === null) {
+            this.buff.ac = 0;
+        }
+
+        if (this.buff.damage === null) {
+            this.buff.damage = 0;
+        }
+
+        if (this.buff.extra_attack === null) {
+            this.buff.extra_attack = 0;
+        }
+
+        if (this.buff.fortitude === null) {
+            this.buff.fortitude = 0;
+        }
+
+        if (this.buff.hit === null) {
+            this.buff.hit = 0;
+        }
+
+        if (this.buff.reflex === null) {
+            this.buff.reflex = 0;
+        }
+
+        if (this.buff.will === null) {
+            this.buff.will = 0;
+        }
+
+        if (this.buff.strength_bonus === null) {
+            this.buff.strength_bonus = 0;
+        }
+
+        if (this.buff.dexterity_bonus === null) {
+            this.buff.dexterity_bonus = 0;
+        }
+
+        if (this.buff.constitution_bonus === null) {
+            this.buff.constitution_bonus = 0;
+        }
+
+        if (this.buff.intelligence_bonus === null) {
+            this.buff.intelligence_bonus = 0;
+        }
+
+        if (this.buff.wisdom_bonus === null) {
+            this.buff.wisdom_bonus = 0;
+        }
+
+        if (this.buff.charisma_bonus === null) {
+            this.buff.charisma_bonus = 0;
+        }
+
+        if (this.buff.multiplier === null) {
+            this.buff.multiplier = 1;
+        }
 
         this.storage.get('db').then((db) => {
 

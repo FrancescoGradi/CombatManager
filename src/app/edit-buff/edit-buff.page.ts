@@ -73,6 +73,62 @@ export class EditBuffPage implements OnInit {
 
     saveBuff($event: MouseEvent) {
 
+        if (this.buffToEdit.ac === null) {
+            this.buffToEdit.ac = 0;
+        }
+
+        if (this.buffToEdit.damage === null) {
+            this.buffToEdit.damage = 0;
+        }
+
+        if (this.buffToEdit.extra_attack === null) {
+            this.buffToEdit.extra_attack = 0;
+        }
+
+        if (this.buffToEdit.fortitude === null) {
+            this.buffToEdit.fortitude = 0;
+        }
+
+        if (this.buffToEdit.hit === null) {
+            this.buffToEdit.hit = 0;
+        }
+
+        if (this.buffToEdit.reflex === null) {
+            this.buffToEdit.reflex = 0;
+        }
+
+        if (this.buffToEdit.will === null) {
+            this.buffToEdit.will = 0;
+        }
+
+        if (this.buffToEdit.strength_bonus === null) {
+            this.buffToEdit.strength_bonus = 0;
+        }
+
+        if (this.buffToEdit.dexterity_bonus === null) {
+            this.buffToEdit.dexterity_bonus = 0;
+        }
+
+        if (this.buffToEdit.constitution_bonus === null) {
+            this.buffToEdit.constitution_bonus = 0;
+        }
+
+        if (this.buffToEdit.intelligence_bonus === null) {
+            this.buffToEdit.intelligence_bonus = 0;
+        }
+
+        if (this.buffToEdit.wisdom_bonus === null) {
+            this.buffToEdit.wisdom_bonus = 0;
+        }
+
+        if (this.buffToEdit.charisma_bonus === null) {
+            this.buffToEdit.charisma_bonus = 0;
+        }
+
+        if (this.buffToEdit.multiplier === null) {
+            this.buffToEdit.multiplier = 1;
+        }
+
         this.buffToEdit.combat_list = false;
         this.buffToEdit.ac_list = false;
         this.buffToEdit.st_list = false;
