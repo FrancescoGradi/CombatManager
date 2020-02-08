@@ -1,7 +1,13 @@
 .toolbar-title {
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+body {
+  flex: 1 1 auto;
+  flex-grow: 1;
+  overflow: auto;
 }
 
 mat-horizontal-stepper {
@@ -35,6 +41,9 @@ mat-drawer-container {
 
   body {
     background-color: #424242;
+    flex: 1 1 auto;
+    flex-grow: 1;
+    overflow: auto;
   }
 }
 
