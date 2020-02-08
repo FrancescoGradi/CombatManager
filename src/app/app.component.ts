@@ -42,7 +42,7 @@ export class AppComponent {
         this.statusBar.backgroundColorByName('black');
       } else {
         this.statusBar.styleLightContent();
-        this.statusBar.backgroundColorByHexString('#870000');
+        this.statusBar.backgroundColorByHexString('#771520');
       }
 
       this.splashScreen.hide();
