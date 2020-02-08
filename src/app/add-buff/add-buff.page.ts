@@ -142,7 +142,9 @@ export class AddBuffPage implements OnInit {
             }
 
             if (this.buff.combat_list === false && this.buff.ac_list === false && this.buff.st_list === false) {
-                this.router.navigate(['home']);
+                this.buff.combat_list = true;
+                this.buff.ac_list = true;
+                this.buff.st_list = true;
             } else {
                 // @ts-ignore
                 db[this.actualGameCharacter.name].buffs.push(this.buff);
