@@ -163,10 +163,12 @@ export class EditBuffPage implements OnInit {
         }
 
         if (this.buffToEdit.combat_list === false && this.buffToEdit.ac_list === false && this.buffToEdit.st_list === false) {
-            this.delBuff($event);
-        } else {
-            this.router.navigate(['home']);
+            this.buffToEdit.combat_list = true;
+            this.buffToEdit.ac_list = true;
+            this.buffToEdit.st_list = true;
         }
+
+        this.router.navigate(['home']);
     }
 
     openDoubleCheckDialog($event) {
