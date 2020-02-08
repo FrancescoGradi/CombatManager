@@ -39,7 +39,7 @@ export class AppComponent {
 
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         this.statusBar.styleBlackOpaque();
-        this.statusBar.backgroundColorByName('black');
+        this.statusBar.backgroundColorByName('#ca3e47');
       } else {
         this.statusBar.styleLightContent();
         this.statusBar.backgroundColorByHexString('#771520');

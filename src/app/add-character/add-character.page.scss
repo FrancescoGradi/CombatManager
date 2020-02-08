@@ -5,10 +5,14 @@
 }
 
 mat-horizontal-stepper {
+  text-align: center;
+}
+
+mat-drawer-container {
   flex: 1 1 auto;
   flex-grow: 1;
   overflow: auto;
-  text-align: center;
+  background-color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +21,15 @@ mat-horizontal-stepper {
   }
 
   .button-next {
-    color: white;
+    color: #ca3e47;
   }
 
   .radio-button {
     margin: 1rem;
+    color: white;
+  }
+
+  .back-button {
     color: white;
   }
 
@@ -117,9 +125,6 @@ mat-horizontal-stepper {
 }
 
 .next-button {
-}
-
-.back-button {
 }
 
 .save-button {

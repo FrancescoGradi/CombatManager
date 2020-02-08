@@ -9,9 +9,10 @@
   </div>
 </mat-toolbar>
 
+<mat-drawer-container>
 <mat-horizontal-stepper labelPosition="bottom" #stepper class="stepper">
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Informazioni Generali</ng-template>
       <mat-form-field class="name-pg">
         <input matInput placeholder="Nome Personaggio" formControlName="firstCtrl" [(ngModel)]="character.name" required>
@@ -96,7 +97,7 @@
           </td>
         </tr>
         <div class="next">
-          <button mat-button matStepperPrevious color="warn">Indietro</button>
+          <button mat-button matStepperPrevious color="warn" class="back-button">Indietro</button>
           <button mat-button matStepperNext class="button-next">Avanti</button>
         </div>
       </table>
@@ -168,11 +169,12 @@
         </mat-radio-group></td>
       </tr>
       <div class="next-last">
-        <button mat-button matStepperPrevious color="warn">Indietro</button>
+        <button mat-button matStepperPrevious color="warn" class="back-button">Indietro</button>
         <button mat-raised-button color="primary" (click)="saveCharacter($event)">Salva</button>
       </div>
     </table>
   </mat-step>
 </mat-horizontal-stepper>
+</mat-drawer-container>
 
 </body>
