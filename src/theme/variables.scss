@@ -76,7 +76,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 
 $candy-app-primary-dark: mat-palette($custom-amber, 500);
 $candy-app-accent-dark:  mat-palette($custom-amber, 600);
-$candy-app-warn-dark: mat-palette($mat-grey, 800);
+$candy-app-warn-dark: mat-palette($mat-grey, 400);
 
 $candy-app-theme-dark: mat-dark-theme($candy-app-primary-dark, $candy-app-accent-dark, $candy-app-warn-dark);
 

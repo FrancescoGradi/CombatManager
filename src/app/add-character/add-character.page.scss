@@ -21,6 +21,10 @@ mat-drawer-container {
   background-color: transparent;
 }
 
+.button-next {
+  color: #771520;
+}
+
 @media (prefers-color-scheme: dark) {
   input {
     color: white;
@@ -45,13 +49,6 @@ mat-drawer-container {
     flex-grow: 1;
     overflow: auto;
   }
-}
-
-@media (prefers-color-scheme: light) {
-  .button-next {
-    color: #771520;
-  }
-
 }
 
 .name-pg {

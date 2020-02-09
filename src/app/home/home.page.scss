@@ -152,10 +152,8 @@ mat-card-title {
     font-size: medium;
 }
 
-@media (prefers-color-scheme: light) {
-    .selected {
-        background-color: lightgrey;
-    }
+.selected {
+    background-color: lightgrey;
 }
 
 @media (prefers-color-scheme: dark) {
