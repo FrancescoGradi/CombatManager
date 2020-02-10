@@ -209,7 +209,8 @@ export class HomePage implements AfterViewInit {
     }
 
     addCharacter() {
-        this.router.navigate(['add-character'], { state: { allCharacters: this.allCharacters } });
+        this.router.navigate(['add-character'], { state: { allCharacters: this.allCharacters,
+                actualGameCharacter: this.actualGameCharacter, selection: this.selection} });
     }
 
     editCharacter($event: MouseEvent, char: GameCharacters) {

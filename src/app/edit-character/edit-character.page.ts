@@ -61,6 +61,38 @@ export class EditCharacterPage implements AfterViewInit {
 
     editCharacter() {
 
+        if (this.charToEdit.ac === null || this.charToEdit.ac < 0) {
+            this.charToEdit.ac = 0;
+        }
+
+        if (this.charToEdit.bab === null || this.charToEdit.bab < 0) {
+            this.charToEdit.bab = 0;
+        }
+
+        if (this.charToEdit.hp === null || this.charToEdit.hp < 1) {
+            this.charToEdit.hp = 1;
+        }
+
+        if (this.charToEdit.initiative === null) {
+            this.charToEdit.initiative = this.fromScoreToModifier(this.charToEdit.characteristics.dexterity);
+        }
+
+        if (this.charToEdit.weapon_dice === null || this.charToEdit.weapon_dice === '') {
+            this.charToEdit.weapon_dice = '1d8';
+        }
+
+        if (this.charToEdit.st.fortitude === null || this.charToEdit.st.fortitude < 0) {
+            this.charToEdit.st.fortitude = 0;
+        }
+
+        if (this.charToEdit.st.reflex === null || this.charToEdit.st.reflex < 0) {
+            this.charToEdit.st.reflex = 0;
+        }
+
+        if (this.charToEdit.st.will === null || this.charToEdit.st.will < 0) {
+            this.charToEdit.st.will = 0;
+        }
+
         this.storage.get('db').then((db) => {
 
             db[this.charToEdit.name] = this.charToEdit;
@@ -100,5 +132,9 @@ export class EditCharacterPage implements AfterViewInit {
                 }
             });
         }
+    }
+
+    fromScoreToModifier(score: number) {
+        return Math.floor((score - 10) / 2);
     }
 }

@@ -1,14 +1,36 @@
 .toolbar-title {
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-mat-horizontal-stepper {
+body {
   flex: 1 1 auto;
   flex-grow: 1;
   overflow: auto;
+}
+
+mat-horizontal-stepper {
   text-align: center;
+}
+
+mat-drawer-container {
+  flex: 1 1 auto;
+  flex-grow: 1;
+  overflow: auto;
+  background-color: transparent;
+}
+
+.button-next {
+  color: #771520;
+}
+
+mat-placeholder {
+  font-size: small;
+}
+
+mat-label {
+  font-size: small;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +39,7 @@ mat-horizontal-stepper {
   }
 
   .button-next {
-    color: white;
+    color: #ca3e47;
   }
 
   .radio-button {
@@ -25,14 +47,15 @@ mat-horizontal-stepper {
     color: white;
   }
 
+  .back-button {
+    color: white;
+  }
+
   body {
     background-color: #424242;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .button-next {
-    color: #870000;
+    flex: 1 1 auto;
+    flex-grow: 1;
+    overflow: auto;
   }
 }
 
@@ -116,9 +139,6 @@ mat-horizontal-stepper {
 }
 
 .next-button {
-}
-
-.back-button {
 }
 
 .save-button {

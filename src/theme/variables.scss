@@ -11,7 +11,7 @@ $custom-red: (
         600: #4072b4,
         700: #38649d,
         800: #305687,
-        900: #870000,
+        900: #771520,
         A100: #ffffff,
         A200: #dde6f3,
         A400: #6992c9,
@@ -34,15 +34,49 @@ $custom-red: (
         )
 );
 
+$custom-amber: (
+        50: #ffffff,
+        100: #dde6f3,
+        200: #b4c9e4,
+        300: #7fa3d1,
+        400: #6992c9,
+        500: #ca3e47,
+        600: #ddcf9a,
+        700: #38649d,
+        800: #305687,
+        900: #771520,
+        A100: #ffffff,
+        A200: #dde6f3,
+        A400: #6992c9,
+        A700: #38649d,
+        contrast: (
+                50: $black-87-opacity,
+                100: $black-87-opacity,
+                200: $black-87-opacity,
+                300: $black-87-opacity,
+                400: $black-87-opacity,
+                500: white,
+                600: white,
+                700: white,
+                800: white,
+                900: white,
+                A100: $black-87-opacity,
+                A200: $black-87-opacity,
+                A400: $black-87-opacity,
+                A700: white,
+        )
+);
+
+
 $candy-app-primary: mat-palette($custom-red, 900);
-$candy-app-accent:  mat-palette($mat-amber, 600);
+$candy-app-accent:  mat-palette($custom-amber, 600);
 $candy-app-warn:    mat-palette($mat-gray, 900);
 
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 
-$candy-app-primary-dark: mat-palette($mat-red, 900);
-$candy-app-accent-dark:  mat-palette($mat-amber, 800);
-$candy-app-warn-dark: mat-palette($mat-grey, 200);
+$candy-app-primary-dark: mat-palette($custom-amber, 500);
+$candy-app-accent-dark:  mat-palette($custom-amber, 600);
+$candy-app-warn-dark: mat-palette($mat-grey, 400);
 
 $candy-app-theme-dark: mat-dark-theme($candy-app-primary-dark, $candy-app-accent-dark, $candy-app-warn-dark);
 

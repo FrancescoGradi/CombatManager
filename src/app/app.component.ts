@@ -82,11 +82,11 @@ export class AppComponent {
     this.platform.ready().then(() => {
 
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.statusBar.styleBlackOpaque();
-        this.statusBar.backgroundColorByName('black');
+        this.statusBar.styleLightContent();
+        this.statusBar.backgroundColorByHexString('#ca3e47');
       } else {
         this.statusBar.styleLightContent();
-        this.statusBar.backgroundColorByHexString('#870000');
+        this.statusBar.backgroundColorByHexString('#771520');
       }
 
       this.splashScreen.hide();

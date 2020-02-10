@@ -111,6 +111,10 @@ export class AddBuffPage implements OnInit {
             this.buff.multiplier = 1;
         }
 
+        if (this.buff.description === '' || this.buff.description === ' ') {
+            this.buff.description = null;
+        }
+
         this.storage.get('db').then((db) => {
 
             if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0 || this.buff.size != 'No'
@@ -142,7 +146,9 @@ export class AddBuffPage implements OnInit {
             }
 
             if (this.buff.combat_list === false && this.buff.ac_list === false && this.buff.st_list === false) {
-                this.router.navigate(['home']);
+                this.buff.combat_list = true;
+                this.buff.ac_list = true;
+                this.buff.st_list = true;
             } else {
                 // @ts-ignore
                 db[this.actualGameCharacter.name].buffs.push(this.buff);
