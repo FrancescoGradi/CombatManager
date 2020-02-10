@@ -25,6 +25,14 @@ mat-drawer-container {
   color: #771520;
 }
 
+mat-placeholder {
+  font-size: small;
+}
+
+mat-label {
+  font-size: small;
+}
+
 @media (prefers-color-scheme: dark) {
   input {
     color: white;

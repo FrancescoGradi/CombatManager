@@ -111,6 +111,10 @@ export class AddBuffPage implements OnInit {
             this.buff.multiplier = 1;
         }
 
+        if (this.buff.description === '' || this.buff.description === ' ') {
+            this.buff.description = null;
+        }
+
         this.storage.get('db').then((db) => {
 
             if (this.buff.hit != 0 || this.buff.damage != 0 || this.buff.strength_bonus != 0 || this.buff.size != 'No'

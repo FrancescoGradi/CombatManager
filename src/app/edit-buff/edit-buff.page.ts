@@ -129,6 +129,10 @@ export class EditBuffPage implements OnInit {
             this.buffToEdit.multiplier = 1;
         }
 
+        if (this.buffToEdit.description === '' || this.buffToEdit.description === ' ') {
+            this.buffToEdit.description = null;
+        }
+
         this.buffToEdit.combat_list = false;
         this.buffToEdit.ac_list = false;
         this.buffToEdit.st_list = false;

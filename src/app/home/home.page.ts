@@ -167,21 +167,6 @@ export class HomePage implements AfterViewInit {
 
             this.router.events.subscribe((ev) => {
                 if (ev instanceof NavigationEnd) {
-                    if (this.actualGameCharacter === null) {
-                        this.actualGameCharacter = this.db[Object.keys(this.db)[0]];
-                        this.selectedCombatBuffs = [];
-                        if (this.actualGameCharacter != null) {
-                            this.buffs = this.actualGameCharacter.buffs;
-                            this.selection = this.actualGameCharacter.name;
-                            for (const buff of this.buffs) {
-                                if (buff.selected === true) {
-                                    this.selectedCombatBuffs.push(buff);
-                                }
-                            }
-                        } else {
-                            this.buffs = [];
-                        }
-                    }
                     this.onBuffSelectionChange(this.selectedCombatBuffs);
                 }
             });
@@ -223,7 +208,8 @@ export class HomePage implements AfterViewInit {
     }
 
     addCharacter() {
-        this.router.navigate(['add-character'], { state: { allCharacters: this.allCharacters } });
+        this.router.navigate(['add-character'], { state: { allCharacters: this.allCharacters,
+                actualGameCharacter: this.actualGameCharacter, selection: this.selection} });
     }
 
     editCharacter($event: MouseEvent, char: GameCharacters) {

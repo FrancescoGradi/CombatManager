@@ -16,29 +16,47 @@
         <table cellspacing="0" class="element-edit-table">
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="FOR" [(ngModel)]="charToEdit.characteristics.strength" name="str_e">
+              <mat-placeholder>
+                FOR
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.characteristics.strength" name="str_e">
             </mat-form-field></td>
 
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="INT" [(ngModel)]="charToEdit.characteristics.intelligence" name="int_e">
+              <mat-placeholder>
+                INT
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.characteristics.intelligence" name="int_e">
             </mat-form-field></td>
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="DES" [(ngModel)]="charToEdit.characteristics.dexterity" name="dex_e">
+              <mat-placeholder>
+                DES
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.characteristics.dexterity" name="dex_e">
             </mat-form-field></td>
 
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="SAG" [(ngModel)]="charToEdit.characteristics.wisdom" name="wis_e">
+              <mat-placeholder>
+                SAG
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.characteristics.wisdom" name="wis_e">
             </mat-form-field></td>
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="COS" [(ngModel)]="charToEdit.characteristics.constitution" name="cos_e">
+              <mat-placeholder>
+                COS
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.characteristics.constitution" name="cos_e">
             </mat-form-field></td>
 
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="CAR" [(ngModel)]="charToEdit.characteristics.charisma" name="char_e">
+              <mat-placeholder>
+                CAR
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.characteristics.charisma" name="char_e">
             </mat-form-field></td>
           </tr>
         </table>
@@ -47,36 +65,60 @@
         <table cellspacing="0" class="element-edit-table">
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Punti Ferita" [(ngModel)]="charToEdit.hp" name="hp_e">
-              </mat-form-field></td>
+              <mat-placeholder>
+                Punti Ferita
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.hp" name="hp_e">
+            </mat-form-field></td>
 
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Bonus Tempra Base" [(ngModel)]="charToEdit.st.fortitude" name="for_e">
-              </mat-form-field></td>
+              <mat-placeholder>
+                Bonus Tempra Base
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.st.fortitude" name="for_e">
+            </mat-form-field></td>
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="Classe Armatura" [(ngModel)]="charToEdit.ac" name="ac_e">
+              <mat-placeholder>
+                Classe Armatura
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.ac" name="ac_e">
             </mat-form-field></td>
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Bonus Riflessi Base" [(ngModel)]="charToEdit.st.reflex" name="ref_e">
-              </mat-form-field></td>
+              <mat-placeholder>
+                Bonus Riflessi Base
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.st.reflex" name="ref_e">
+            </mat-form-field></td>
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Iniziativa" [(ngModel)]="charToEdit.initiative" name="init_e">
-              </mat-form-field></td>
+              <mat-placeholder>
+                Iniziativa
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.initiative" name="init_e">
+            </mat-form-field></td>
 
             <td class="column"><mat-form-field class="stat">
-                <input matInput placeholder="Bonus Volontà Base" [(ngModel)]="charToEdit.st.will" name="will_e">
-              </mat-form-field></td>
+              <mat-placeholder>
+                Bonus Volontà Base
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.st.will" name="will_e">
+            </mat-form-field></td>
           </tr>
           <tr class="row">
             <td class="column"><mat-form-field class="stat">
-              <input matInput placeholder="Bonus Attacco Base" [(ngModel)]="charToEdit.bab" name="bab_e">
+              <mat-placeholder>
+                Bonus Attacco Base
+              </mat-placeholder>
+              <input matInput [(ngModel)]="charToEdit.bab" name="bab_e">
             </mat-form-field></td>
             <td class="column"><mat-form-field class="stat">
-              <input matInput type="string" placeholder="Danni Arma" [(ngModel)]="charToEdit.weapon_dice" name="wd_e">
+              <mat-label>
+                Danni Arma
+              </mat-label>
+              <input matInput type="string" placeholder="Es. 1d8" [(ngModel)]="charToEdit.weapon_dice" name="wd_e">
             </mat-form-field></td>
           </tr>
           <tr class="row">

@@ -42,7 +42,7 @@
         <div class="size-pg">
           <mat-form-field style="max-width: 100px" appearance="outline">
             <mat-label>Taglia</mat-label>
-            <mat-select [(ngModel)]="character.size" formControlName="firstCtrl">
+            <mat-select [(ngModel)]="character.size" formControlName="firstCtrl" required>
               <mat-option *ngFor="let size of sizes" [value]="size">
                 {{ size }}
               </mat-option>
@@ -62,36 +62,54 @@
         <tr class="row">
           <td class="column">
             <mat-form-field class="stat">
-              <input matInput type="number" formControlName="secondCtrl" placeholder="FOR" [(ngModel)]="character.characteristics.strength">
+              <mat-placeholder>
+                FOR
+              </mat-placeholder>
+              <input matInput type="number" formControlName="secondCtrl" [(ngModel)]="character.characteristics.strength">
             </mat-form-field>
           </td>
           <td class="column">
             <mat-form-field class="stat">
-              <input matInput type="number" formControlName="secondCtrl" placeholder="INT" [(ngModel)]="character.characteristics.intelligence">
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr class="row">
-          <td class="column">
-            <mat-form-field class="stat">
-              <input matInput type="number" formControlName="secondCtrl" placeholder="DES" [(ngModel)]="character.characteristics.dexterity">
-            </mat-form-field>
-          </td>
-          <td class="column">
-            <mat-form-field class="stat">
-              <input matInput type="number" formControlName="secondCtrl" placeholder="SAG" [(ngModel)]="character.characteristics.wisdom">
+              <mat-placeholder>
+                INT
+              </mat-placeholder>
+              <input matInput type="number" formControlName="secondCtrl" [(ngModel)]="character.characteristics.intelligence">
             </mat-form-field>
           </td>
         </tr>
         <tr class="row">
           <td class="column">
             <mat-form-field class="stat">
-              <input matInput type="number" formControlName="secondCtrl" placeholder="COS" [(ngModel)]="character.characteristics.constitution">
+              <mat-placeholder>
+                DES
+              </mat-placeholder>
+              <input matInput type="number" formControlName="secondCtrl" [(ngModel)]="character.characteristics.dexterity">
             </mat-form-field>
           </td>
           <td class="column">
             <mat-form-field class="stat">
-              <input matInput type="number" formControlName="secondCtrl" placeholder="CAR" [(ngModel)]="character.characteristics.charisma">
+              <mat-placeholder>
+                SAG
+              </mat-placeholder>
+              <input matInput type="number" formControlName="secondCtrl" [(ngModel)]="character.characteristics.wisdom">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr class="row">
+          <td class="column">
+            <mat-form-field class="stat">
+              <mat-placeholder>
+                COS
+              </mat-placeholder>
+              <input matInput type="number" formControlName="secondCtrl"[(ngModel)]="character.characteristics.constitution">
+            </mat-form-field>
+          </td>
+          <td class="column">
+            <mat-form-field class="stat">
+              <mat-placeholder>
+                CAR
+              </mat-placeholder>
+              <input matInput type="number" formControlName="secondCtrl" [(ngModel)]="character.characteristics.charisma">
             </mat-form-field>
           </td>
         </tr>
@@ -108,48 +126,72 @@
       <tr class="row">
         <td class="column">
           <mat-form-field class="stat">
-            <input matInput type="number" placeholder="Punti Ferita" [(ngModel)]="character.hp">
+            <mat-placeholder>
+              Punti Ferita
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.hp">
           </mat-form-field>
         </td>
         <td class="column">
           <mat-form-field class="stat">
-            <input matInput type="number" placeholder="Bonus Tempra Base" [(ngModel)]="character.st.fortitude">
-          </mat-form-field>
-        </td>
-      </tr>
-      <tr class="row">
-        <td class="column">
-          <mat-form-field class="stat">
-            <input matInput type="number" placeholder="Classe Armatura" [(ngModel)]="character.ac">
-          </mat-form-field>
-        </td>
-        <td class="column">
-          <mat-form-field class="stat">
-            <input matInput type="number" placeholder="Bonus Riflessi Base" [(ngModel)]="character.st.reflex">
+            <mat-placeholder>
+              Bonus Tempra Base
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.st.fortitude">
           </mat-form-field>
         </td>
       </tr>
       <tr class="row">
         <td class="column">
           <mat-form-field class="stat">
-            <input matInput type="number" placeholder="Iniziativa" [(ngModel)]="character.initiative">
+            <mat-placeholder>
+              Classe Armatura
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.ac">
           </mat-form-field>
         </td>
         <td class="column">
           <mat-form-field class="stat">
-            <input matInput type="number" placeholder="Bonus Volontà Base" [(ngModel)]="character.st.will">
+            <mat-placeholder>
+              Bonus Riflessi Base
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.st.reflex">
           </mat-form-field>
         </td>
       </tr>
       <tr class="row">
         <td class="column">
           <mat-form-field class="stat">
-            <input matInput type="number" placeholder="BAB" [(ngModel)]="character.bab">
+            <mat-placeholder>
+              Iniziativa
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.initiative">
           </mat-form-field>
         </td>
         <td class="column">
           <mat-form-field class="stat">
-            <input matInput type="string" placeholder="Danni Arma" [(ngModel)]="character.weapon_dice">
+            <mat-placeholder>
+              Bonus Volontà Base
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.st.will">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="column">
+          <mat-form-field class="stat">
+            <mat-placeholder>
+              Bonus Attacco Base
+            </mat-placeholder>
+            <input matInput type="number" [(ngModel)]="character.bab">
+          </mat-form-field>
+        </td>
+        <td class="column">
+          <mat-form-field class="stat">
+            <mat-label>
+              Danni Arma
+            </mat-label>
+            <input matInput type="string" placeholder="Es. 1d8" [(ngModel)]="character.weapon_dice">
           </mat-form-field>
         </td>
       </tr>
