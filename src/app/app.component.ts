@@ -31,6 +31,50 @@ export class AppComponent {
         `ts_icon`,
         this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/TS Icon-1.svg`)
     );
+    this.matIconRegistry.addSvgIcon(
+        `Barbaro`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Barbaro.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Bardo`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Bardo.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Chierico`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Chierico.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Druido`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Druido.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Guerriero`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Guerriero.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Ladro`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Ladro.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Mago`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Mago.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Monaco`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Monaco.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Paladino`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Paladino.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Ranger`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Ranger.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+        `Stregone`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icon/Stregone.svg`)
+    );
     this.initializeApp();
   }
 

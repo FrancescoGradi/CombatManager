@@ -103,6 +103,7 @@ export class HomePage implements AfterViewInit {
 
     allCharacters: GameCharacters[] = [];
 
+    classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico', 'Druido', 'Monaco'];
     allTypes: string[] = [ 'Nessuno', 'Divino', 'Fortuna', 'Magico' ];
 
     actualDamages = 0;

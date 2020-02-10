@@ -8,7 +8,8 @@
         </mat-toolbar>
         <mat-nav-list *ngFor="let c of allCharacters">
             <a mat-list-item (click)="onSelChange(c); drawer.toggle()" [ngClass]="c === actualGameCharacter ? 'selected' : 'unselected'">
-                <mat-icon aria-label="face">face</mat-icon>
+                <mat-icon *ngIf="this.classes.includes(c.classe)" svgIcon="{{ c.classe }}"></mat-icon>
+                <mat-icon *ngIf="!this.classes.includes(c.classe)" aria-label="face">face</mat-icon>
                 <mat-label style="padding-left: 5%">{{ c.name }}</mat-label>
                 <button class="edit-char-button" mat-icon-button (click)="editRoutine(drawer, $event, c)">
                     <mat-icon>edit</mat-icon>
