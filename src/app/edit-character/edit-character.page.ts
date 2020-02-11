@@ -37,7 +37,8 @@ export class EditCharacterPage implements AfterViewInit {
 
     charToEdit: GameCharacters;
     allChar: GameCharacters[];
-    classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico', 'Druido', 'Monaco'];    sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
+    classes: string[] = ['Guerriero', 'Mago', 'Ranger', 'Bardo', 'Stregone', 'Ladro', 'Barbaro', 'Paladino', 'Chierico', 'Druido', 'Monaco'];
+    sizes: string[] = ['Piccolissima', 'Minuta', 'Minuscola', 'Piccola', 'Media', 'Grande', 'Enorme', 'Gigantesca', 'Colossale'];
     levels: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     attackTypes: string[] = ['mischia', 'distanza'];
     weaponTypes: string[] = ['a una mano', 'a due mani'];
