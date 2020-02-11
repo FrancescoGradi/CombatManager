@@ -61,6 +61,30 @@ export class EditCharacterPage implements AfterViewInit {
 
     editCharacter() {
 
+        if (this.charToEdit.characteristics.strength === null || this.charToEdit.characteristics.strength < 0) {
+            this.charToEdit.characteristics.strength = 10;
+        }
+
+        if (this.charToEdit.characteristics.dexterity === null || this.charToEdit.characteristics.dexterity < 0) {
+            this.charToEdit.characteristics.dexterity = 10;
+        }
+
+        if (this.charToEdit.characteristics.constitution === null || this.charToEdit.characteristics.constitution < 0) {
+            this.charToEdit.characteristics.constitution = 10;
+        }
+
+        if (this.charToEdit.characteristics.intelligence === null || this.charToEdit.characteristics.intelligence < 0) {
+            this.charToEdit.characteristics.intelligence = 10;
+        }
+
+        if (this.charToEdit.characteristics.wisdom === null || this.charToEdit.characteristics.wisdom < 0) {
+            this.charToEdit.characteristics.wisdom = 10;
+        }
+
+        if (this.charToEdit.characteristics.charisma === null || this.charToEdit.characteristics.charisma < 0) {
+            this.charToEdit.characteristics.charisma = 10;
+        }
+
         if (this.charToEdit.ac === null || this.charToEdit.ac < 0) {
             this.charToEdit.ac = 0;
         }

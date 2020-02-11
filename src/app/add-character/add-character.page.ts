@@ -36,7 +36,7 @@ export class AddCharacterPage implements OnInit {
     classe: null,
     race: null,
     level: 1,
-    characteristics: {strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10},
+    characteristics: {strength: null, dexterity: null, constitution: null, intelligence: null, wisdom: null, charisma: null},
     buffs: [],
     ac: null,
     hp: null,
@@ -68,6 +68,30 @@ export class AddCharacterPage implements OnInit {
   }
 
   saveCharacter($event: MouseEvent) {
+
+    if (this.character.characteristics.strength === null || this.character.characteristics.strength < 0) {
+      this.character.characteristics.strength = 10;
+    }
+
+    if (this.character.characteristics.dexterity === null || this.character.characteristics.dexterity < 0) {
+      this.character.characteristics.dexterity = 10;
+    }
+
+    if (this.character.characteristics.constitution === null || this.character.characteristics.constitution < 0) {
+      this.character.characteristics.constitution = 10;
+    }
+
+    if (this.character.characteristics.intelligence === null || this.character.characteristics.intelligence < 0) {
+      this.character.characteristics.intelligence = 10;
+    }
+
+    if (this.character.characteristics.wisdom === null || this.character.characteristics.wisdom < 0) {
+      this.character.characteristics.wisdom = 10;
+    }
+
+    if (this.character.characteristics.charisma === null || this.character.characteristics.charisma < 0) {
+      this.character.characteristics.charisma = 10;
+    }
 
     if (this.character.ac === null || this.character.ac < 0) {
       this.character.ac = 0;
