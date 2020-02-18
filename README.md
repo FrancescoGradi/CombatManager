@@ -1,6 +1,6 @@
 # RPG Combat Manager
 
-## A cross-platform app to manage your buffs in DnD/Pathfinder adventures
+## A cross-platform app to manage buffs in your DnD/Pathfinder adventures
 
 DnD and Pathfinder are very complex games, often there are many active **buffs** within battles.
 This app wants to help the player to **count** all **bonus/malus** and to add them to basic modifiers.
@@ -14,8 +14,8 @@ and it was converted in iOS/Android app with **Ionic** [2]. Here some screenshot
 
 <div>
 <p align="center">
-<img src="demo/principale.png" width=auto height=720px>
-<img src="demo/principale_dark.png" width=auto height=720px>
+<img src="demo/principale.png" width=auto height=480px>
+<img src="demo/principale_dark.png" width=auto height=480px>
 </p>
 <div/>
 
@@ -65,8 +65,8 @@ are implemented, you can:
 
 <div>
 <p align="center">
-<img src="demo/add_character1.png" width=auto height=720px>
-<img src="demo/add_buff.png" width=auto height=720px>
+<img src="demo/add_character1.png" width=auto height=480px>
+<img src="demo/add_buff.png" width=auto height=480px>
 </p>
 <div/>
 
