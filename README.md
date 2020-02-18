@@ -1,6 +1,6 @@
 # RPG Combat Manager
 
-## A cross-platform app to manage buffs in your DnD/Pathfinder adventures
+## A cross-platform app to manage buffs in your D&D/Pathfinder adventures
 
 DnD and Pathfinder are very complex games, especially when it comes to battles, since there are many active **buffs** to manage.
 This app wants to help players with that aspect of the games by providing a way to **count** all **bonus/malus** and to add them to basic modifiers.
