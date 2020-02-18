@@ -45,7 +45,7 @@ ionic cordova build android --prod
 ```
 
 ### iOS
-It works only with Mac Os. You have to download XCode, Cordova provides an XCode app building for you
+It works only with Mac Os. Cordova provides an XCode app building for you
 (more information <a href="https://ionicframework.com/docs/installation/ios">here</a>).
 Run:
 ```
