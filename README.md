@@ -2,15 +2,15 @@
 
 ## A cross-platform app to manage buffs in your DnD/Pathfinder adventures
 
-DnD and Pathfinder are very complex games, often there are many active **buffs** within battles.
-This app wants to help the player to **count** all **bonus/malus** and to add them to basic modifiers.
+DnD and Pathfinder are very complex games, especially when it comes to battles, since there are many active **buffs** to manage.
+This app wants to help players with that aspect of the games by providing a way to **count** all **bonus/malus** and to add them to basic modifiers.
 
-It allows to select buff in a list and it provides _automatic updates_ for us.
-It is divided into three principal tabs that represent **attack** phase, **defend** phase and **saving throws** 
-(during the battle).
+It allows to select a buff from a list and it provides _automatic updates_ for us.
+It is divided into three principal tabs that represents the **attack** phase, the **defend** phase and the **saving throws** 
+(during the battle) respectively.
 
-Interface was designed with **Material Design** rules (_Angular Material framework_ [1]) and code was written in _typescript_ 
-and it was converted in iOS/Android app with **Ionic** [2]. Here some screenshots:
+The interface was designed following the **Material Design** rules (_Angular Material framework_ [1]), while the code was written in _typescript_ 
+and it was built into an iOS/Android app with **Ionic** [2]. Here are some screenshots:
 
 <div>
 <p align="center">
@@ -20,7 +20,7 @@ and it was converted in iOS/Android app with **Ionic** [2]. Here some screenshot
 <div/>
 
 ## How to install
-Code was developed and tested with:
+The code has been developed and tested with:
 - Ionic CLI 5.4.15
 - Ionic Angular 4.11.8
 - @angular-devkit/build-angular 0.801.3
@@ -29,39 +29,38 @@ Code was developed and tested with:
 - @ionic/angular-toolkit 2.1.2
 - Cordova CLI 9.0.0
 
-After that you have to install all _npm_ dependencies. _Cordova_ is the real converter for Android/iOS [3].
+After that you'll have to install all of the _npm_ dependencies. _Cordova_ is the real converter for Android/iOS [3].
 
 ### Browser
-For *localhost* browser app, it is enough to run in terminal:
+To play around with the *localhost* browser app, it is enough to run the following command in a terminal shell:
 ```
 ionic serve
 ```
 
 ### Android
-After configured Android SDK (more information <a href="https://ionicframework.com/docs/installation/android">here</a>),
+Once you've configured Android SDK (more information <a href="https://ionicframework.com/docs/installation/android">here</a>) for your OS,
 you can build your `.apk` Android file with:
 ```
 ionic cordova build android --prod
 ```
 
 ### iOS
-It works only with Mac Os. Cordova provides an XCode app building for you
+It works only with MacOS. Cordova provides an XCode app building for you
 (more information <a href="https://ionicframework.com/docs/installation/ios">here</a>).
 Run:
 ```
 ionic cordova prepare ios --prod 
 ```
-Open the newly created project and build with XCode. You can run it with emulated or physical device.
+Open the newly created project and build with XCode. You can run it with either an emulated or physical device.
 
 
 ## App features
-This app was developed to help player during the battle, it does not replace the character sheet. However several features
-are implemented, you can:
+This app was developed to help player during the battles of a D&D or a Pathfinder campaign, but _it does not_ replace the character sheet. However several features are implemented, so you can:
 
 - **add your characters**, including characteristics and basic modifiers.
-- **add custom buff** that will included in specific buff list.
-- **select your actual buffs** during the battle to visualize actual combat statistics. 
-- **visualize all/active buff list** everytime you will need.
+- **add custom buff** that will be included in specific buff lists.
+- **select your actual buffs** during the battle to update in realtime and with no effort your actual combat statistics. 
+- **visualize all/active buff list** whenever you want to.
 
 <div>
 <p align="center">
@@ -71,7 +70,8 @@ are implemented, you can:
 <div/>
 
 ## Known issues
-Automatic Dark Mode does not work on Android devices. Also older Android devices have some visualization troubles and 
+- Automatic Dark Mode does not work on Android devices. 
+- Also older Android devices have some visualization troubles and 
 soft updating problems.
 
 ## References
