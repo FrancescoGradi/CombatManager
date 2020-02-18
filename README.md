@@ -55,7 +55,7 @@ Open the newly created project and build with XCode. You can run it with either 
 
 
 ## App features
-This app was developed to help player during the battles of a D&D or a Pathfinder campaign, but _it does not_ replace the character sheet. However several features are implemented, so you can:
+This app was developed to help player during the battles of a D&D or a Pathfinder campaign, but **_it does not_** replace the character sheet. However, several features are implemented, so you can:
 
 - **add your characters**, including characteristics and basic modifiers.
 - **add custom buff** that will be included in specific buff lists.
