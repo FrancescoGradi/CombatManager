@@ -76,7 +76,7 @@ soft updating problems.
 
 ## Report
 A copy of the report (italian) can be found 
-<a href="https://github.com/FrancescoGradi/ExifViewer/blob/master/documents/report.pdf">here</a>.
+<a href="https://github.com/FrancescoGradi/CombatManager/blob/master/demo/relazioneHCI.pdf">here</a>.
 
 ## References
 
