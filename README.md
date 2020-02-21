@@ -74,6 +74,10 @@ This app was developed to help player during the battles of a D&D or a Pathfinde
 - Also older Android devices have some visualization troubles and 
 soft updating problems.
 
+## Report
+A copy of the report (italian) can be found 
+<a href="https://github.com/FrancescoGradi/ExifViewer/blob/master/documents/report.pdf">here</a>.
+
 ## References
 
 [1] https://material.angular.io/
