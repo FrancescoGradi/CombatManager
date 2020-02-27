@@ -78,6 +78,9 @@ soft updating problems.
 A copy of the report (italian) can be found 
 <a href="https://github.com/FrancescoGradi/CombatManager/blob/master/demo/relazioneHCI.pdf">here</a>.
 
+A copy of the presentation can be found 
+<a href="https://github.com/FrancescoGradi/CombatManager/blob/master/demo/presentazioneHCI.pdf">here</a>.
+
 ## References
 
 [1] https://material.angular.io/
